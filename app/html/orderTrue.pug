@@ -1,0 +1,55 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--mark.content--mobile-clear
+		.main-cont-sm.main-cont--mobile-clear
+			.contract.contract--fluid
+				.contract-content
+					.order-success-head
+						img(src="img/smile/smile-happy.png", alt="").mb-32.mt-32
+						.type--head.type--xl.type--center.mb-12 Спасибо за заказ
+						.type--md.type--center.type--primary.mb-48 Оператор свяжеться с Вами в ближайшее время
+					.contract-total
+						.type--main Normal
+						.type--secondary.type--right 4 недели (24 дня)
+					.contract-total
+						.type--main Balance
+						.type--secondary.type--right Пробный день
+					.contract-total.contract-total--clear
+						.type--main Адрес доставки
+						.type--secondary.type--right ул.Зеленоградская, 4/7
+					.contract-total.contract-total--clear
+						.type--main Телефон
+						.type--secondary.type--right +7 (980) 987 67 76
+					.contract-total
+						.type--main Email
+						.type--secondary.type--right Не указан
+					.contract-total.contract-total--clear.mt-24.mb-48
+						.type--head.type--mdx Сумма к оплате
+						.type--head.type--mdx 18 500 руб.
+					.contract-banner-wrap.bg-greenPrimary.mb-48
+						.contract-banner
+							.type--head.type--mdx.type--center.type--white.mb-40 Смотрите онлайн-тренировки, голосуйте за блюда, копите бонусы
+							a(href="#").btn--md.btn--white.btn--mobile.mb-12 Перейти в личный кабинет
+
+
+					.type--head.type--mdx.type--center.mb-12 Помогите нам стать еще лучше! :)
+					.type--center.mb-24 Пройдите небольшой опрос касательно нашего <br> сервиса, чтобы мы могли улучшить его!
+					.f.f-jcc.mb-48
+						a(href="#").btn--md.btn--light.btn--mobile Пройти опрос
+
+					.contract-banner-wrap.bor-b.bor-border.mb-48
+
+
+					.type--head.type--mdx.type--center.mb-40 Следите за нами в социальных сетях
+					.soc-row.soc-row--mid.soc-row--lg.mb-48
+						a(href="#").soc-row__el.soc-row__el--vk
+							+icon("soc-vk","icon")
+						a(href="#").soc-row__el.soc-row__el--fb
+							+icon("soc-fb","icon")
+						a(href="#").soc-row__el.soc-row__el--instagram
+							+icon("soc-inst","icon")
+	+footer()
+include ./block_html/_script.pug

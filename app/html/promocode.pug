@@ -1,0 +1,35 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--mark.content--mobile-clear
+		.main-cont-sm.main-cont--mobile-clear
+			.contract.contract--fluid
+				.contract-content
+					.promo-head(style="background-image:url('img/promocode-bg.jpg')")
+						.type--white.type--bold.type--lgx.type--center Спасибо за отзыв,<br> Вы делаете нас лучше!
+					.type--bold.type--md.mb-24 А мы дарим Вам скидку 12% на первый заказ, чтобы питание с нами было не только вкусным и полезным, но и выгодным!
+					.f.gap-20
+						.promo-info__icon.bg-pink
+							+icon("sale","icon icon--white")
+						.promo-content
+							.type--md.type--head.mb-12 Промокод
+							.type--secondary.mb-16 Введите его нас странице оформления <br> заказа, что бы получить скидку
+							.input-cont
+								.input-row.input-row--promocode.js-copy
+									input(type="text" data-placeholder="Промокод для ваших заказов" class="input js-copy-val" value="PROMOCODE" )
+									.input-msg.type--mark.type--right.js-copy-msg.mb-16 Промокод скопирован
+									+icon("copy","icon ")
+
+					.line.m-32.bg-typeDisable
+					.type--md.mb-32 И для более комфортного следования принципам правильного <br> питания мы дарим Вам электронный ЗОЖ-дневник.
+					.f.gap-20.mb-24
+						.promo-info__icon.bg-sea
+							+icon("link","icon icon--white")
+						.promo-content
+							.type--main.type--bold Ссылка для скачивания:
+							.type--main.type--bold
+								a(href="#").link--mark https://yadi.sk/i/vFhexbeCF3Iabg
+	+footer()
+include ./block_html/_script.pug

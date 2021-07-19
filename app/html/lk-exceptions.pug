@@ -1,0 +1,95 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--clear-top
+		.lk
+			.lk-head-wrap
+				.main-cont
+					.lk-head-cont
+						.lk-head
+							.type--head.type--lgx.mb-32 Исключения
+							.text.mb-48
+								p.type--secondary Здесь отображаются блюда которые были заменены. Вы можете вернуть их в любой момент, финальный вариант замен определяется за сутки до приготовления блюда
+						.lk-tool
+							+lk-nav()
+			.main-cont
+				.lk-wrap
+					.lk-cont
+						.switch-row.mb-24
+							.js-switch(data-group="isIngr" data-item="ingr")
+								.switch.js-toggle
+							.type--head.type--md Я не ем некоторые ингредиенты
+						.text.mb-32.js-switch-cont.hidden(data-group="isIngr" data-item="ingr")
+							.filter-wrap.js-filter-wrap
+								.filter-item
+									.input-row
+										input(type="text" placeholder="Например: рыба, орехи...").input.input--simple.input-filter
+										.filter-list.scroll-template.js-filter-list.hide
+											//Если есть варианты из поиска - Удали класс "hide"
+											// Варианты из поиска  - > в js-filter-list append  .filter-list__el.js-filter-list-el
+											- for (var i=0;i<10;i++)
+											.filter-list__el.js-filter-list-el Колбаса
+											.filter-list__el.js-filter-list-el Рыба
+											.filter-list__el.js-filter-list-el Орехи
+								.filter-result.mb-24
+									-
+										var items = [
+											'Колбаса',
+											'Рыба',
+											'Хлеб'
+										];
+									each item in items
+										.filter-result__el.js-filter-result__el
+											span #{item}
+											+icon("close","icon")
+
+						.switch-row.mb-24
+							.js-switch(data-group="isFood" data-item="food")
+								.switch.js-toggle
+							.type--head.type--md Я не ем некоторые типы блюд
+						.text.mb-32.js-switch-cont.hidden(data-group="isFood" data-item="food")
+							.filter-wrap.js-filter-wrap
+								.filter-item
+									.input-row
+										input(type="text" placeholder="Например: оливье, куриный суп...").input.input--simple.input-filter
+										.filter-list.scroll-template.js-filter-list
+											//Если есть варианты из поиска - Удали класс "hide"
+											// Варианты из поиска  - > в js-filter-list append  .filter-list__el.js-filter-list-el "Текст"
+											- for (var i=0;i<10;i++)
+											.filter-list__el.js-filter-list-el Колбаса
+											.filter-list__el.js-filter-list-el Рыба
+											.filter-list__el.js-filter-list-el Орехи
+								.filter-result.mb-24
+									-
+										var items = [
+											'Колбаса',
+											'Рыба',
+											'Хлеб'
+										];
+									each item in items
+										.filter-result__el.js-filter-result__el
+											span #{item}
+											+icon("close","icon")
+
+						.type--head.type--mdx.mb-32.mt-48 Исключенные блюда
+						.mobile-row-scroll
+							.list.list--three.mobile-row-scroll-wrap
+								- for (var i=1;i<6;i++)
+									.program-el.mobile-row-scroll-item
+										.program-el__img(style="background-image:url('img/item-sm-" + i + ".jpg')")
+										.program-el-wrap
+											.program-el__content
+												.program-el__title Смузи боул с яблоком, корицей и гранола
+											.program-el__footer
+												.program-el__type
+													.type--sm.type--secondary первый завтрак
+													.type--sm.type--secondary 106 Ккал
+												.btn--sm.btn--sm-fix.btn--mark
+													.btn-icon-row.btn-icon-row--left
+														+icon("reload","icon")
+														span Вернуть
+
+	+footer()
+include ./block_html/_script.pug

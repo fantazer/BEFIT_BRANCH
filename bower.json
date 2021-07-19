@@ -1,0 +1,31 @@
+{
+  "name": "gulpBower",
+  "version": "0.0.0",
+  "authors": [
+    "fantazer <fantazer@text.ru>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "normalize.css": "~3.0.3",
+    "slick-carousel": "^1.8.1",
+    "jquery.nicescroll": "^3.7.6",
+    "jquery-nice-select": "^1.1.0",
+    "ion-rangeslider": "ionrangeslider#^2.3.1",
+    "parallax.js": "^1.5.0"
+  },
+  "devDependencies": {
+    "flexbox-grid-stylus": "^3.2.2",
+    "page-scroll-to-id": "^1.6.5",
+    "jquery-mask-plugin": "^1.14.16",
+    "mixitup": "^3.3.1",
+    "fancybox": "^3.5.7"
+  }
+}

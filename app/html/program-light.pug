@@ -1,0 +1,123 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.board__el.bg-greenDark
+		.main-cont
+			.board__el-wrap.board__el-wrap--extend
+				.board__content
+					.board__title Программы для похудения
+					.program-coast.hidden-on-mobile
+						.program-coast__el
+							.program-coast__title Цена за 6 дней
+							.program-coast__val от 6000 руб
+						.program-coast__el
+							.program-coast__title Цена за прием
+							.program-coast__val от 180 руб
+					a(href="#program").js-scroll-to.btn--md.btn--white.hidden-on-mobile Выбрать программу
+				.board__img(style="background-image:url('img/slide-person-1.png')")
+	.program-coast.program-coast--dark.visible-on-mobile
+		.program-coast__el
+			.program-coast__title Цена за 6 дней
+			.program-coast__val от 6000 руб
+		.program-coast__el
+			.program-coast__title Цена за прием
+			.program-coast__val от 180 руб
+	.main-cont.visible-on-mobile
+		a(href="#program").js-scroll-to.btn--md.btn--mark.btn--mobile Выбрать программу
+	.content
+		.section-sm
+			.main-cont-sm.text
+				.type--lgx.type--head.type--center.mb-24 Худей с легкостью
+				.type--md.type--black.type--center Доставка еды для сброса веса. Эти программы идеальны для тех, кто борется с лишним весом. Потребляйте меньше ккал, чем расходуете. Залог успеха — минимум жиров и углеводов, максимум белков и клетчатки!
+
+		// step work
+		.section-sm
+			.main-cont
+				.work-step.work-step--green
+					.work-step__el
+						.work-step__el-icon
+							img(src="img/icon/menu-check.svg", alt="")
+						.work-step__el-title Конструктор рационов
+						.work-step__el-text Вы легко можете изменить рацион в личном кабинете, исходя из Ваших желаний и потребностей
+					.work-step__el
+						.work-step__el-icon
+							img(src="img/icon/shield.svg", alt="")
+						.work-step__el-title Баланс здоровья
+						.work-step__el-text Питайтесь вкусной и полезной едой, избавьтесь от переедания и нормализуйте режим питания
+					.work-step__el
+						.work-step__el-icon
+							img(src="img/icon/bank.svg", alt="")
+						.work-step__el-title Это выгодно
+						.work-step__el-text Один приём пищи стоит от 169. Дешевле, чем в кафе и ресторане и быстрее, чем готовка дома
+		// step work === end
+
+
+		// program constructor
+		.program-main-wrap#program
+			.js-tab-wrap
+				// choose program
+				.program-group-wrap
+					.main-cont
+						.program-group.js-tab-cont.js-tick-cont.active(data-programType="weightLoss")
+							.program-group__el.js-tick.active
+								.program-group__el-name Light
+								.program-group__el-val 900 Ккал
+							.program-group__el.js-tick
+								.program-group__el-name ExtraLight
+								.program-group__el-val 1200 Ккал
+							.program-group__el.js-tick
+								.program-group__el-name Slim 21 день
+								.program-group__el-val 1200 Ккал
+				// choose program === end
+
+
+			// program list
+			.main-cont
+				.program-list-wrap
+					.program-list-header
+						// program days
+						.program-days.js-tick-cont
+							-
+								var items = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+							each item,i in items
+								.program-days__el.js-tick(class=i === 0 ? 'active' : '') #{item}
+						// program days === end
+						// program consist
+						.program-consist
+							.program-consist__el
+								.program-consist__el-val 2312
+								.program-consist__el-type Ккал
+							.program-consist__el
+								.program-consist__el-val 456
+								.program-consist__el-type Белки
+							.program-consist__el
+								.program-consist__el-val 326,9
+								.program-consist__el-type Жиры
+							.program-consist__el
+								.program-consist__el-val 458
+								.program-consist__el-type Углеводы
+						// program consist === end
+					+programList()
+			// program list === end
+		// program constructor === end
+
+		.main-cont
+			.program-banner.program-banner--mobile
+				.program-banner-inner
+					img(src="img/smile/smile-star.png", alt="").program-banner__img
+					.program-banner__cost 180
+					.program-banner__text руб/день
+					a(href="#order").btn--md.btn--mark.js-scroll-to Заказать
+
+		+contract('Заказать Light','bg-greenDark','slide-person-1')
+		+advant()
+		+review()
+
+		.main-cont.js-tab-wrap
+			.title.title--lgx Часто задаваемые вопросы
+			+faq()
+
+	+footer()
+include ./block_html/_script.pug

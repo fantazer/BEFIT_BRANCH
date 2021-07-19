@@ -1,0 +1,55 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--mark.content--mobile-clear
+		.main-cont-sm
+			.marker.mb-12.mt-24
+				.marker-el.marker-el--simple 10 вопросов
+			.type--head.type--xl.mb-40 Что помешало Вам заказать на сайте BeFit?
+		.main-cont-sm.main-cont--mobile-clear
+			.poll.mb-64
+				.poll-img(style="background-image:url('img/poll.jpg')")
+				.poll-content.text
+					p Мы в компании хотим постоянно заботиться о наших клиентах, поэтому решили узнать ваше мнение по новому направлению.
+					p Вместе с НПК Оптисалт — лидером-производителем добавок, мы подготовили линейку препаратов, которые помогут вам быть в форме и ежедневно улучшать свое здоровье.
+					ul
+						li Невронорм — успокаивающее средство в условиях мегаполиса и стрессов на работе;
+						li Гепато — поддерживает работу печени в норме и способствует детоксикации и обменным процессам в организме;
+						li Бактрум — натуральный пребиотик, способствует восстановлению ЖКТ и росту собственных бифидо- и лакто бактерий;
+					p Каждый из препаратов мы подбирали специально для отличного сочетания с нашими рационами.
+
+			.contract.contract--fluid
+				.contract-content
+					.type--lg.type--head.mb-24 Давайте познакомимся поближе! Кто Вы?
+					.input-cont.input-cont--list.mb-48
+						+radio('Парень',"sex","true")
+						+radio('Девушка',"sex")
+
+					.type--lg.type--head.mb-24 Какой у Вас формат работы?
+					.input-cont.input-cont--list.mb-48
+						+radio('Постоянно работаю в офисе',"work","true")
+						+radio('Работаю из дома',"work")
+						+radio('Не работаю',"work")
+
+					.type--lg.type--head.mb-24 Почему обычно заказываете готовую еду?
+					.input-cont.input-cont--list.mb-24
+						+checkbox('Это удобно! Экономлю время на готовке и мытье посуды')
+						+checkbox('При заказе рационов мне не нужно думать о КБЖУ')
+						+checkbox('У меня специальная диета, заказываю рационы исходя из нее')
+						+checkbox('Свой вариант')
+						.input-cont
+							.input-row
+								input(type="text" data-placeholder="Ваш вариант" class="input")
+
+					.type--lg.type--head.mb-24 Что Вам нравится в нашем продукте/услуге?
+					.input-cont
+						.input-row
+							textarea(name="text", cols="30", rows="4" class="input" data-placeholder="Комментарий")
+				.contract-footer
+					.contract-footer__text Нажимая кнопку “Оформить” я принимаю условия условия <a href="#" class="link--mark">передачи информации</a>
+					.btn--md.btn--mark.btn--mobile Отправить
+	+footer()
+include ./block_html/_script.pug
+

@@ -1,0 +1,70 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+style(type='text/css').
+	.btn-wrap {
+		display: flex;
+		flex-wrap: wrap;
+		flex-flow: column;
+		align-items: baseline;
+	}
+	.btn-wrap .btn--md {
+		display: inline-block;
+		margin-bottom: 20px;
+	}
+
+	@media only screen and (max-width: 640px) {
+		.btn-wrap .btn--md{
+			width: 100%;
+		}
+	}
+
+.page
+	+header()
+	.content
+		.main-cont
+			p Чтобы вызвать нужное окно добавь на элемент класс .modal-get и data-modal="имя окна"
+			p Чтобы добавить метод закрытия окна по клику на элемент добавиь класс .modal-send
+			.btn-wrap
+				.btn--md.btn--mark.modal-get(data-modal="cleverDeliver") Сообщение о доставке | data-modal="cleverDeliver"
+				.btn--md.btn--mark.modal-get(data-modal="getCall") Заказать звонок | data-modal="getCall"
+				.btn--md.btn--mark.modal-get(data-modal="callBack") Заказать звонок мобильная версия| data-modal="callBack"
+				.btn--md.btn--mark.modal-get(data-modal="getMsg") Написать сообщение | data-modal="getMsg"
+				.btn--md.btn--mark.modal-get(data-modal="enter") Вход в личный кабинет | data-modal="enter"
+				.btn--md.btn--mark.modal-get(data-modal="getName") Давайте знакомится | data-modal="getName"
+				.btn--md.btn--mark.modal-get(data-modal="trueReview") Отзыв принят | data-modal="trueReview"
+				.btn--md.btn--mark.modal-get(data-modal="location") Выбор города | data-modal="locationMobile"
+				.btn--md.btn--mark.modal-get(data-modal="locationMobile") Выбор города мобильная версия | data-modal="locationMobile"
+				.btn--md.btn--mark.modal-get(data-modal="removeProgram") Исключить из рациона | data-modal="removeProgram"
+				.btn--md.btn--mark.modal-get(data-modal="changeProgram") Изменить программу | data-modal="changeProgram"
+				hr
+				.btn--md.btn--mark.modal-get(data-modal="bonusPartner") Партнеры бонус | data-modal="bonusPartner"
+				.btn--md.btn--mark.modal-get(data-modal="editDelivery") Изменить доставку | data-modal="editDelivery"
+				.btn--md.btn--mark.modal-get(data-modal="freezeDelivery") Заморозить доставку | data-modal="freezeDelivery"
+				.btn--md.btn--mark.modal-get(data-modal="cancelDelivery") Отменить доставку | data-modal="cancelDelivery"
+				.btn--md.btn--mark.modal-get(data-modal="selectProgram") Подобрать програму | data-modal="selectProgram"
+				.btn--md.btn--mark.modal-get(data-modal="markDelivery") Отзыв о доставке | data-modal="markDelivery"
+				.btn--md.btn--mark.modal-get(data-modal="markFood") Отзыв о блюде | data-modal="markFood"
+				.btn--md.btn--mark.modal-get(data-modal="addCard") Добавить карту | data-modal="addCard"
+				.btn--md.btn--mark.modal-get(data-modal="recommend") Рекомендация программы | data-modal="recommend"
+				.btn--md.btn--mark.modal-get(data-modal="referal") Рекомендация друзьям | data-modal="referal"
+				.btn--md.btn--mark.modal-get(data-modal="referalTrue") Рекомендация друзьям успешно | data-modal="referalTrue"
+				.btn--md.btn--mark.modal-get(data-modal="sendReview") Поделиться отзывом | data-modal="sendReview"
+				.btn--md.btn--mark.modal-get(data-modal="contact") Связаться с нами | data-modal="contact"
+				.btn--md.btn--mark.modal-get(data-modal="callbackTrue") Связаться с нами - успех | data-modal="callbackTrue"
+				.btn--md.btn--mark.modal-get(data-modal="chooseTypeOrder") Выбрать способ заказа | data-modal="chooseTypeOrder"
+
+				.btn--md.btn--mark.modal-get(data-modal="authNamePhone") Вход перед сертификатом | data-modal="authNamePhone"
+				.btn--md.btn--mark.modal-get(data-modal="authNamePhone") Вход перед сертификатом | data-modal="authNamePhone"
+				.btn--md.btn--mark.modal-get(data-modal="saleItem") Акция подробная | data-modal="saleItem"
+
+				br
+
+				.btn--md.btn--mark.modal-get(data-modal="lkTrainingTrue") Лк удачная тренировка | data-modal="lkTrainingTrue"
+				.btn--md.btn--mark.modal-get(data-modal="lkTrainingPresent") Лк тренировка подарок| data-modal="lkTrainingPresent"
+				.btn--md.btn--mark.modal-get(data-modal="errorAction") Произошли неполадки | data-modal="errorAction"
+
++footer()
++modal()
+
+include ./block_html/_script.pug

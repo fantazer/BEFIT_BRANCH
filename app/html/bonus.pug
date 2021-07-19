@@ -1,0 +1,105 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content
+		.main-cont
+			.type--head.type--xl.mb-80 Копи баллы - питайся бесплатно! Бонусная программа для наших клиентов
+			.type--head.type--lg.mb-80 Как заработать баллы?
+			.f.f-between.g-gap-16.fw.mb-24
+				.type--head.type--lg Оставляйте отзывы
+				.btn--md.btn--mark.btn--mobile Оставить отзыв на сайте
+			.g-stretch.mb-80
+				.g-lg-4.g-md-12.g-xs-12.f.f-column
+					.ps-24.bor.bor-border.br-12.f-grow.mb-24
+						img(src="img/icon/review.svg", alt="").mb-48
+						.type-main.mb-24 Вы оставляете отзыв с фотографией Вашей еды/пакета в любой из соцсетей:
+						.soc-row.soc-row--gray
+							a(href="#").soc-row__el
+								+icon("soc-inst","icon")
+							a(href="#").soc-row__el
+								+icon("soc-vk","icon")
+							a(href="#").soc-row__el
+								+icon("soc-fb","icon")
+					.msg.bg-orangeLight
+						.type-orange Отзыв можно публиковать не более 1 раза в неделю
+				.g-lg-4.g-md-12.g-xs-12.f.f-column
+					.ps-24.bor.bor-border.br-12.f-grow.mb-24
+						img(src="img/icon/whatsapp.svg", alt="").mb-48
+						.text
+							p Ссылку на отзыв присылаете в наш <a href="#">WhatsApp.</a>
+							p Мы обрабатываем и присваиваем Вам <b>500&nbsp;баллов</b>&nbsp;за каждый уникальный отзыв!
+					.msg.bg-orangeLight
+						.type-orange Бонусы начисляются при наличие активного заказа.
+				.g-lg-4.g-md-12.g-xs-12
+					.box-gradient
+						.box-gradient-inner.box-gradient-inner--sm
+							.f.f-mid.gap-20
+								.f.f-mid.f-column
+									img(src="img/coin-gold.svg", alt="").mb-12
+									.type--md.type--bold 1 балл
+								.f.f-mid.f-column
+									.type--bold.type--lg =
+								.f.f-mid.f-column
+									img(src="img/coin-silver.svg", alt="").mb-12
+									.type--md.type--bold 1 рубль
+			.f.f-between.g-gap-16.fw.mb-24
+				.type--head.type--lg Рекомендуйте друзьям
+				.btn--md.btn--mark.btn--mobile Рекомендовать BeFit
+			.g-stretch.mb-80
+				.g-lg-4.g-md-12.g-xs-12.bg-greenLight.br-12
+					.ps-24
+						img(src="img/icon/friends.svg", alt="").mb-48.icon--xl
+						.type-main.type-greenPrimary Вы рекомендуете наш сервис Вашим друзьям и знакомым.
+				.g-lg-4.g-md-12.g-xs-12.bg-greenLight.br-12
+					.ps-24
+						img(src="img/icon/menu-check.svg", alt="").mb-48.icon--xl
+						.type-main.type-greenPrimary Ваш знакомый, делая заказ, называет Ваш контактный телефон или e-mail адрес.
+				.g-lg-4.g-md-12.g-xs-12.bg-greenLight.br-12
+					.ps-24
+						img(src="img/icon/coins.svg", alt="").mb-48.icon--xl
+						.type-main.type-greenPrimary Вы и Ваш друг получаете по 500 бонусных баллов на свои счета!
+
+			.f.f-between.g-gap-16.fw.mb-24
+				.type--head.type--lg Питайтесь вместе с нами!
+				.btn--md.btn--mark.btn--mobile Выбрать программу
+			.g-stretch.mb-80
+				.g-lg-4.g-md-12.g-xs-12.br-12.bor.bor-border.overflow
+					.ps-24.bg-gradient
+						.type--mdx.type--bold.mb-32.type--primary 100 баллов <br> на счет
+					.ps-24
+						.type--main За заказ курса на 5 или 7 дней — 100 бонусных балов на счет
+				.g-lg-4.g-md-12.g-xs-12.br-12.bor.bor-border.overflow
+					.ps-24.bg-gradient
+						.type--mdx.type--bold.mb-32.type--primary скидка 5% <br> +200 баллов
+					.ps-24
+						.type--main За два курса подряд — получи 5% скидку сразу и еще 200 баллов на Ваш счет.
+				.g-lg-4.g-md-12.g-xs-12.br-12.bor.bor-border.overflow
+					.ps-24.bg-gradient
+						.type--mdx.type--bold.mb-32.type--primary скидка 7,5% <br> +400 баллов
+					.ps-24
+						.type--main За четыре курса подряд — получи скидку 7,5% сразу и 400 баллов на счет
+
+			.type--head.type--lg.mb-24 И сразу ответим на уже появившиеся у Вас вопросы:
+			.g-row
+				.g-lg-8.g-md-12.g-xs-12
+					.js-accordion
+						- for (var i=1;i<4;i++)
+							.accordion__el.js-accordion-el
+								.accordion__el-head.js-accordion-head
+									.accordion__el-head-text #{i}. Как часто можно получать бонусные баллы?
+									.accordion__el-head-icon
+								.accordion__el-content.text.js-accordion-content
+									p Платежный план «переезд в готовый дом» - дает возможность будущему покупателю переехать из квартиры в загородный дом без полной оплаты за домовладение! Для быстрого переезда в готовый загородный дом достаточно внести 10% от стоимости коттеджа и Вы можете заселяться!
+									p На продажу имеющейся в собственности у покупателя квартиры предоставляется рассрочка четыре месяца. По факту реализации квартиры оплачивается остаточная стоимость за домовладение.
+				.g-lg-4.g-md-12.g-xs-12
+					.box-gradient.mb-24
+						.box-gradient-inner.box-gradient-inner--sm
+							.text
+								p У Вас появились вопросы?!
+								p Напишите нам на <a href="#">delivery@letbefit.ru</a> или <a href="">WhatsApp</a> +7 925 907 35 12 и мы с радостью вас проконсультируем.
+					.msg.bg-orangeLight
+						.type-orange Внимание! Скидки по акциям не суммируются!
+	+footer()
+include ./block_html/_script.pug

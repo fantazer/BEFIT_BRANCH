@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+<!--create by ANATOLY KUZNETSOV-->
+<!--contact mail:kuznecovs45@gmail.com skype:an_kuznetcov-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--colors-tabs-->
+    <meta name="theme-color" content="#000" />
+    <meta name="msapplication-navbutton-color" content="#000" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <!--SEO-->
+    <title>Document</title>
+    <meta name="description" itemprop="description" content="" />
+    <link rel="stylesheet" href="./css/vendor.css">
+    <link rel="preload" href="fonts/Ubuntu-Bold.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
+    <link rel="preload" href="fonts/Ubuntu-Medium.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
+    <link rel="preload" href="fonts/Ubuntu-Regular.woff2" as="font" type="font/woff2" crossorigin="crossorigin" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style-edit.css" />
+</head>
+
+<body>
+    <div class="page" id="header">
+        <!--block header-->
+        <div class="header js-header">
+            <div class="header-top-wrap">
+                <div class="main-cont">
+                    <div class="header-top">
+                        <a class="header-logo" href="/">
+                            <img src="img/logo.svg" alt="" />
+                        </a>
+                        <div class="header-location">
+                            <div class="header-location-wrap modal-get" data-modal="location" data-test="headerLocationModal">
+                                <svg class="icon">
+                                    <use xlink:href="#navigation"></use>
+                                </svg>
+                                <!-- Для Москвы не добавляй .header-location__val--lg и .header-location__val--sm-->
+                                <div class="header-location__val header-location__val--lg">Санкт-Петербург</div>
+                                <div class="header-location__val header-location__val--sm">Спб</div>
+                                <!--Location modal-->
+                            </div>
+                            <div class="modal modal--msg" data-modal="location" data-test="headerLocationModal">
+                                <div class="modal-content">
+                                    <div class="modal-title">Вы в Москве?</div>
+                                    <div class="btn-row btn-row--line">
+                                        <div class="btn--sm btn--mark modal-hide">Да</div>
+                                        <div class="btn--sm btn--light">Нет, в Питере</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-contact">
+                            <a class="header-phone link" href="tel:8 (499) 110-12-15" data-test="headerPhone">8 (499) 110-12-15</a>
+                            <div class="header-phone-link link--mark modal-get" data-modal="getCall" data-test="headerCallbackBtn">Перезвоните мне</div>
+                        </div>
+                        <div class="header-msg">
+                            <div class="header-msg__el modal-get" data-modal="callBack">
+                                <svg class="icon">
+                                    <use xlink:href="#phone"></use>
+                                </svg>
+                            </div>
+                            <div class="header-msg__el modal-get" data-modal="getMsg">
+                                <svg class="icon">
+                                    <use xlink:href="#chat"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="header-soc">
+                            <a class="header-soc__el soc-el--instagram" href="#">
+                                <svg class="icon">
+                                    <use xlink:href="#soc-inst-light"></use>
+                                </svg>
+                            </a>
+                            <a class="header-soc__el soc-el--telegram" href="#">
+                                <svg class="icon">
+                                    <use xlink:href="#soc-telegram-light"></use>
+                                </svg>
+                            </a>
+                            <a class="header-soc__el soc-el--wp" href="#">
+                                <svg class="icon">
+                                    <use xlink:href="#soc-wp-light"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="head-toggle js-slide-block-toggle" data-menu="menu">
+                            <svg class="icon icon-open">
+                                <use xlink:href="#menu"></use>
+                            </svg>
+                            <svg class="icon icon-close">
+                                <use xlink:href="#close"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-wrap">
+                <div class="main-cont">
+                    <div class="nav">
+                        <a class="nav-logo" href="#">
+                            <img src="img/logo-symbol.svg" alt="" />
+                        </a>
+                        <div class="nav-shrink">
+                            <div class="f f-between f-grow">
+                                <div class="dropdown dropdown--fluid dropdown--shrink">
+                                    <input type="hidden" name="name" value="0" />
+                                    <div class="dropdown-current dropdown-current--flat dropdown-current--white">
+                                        <div class="dropdown-current__val type--500">Fish 1300</div>
+                                        <svg class="icon">
+                                            <use xlink:href="#arrow-down"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-menu-list">
+                                            <div class="dropdown-menu__el type--500" data-value="#">ExtraLight 1300 Ккал</div>
+                                            <div class="dropdown-menu__el type--500" data-value="#">Light 1300 Ккал</div>
+                                            <div class="dropdown-menu__el type--500" data-value="#">Normal 1300 Ккал</div>
+                                            <div class="dropdown-menu__el type--500" data-value="#">Balance 1300 Ккал</div>
+                                            <div class="dropdown-menu__el type--500" data-value="#">Strong 1300 Ккал</div>
+                                            <div class="dropdown-menu__el type--500" data-value="#">Veggi 1300 Ккал</div>
+                                            <div class="dropdown-menu__el type--500" data-value="#">Vegetarian 1300 Ккал</div>
+                                            <div class="dropdown-menu__el type--500" data-value="#">Pesco 1300 Ккал</div>
+                                            <div class="dropdown-menu__el type--500" data-value="#">Every Daily 1300 Ккал</div>
+                                            <div class="dropdown-menu__el type--500" data-value="#">Breakfast 1300 Ккал</div>
+                                            <div class="dropdown-menu__el type--500" data-value="#">Detox1300 Ккал</div>
+                                            <div class="dropdown-menu__el type--500" data-value="#">Post 1300 Ккал</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="f f-mid gap-16">
+                                    <div class="type--main type--500 type--nowrap nav-shrink__cost">от 600 руб</div>
+                                    <a class="btn--sm btn--mark nav-shrink__get" href="#">Заказать</a>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="nav-list">
+                            <li class="nav-list__el nav-list__el--sub">
+                                <span>Программы</span>
+                                <div class="drop-menu-wrap">
+                                    <div class="main-cont">
+                                        <div class="drop-menu">
+                                            <div class="drop-menu-list">
+                                                <div class="drop-menu-list__col">
+                                                    <div class="drop-menu__el">
+                                                        <div class="drop-menu__el-title">Сбросить вес</div>
+                                                        <div class="drop-menu__list">
+                                                            <a class="drop-menu__list__el" href="#">ExtraLight</a>
+                                                            <a class="drop-menu__list__el" href="#">Light</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="drop-menu__el">
+                                                        <div class="drop-menu__el-title">Поддерживать форму</div>
+                                                        <div class="drop-menu__list">
+                                                            <a class="drop-menu__list__el" href="#">Normal</a>
+                                                            <a class="drop-menu__list__el" href="#">Balance</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="drop-menu-list__col">
+                                                    <div class="drop-menu__el">
+                                                        <div class="drop-menu__el-title">Набрать массу</div>
+                                                        <div class="drop-menu__list">
+                                                            <a class="drop-menu__list__el" href="#">Strong</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="drop-menu__el">
+                                                        <div class="drop-menu__el-title">Питание без мяса</div>
+                                                        <div class="drop-menu__list">
+                                                            <a class="drop-menu__list__el" href="#">Veggi</a>
+                                                            <a class="drop-menu__list__el" href="#">Vegetarian</a>
+                                                            <a class="drop-menu__list__el" href="#">Pesco</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="drop-menu-list__col">
+                                                    <div class="drop-menu__el">
+                                                        <div class="drop-menu__el-title">Питание в офисе</div>
+                                                        <div class="drop-menu__list">
+                                                            <a class="drop-menu__list__el" href="#">Daily</a>
+                                                            <a class="drop-menu__list__el" href="#">Every Daily</a>
+                                                            <a class="drop-menu__list__el" href="#">Breakfast</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="drop-menu__el">
+                                                        <div class="drop-menu__el-title">Защита здоровья</div>
+                                                        <div class="drop-menu__list">
+                                                            <a class="drop-menu__list__el" href="#">Antivirus</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="drop-menu-list__col">
+                                                    <div class="drop-menu__el">
+                                                        <div class="drop-menu__el-title">Очищение организма</div>
+                                                        <div class="drop-menu__list">
+                                                            <a class="drop-menu__list__el" href="#">Detox</a>
+                                                            <a class="drop-menu__list__el" href="#">Post</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="drop-menu-card">
+                                                <a class="drop-menu-card__el" href="#">
+                                                    <svg class="icon icon--md icon--mark">
+                                                        <use xlink:href="#check-wave"></use>
+                                                    </svg>
+                                                    <div class="drop-menu-card__title">Подбор программы</div>
+                                                    <div class="drop-menu-card__text">Не можете определиться? Мы Вам поможем</div>
+                                                </a>
+                                                <a class="drop-menu-card__el" href="#">
+                                                    <svg class="icon icon--md icon--mark">
+                                                        <use xlink:href="#surprise"></use>
+                                                    </svg>
+                                                    <div class="drop-menu-card__title">Подарочный сертификат</div>
+                                                    <div class="drop-menu-card__text">Подарите здоровье с доставкой на дом!</div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <div class="nav-list__el">
+                                <a href="#">Акции</a>
+                            </div>
+                            <div class="nav-list__el">
+                                <a href="#">Отзывы</a>
+                            </div>
+                            <div class="nav-list__el">
+                                <a href="#">Доставка</a>
+                            </div>
+                            <div class="nav-list__el">
+                                <a href="#">Оплата</a>
+                            </div>
+                            <div class="nav-list__el">
+                                <a href="#">Вопрос - ответ</a>
+                            </div>
+                            <div class="nav-list__el">
+                                <a href="#">Блог</a>
+                            </div>
+                            <div class="nav-list__el nav-list__el--sub">
+                                <span>О нас</span>
+                                <div class="drop-menu-wrap">
+                                    <div class="main-cont">
+                                        <div class="drop-menu">
+                                            <div class="drop-menu__list drop-menu__list--extend">
+                                                <a class="drop-menu__list__el" href="#">Что такое Befit?</a>
+                                                <a class="drop-menu__list__el" href="#">Наше производство</a>
+                                                <a class="drop-menu__list__el" href="#">О компании</a>
+                                                <a class="drop-menu__list__el" href="#">Основатели</a>
+                                                <a class="drop-menu__list__el" href="#">Тренерам</a>
+                                                <a class="drop-menu__list__el" href="#">Франшиза</a>
+                                                <a class="drop-menu__list__el" href="#">Контакты</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-list__el">
+                                <a href="#">Сотрудничество</a>
+                            </div>
+                        </ul>
+                        <!--toggle class .auth-wrap + .auth-wrap--true-->
+                        <div class="auth-wrap link">
+                            <div class="auth-state auth-state--false modal-get" data-modal="enter" data-test="headerAuth">
+                                <svg class="icon">
+                                    <use xlink:href="#lock"></use>
+                                </svg>
+                                <span>Личный кабинет</span>
+                            </div>
+                            <a class="auth-state link auth-state--true" href="#">
+                                <svg class="icon">
+                                    <use xlink:href="#profile-round"></use>
+                                </svg>
+                                <span>Анастасия</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- mobile menu-->
+            <div class="slide-block slide-block--right slide-block--menu" data-menu="menu">
+                <div class="slide-block-wrap js-accordion">
+                    <div class="slide-nav">
+                        <div class="slide-nav__el modal-get" data-modal="locationMobile">
+                            <div class="header-location">
+                                <svg class="icon">
+                                    <use xlink:href="#navigation"></use>
+                                </svg>
+                                <div class="header-location__val">Санкт-Петербург</div>
+                            </div>
+                        </div>
+                        <div class="slide-nav__el">
+                            <div class="auth-wrap link">
+                                <div class="auth-state auth-state--false" data-test="headerAuthMobile">
+                                    <svg class="icon">
+                                        <use xlink:href="#lock"></use>
+                                    </svg>
+                                    <span>Личный кабинет</span>
+                                </div>
+                                <a class="auth-state link auth-state--true" href="#">
+                                    <svg class="icon">
+                                        <use xlink:href="#profile-round"></use>
+                                    </svg>
+                                    <span>Анастасия</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="js-accordion-el">
+                            <div class="slide-nav__el slide-nav__el--slide js-accordion-head">
+                                <span>Программы</span>
+                                <svg class="icon">
+                                    <use xlink:href="#arrow-down"></use>
+                                </svg>
+                            </div>
+                            <div class="slide-nav__el-sub js-accordion-content">
+                                <div class="drop-menu__el">
+                                    <div class="drop-menu__el-title">Сбросить вес</div>
+                                    <div class="drop-menu__list">
+                                        <a class="drop-menu__list__el" href="#">ExtraLight</a>
+                                        <a class="drop-menu__list__el" href="#">Light</a>
+                                    </div>
+                                </div>
+                                <div class="drop-menu__el">
+                                    <div class="drop-menu__el-title">Поддерживать форму</div>
+                                    <div class="drop-menu__list">
+                                        <a class="drop-menu__list__el" href="#">Normal</a>
+                                        <a class="drop-menu__list__el" href="#">Balance</a>
+                                    </div>
+                                </div>
+                                <div class="drop-menu__el">
+                                    <div class="drop-menu__el-title">Набрать массу</div>
+                                    <div class="drop-menu__list">
+                                        <a class="drop-menu__list__el" href="#">Strong</a>
+                                    </div>
+                                </div>
+                                <div class="drop-menu__el">
+                                    <div class="drop-menu__el-title">Питание без мяса</div>
+                                    <div class="drop-menu__list">
+                                        <a class="drop-menu__list__el" href="#">Veggi</a>
+                                        <a class="drop-menu__list__el" href="#">Vegetarian</a>
+                                        <a class="drop-menu__list__el" href="#">Pesco</a>
+                                    </div>
+                                </div>
+                                <div class="drop-menu__el">
+                                    <div class="drop-menu__el-title">Питание в офисе</div>
+                                    <div class="drop-menu__list">
+                                        <a class="drop-menu__list__el" href="#">Daily</a>
+                                        <a class="drop-menu__list__el" href="#">Every Daily</a>
+                                        <a class="drop-menu__list__el" href="#">Breakfast</a>
+                                    </div>
+                                </div>
+                                <div class="drop-menu__el">
+                                    <div class="drop-menu__el-title">Защита здоровья</div>
+                                    <div class="drop-menu__list">
+                                        <a class="drop-menu__list__el" href="#">Antivirus</a>
+                                    </div>
+                                </div>
+                                <div class="drop-menu__el">
+                                    <div class="drop-menu__el-title">Очищение организма</div>
+                                    <div class="drop-menu__list">
+                                        <a class="drop-menu__list__el" href="#">Detox</a>
+                                        <a class="drop-menu__list__el" href="#">Post</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="slide-nav__el" href="#">Акции</a>
+                        <a class="slide-nav__el" href="#">Отзывы</a>
+                        <a class="slide-nav__el" href="#">Доставка</a>
+                        <a class="slide-nav__el" href="#">Оплата</a>
+                        <a class="slide-nav__el" href="#">Вопрос - ответ</a>
+                        <a class="slide-nav__el" href="#">Блог</a>
+                        <div class="js-accordion-el">
+                            <div class="slide-nav__el slide-nav__el--slide js-accordion-head">
+                                <span>О нас</span>
+                                <svg class="icon">
+                                    <use xlink:href="#arrow-down"></use>
+                                </svg>
+                            </div>
+                            <div class="slide-nav__el-sub js-accordion-content">
+                                <div class="drop-menu__el">
+                                    <div class="drop-menu__list drop-menu__list--simple">
+                                        <a class="drop-menu__list__el" href="#">Что такое Befit?</a>
+                                        <a class="drop-menu__list__el" href="#">Наше производство</a>
+                                        <a class="drop-menu__list__el" href="#">О компании</a>
+                                        <a class="drop-menu__list__el" href="#">Основатели</a>
+                                        <a class="drop-menu__list__el" href="#">Тренерам</a>
+                                        <a class="drop-menu__list__el" href="#">Франшиза</a>
+                                        <a class="drop-menu__list__el" href="#">Контакты</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="slide-nav__el" href="#">Сотрудничество</a>
+                        <div class="drop-menu-card drop-menu-card--sm">
+                            <a class="drop-menu-card__el" href="#">
+                                <div class="drop-menu-card__el-info">
+                                    <svg class="icon icon--md icon--mark">
+                                        <use xlink:href="#check-wave"></use>
+                                    </svg>
+                                    <div class="drop-menu-card__title">Подбор программы</div>
+                                </div>
+                                <div class="drop-menu-card__text">Не можете определиться? Мы Вам поможем</div>
+                            </a>
+                            <a class="drop-menu-card__el" href="#">
+                                <div class="drop-menu-card__el-info">
+                                    <svg class="icon icon--md icon--mark">
+                                        <use xlink:href="#surprise"></use>
+                                    </svg>
+                                    <div class="drop-menu-card__title">Подарочный сертификат</div>
+                                </div>
+                                <div class="drop-menu-card__text">Подарите здоровье с доставкой на дом!</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--block header end-->
+        <div class="board__el bg-pink">
+            <div class="main-cont">
+                <div class="board__el-wrap board__el-wrap--sm">
+                    <div class="board__content">
+                        <div class="board__title type--white">Зарабатывай вместе с друзьями</div>
+                        <div class="board__title-sub type--white hidden-on-mobile">Приглашай знакомых и зарабатывай деньги вместе с нами. Кстати, они получат скидку -10% на первый заказ</div>
+                        <a class="btn--md btn--white hidden-on-mobile" href="#">
+                            <div class="btn-icon-row btn-icon-row--right">
+                                <span>Войти в кабинет</span>
+                                <svg class="icon">
+                                    <use xlink:href="#arrow-right"></use>
+                                </svg>
+                            </div>
+                        </a>
+                        <a class="icon-row visible-on-mobile" href="#">
+                            <div class="type--md type--white">Войти в кабинет</div>
+                            <svg class="icon icon--left icon--white">
+                                <use xlink:href="#arrow-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="board__img" style="background-image:url('img/slide-person-4.png')"></div>
+                </div>
+            </div>
+        </div>
+        <div class="content content--clear-bottom">
+            <!-- step work-->
+            <div class="main-cont">
+                <div class="section">
+                    <div class="title title--lgx">Как это работает</div>
+                    <div class="work-step">
+                        <div class="work-step__el">
+                            <div class="work-step__el-icon">
+                                <img src="img/icon/step-phone.svg" alt="" />
+                            </div>
+                            <div class="work-step__el-title">Оставляешь заявку</div>
+                            <div class="work-step__el-text">После оставления заявки ниже наш менеджер свяжется с тобой и обсудит все детали.</div>
+                        </div>
+                        <div class="work-step__el">
+                            <div class="work-step__el-icon">
+                                <img src="img/icon/step-ticket.svg" alt="" />
+                            </div>
+                            <div class="work-step__el-title">Приглашаешь по своему промокоду рефералов</div>
+                            <div class="work-step__el-text">Приглашаешь по своему промокоду рефералов</div>
+                        </div>
+                        <div class="work-step__el">
+                            <div class="work-step__el-icon">
+                                <img src="img/icon/step-money.svg" alt="" />
+                            </div>
+                            <div class="work-step__el-title">Приглашаешь по своему промокоду рефералов</div>
+                            <div class="work-step__el-text">Поздравляем, ты великолепен! Больше клиентов — больше заработок.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- step work === end-->
+            <div class="section-full section--gradient">
+                <div class="main-cont-sm">
+                    <div class="contract">
+                        <div class="contract-content">
+                            <div class="title title--lgx">Оставить заявку</div>
+                            <div class="input-row input-row--validate">
+                                <input class="input" type="text" data-placeholder="Ваше имя" />
+                                <div class="input-msg">Ошибка</div>
+                                <svg class="icon icon-validate-false">
+                                    <use xlink:href="#close"></use>
+                                </svg>
+                                <svg class="icon icon-validate-true">
+                                    <use xlink:href="#checked"></use>
+                                </svg>
+                            </div>
+                            <div class="input-row input-row--validate">
+                                <input class="input input-mask--phone" type="text" data-placeholder="Телефон" />
+                                <div class="input-msg">Ошибка</div>
+                                <svg class="icon icon-validate-false">
+                                    <use xlink:href="#close"></use>
+                                </svg>
+                                <svg class="icon icon-validate-true">
+                                    <use xlink:href="#checked"></use>
+                                </svg>
+                            </div>
+                            <div class="input-row input-row--validate">
+                                <input class="input" type="text" data-placeholder="Почта" />
+                                <div class="input-msg">Ошибка</div>
+                                <svg class="icon icon-validate-false">
+                                    <use xlink:href="#close"></use>
+                                </svg>
+                                <svg class="icon icon-validate-true">
+                                    <use xlink:href="#checked"></use>
+                                </svg>
+                            </div>
+                            <div class="input-row">
+                                <textarea class="input" name="text" rows="5" data-placeholder="Комментарий"></textarea>
+                            </div>
+                            <div class="contract-footer contract-footer--clear">
+                                <div class="contract-footer__text">Нажимая кнопку “Оформить” я принимаю условия условия
+                                    <a href="#" class="link--mark">передачи информации</a>
+                                </div>
+                                <div class="btn--md btn--mark btn--mobile">Отправить</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer-->
+        <div class="footer">
+            <!-- footer top-->
+            <div class="main-cont">
+                <div class="footer-top">
+                    <div class="footer-contact">
+                        <a class="footer-phone" href="tel:+7 (925) 907-35-12">+7 (925) 907-35-12</a>
+                        <div class="footer-work">Ежедневно: с 09-00 до 21-00</div>
+                        <div class="soc-row">
+                            <a class="soc-row__el soc-row__el--wp" href="#">
+                                <svg class="icon">
+                                    <use xlink:href="#soc-wp"></use>
+                                </svg>
+                            </a>
+                            <a class="soc-row__el soc-row__el--telegram" href="#">
+                                <svg class="icon">
+                                    <use xlink:href="#soc-telegram"></use>
+                                </svg>
+                            </a>
+                            <a class="soc-row__el soc-row__el--viber" href="#">
+                                <svg class="icon">
+                                    <use xlink:href="#soc-viber"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-address">
+                        <a class="footer-address__mail link--mark" href="mailto:delivery@letbefit.ru">delivery@letbefit.ru</a>
+                        <div class="footer-address__info">117534, Россия, г Москва, ул. Кировоградская дом 23а
+                            <br>(м. Пражская, м. Улица Академика Янгеля)</div>
+                    </div>
+                    <a class="js-scroll-to footer-scroll" href="#header">
+                        <svg class="icon">
+                            <use xlink:href="#arrow-up"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- footer top === end-->
+            <!-- footer-menu-->
+            <div class="footer-menu-wrap">
+                <div class="main-cont">
+                    <div class="footer-menu">
+                        <div class="footer-menu__col">
+                            <div class="footer-menu__title">Программы</div>
+                            <a class="footer-menu__list-el" href="#">Light 1200 Ккал</a>
+                            <a class="footer-menu__list-el" href="#">Normal 1800 Ккал</a>
+                            <a class="footer-menu__list-el" href="#">Balance 1900 Ккал</a>
+                            <a class="footer-menu__list-el" href="#">Strong 2200 Ккал</a>
+                            <a class="footer-menu__list-el" href="#">Detox 1200 Ккал</a>
+                            <a class="footer-menu__list-el" href="#">Daily 600 Ккал</a>
+                            <a class="footer-menu__list-el" href="#">Fish 1200 Ккал</a>
+                            <a class="footer-menu__list-el" href="#">Vegan 1200 Ккал</a>
+                        </div>
+                        <div class="footer-menu__col">
+                            <div class="footer-menu__title">Клиентам</div>
+                            <a class="footer-menu__list-el" href="#">Подарочный сертификат</a>
+                            <a class="footer-menu__list-el" href="#">Акции</a>
+                            <a class="footer-menu__list-el" href="#">Отзывы</a>
+                            <a class="footer-menu__list-el" href="#">Вопрос - ответ</a>
+                            <a class="footer-menu__list-el" href="#">Блог</a>
+                            <a class="footer-menu__list-el" href="#">Доставка</a>
+                            <a class="footer-menu__list-el" href="#">Оплата</a>
+                        </div>
+                        <div class="footer-menu__col">
+                            <div class="footer-menu__title">Компания</div>
+                            <a class="footer-menu__list-el" href="#">О компании</a>
+                            <a class="footer-menu__list-el" href="#">Наше производство</a>
+                            <a class="footer-menu__list-el" href="#">Франшиза</a>
+                            <a class="footer-menu__list-el" href="#">Сотрудничество</a>
+                            <a class="footer-menu__list-el" href="#">Публичная оферта</a>
+                            <a class="footer-menu__list-el" href="#">Карта сайта</a>
+                            <a class="footer-menu__list-el" href="#">Контакты</a>
+                            <a class="footer-menu__list-el" href="#">Тренерам</a>
+                            <a class="footer-menu__list-el" href="#">Политика конфиденциальности</a>
+                        </div>
+                        <div class="footer-menu__col footer-menu__col--app">
+                            <div class="footer-menu__title">Мобильное приложение</div>
+                            <div class="app-list">
+                                <a class="app-list__el" href="#">
+                                    <img src="img/app-apstore.svg" alt="" />
+                                </a>
+                                <a class="app-list__el" href="#">
+                                    <img src="img/app-google.svg" alt="" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer-menu === end-->
+            <!-- footer-bottom-->
+            <div class="footer-bottom-wrap">
+                <div class="main-cont">
+                    <div class="footer-bottom">
+                        <div class="footer-bottom__info">
+                            <div class="footer-bottom__info-text">© 2020, Letbefit, все права защищены</div>
+                            <div class="soc-row soc-row--monochrome soc-row--footer">
+                                <a class="soc-row__el" href="#">
+                                    <svg class="icon">
+                                        <use xlink:href="#soc-inst"></use>
+                                    </svg>
+                                </a>
+                                <a class="soc-row__el" href="#">
+                                    <svg class="icon">
+                                        <use xlink:href="#soc-vk"></use>
+                                    </svg>
+                                </a>
+                                <a class="soc-row__el" href="#">
+                                    <svg class="icon">
+                                        <use xlink:href="#soc-fb"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer-payment">
+                            <svg class="icon">
+                                <use xlink:href="#pay-visa"></use>
+                            </svg>
+                            <svg class="icon">
+                                <use xlink:href="#pay-master"></use>
+                            </svg>
+                            <svg class="icon">
+                                <use xlink:href="#pay-apple"></use>
+                            </svg>
+                            <svg class="icon">
+                                <use xlink:href="#pay-google"></use>
+                            </svg>
+                            <a href="#">
+                                <svg class="icon">
+                                    <use xlink:href="#pay-halva"></use>
+                                </svg>
+                            </a>
+                            <svg class="icon">
+                                <use xlink:href="#pay-mir"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer-bottom === end-->
+        </div>
+        <!-- footer === end-->
+    </div>
+    <script src="./js/combined.js"></script>
+    <script src="./js/add-on.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/script-edit.js"></script>
+</body>
+
+</html>

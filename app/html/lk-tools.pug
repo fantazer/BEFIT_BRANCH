@@ -1,0 +1,117 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--clear-top
+		.lk
+			.lk-head-wrap
+				.main-cont
+					.lk-head-cont
+						.lk-head
+							.type--head.type--lgx.mb-64 Настройки
+						.lk-tool
+							+lk-nav()
+			.main-cont
+				.lk-wrap
+					.lk-cont
+						.row
+							.g-1-6.xl__g-1-10.sm__g-1-12
+								.type--head.type--lg.mb-32 Личные данные
+								.mb-48
+									.input-row.input-row--validate
+										input(type="text" data-placeholder="Ваше имя" class="input")
+										.input-msg Ошибка
+										+icon("close","icon icon-validate-false")
+										+icon("checked","icon icon-validate-true")
+									.input-row.input-row--validate
+										input(type="text" data-placeholder="Телефон" class="input input-mask--phone")
+										.input-msg Ошибка
+										+icon("close","icon icon-validate-false")
+										+icon("checked","icon icon-validate-true")
+									.input-row.input-row--validate
+										input(type="text" data-placeholder="Email"  class="input")
+										.input-msg Ошибка
+										+icon("close","icon icon-validate-false")
+										+icon("checked","icon icon-validate-true")
+									.input-cont.input-cont--three
+										.input-row
+											input(type="text" data-placeholder="День" class="input")
+										.input-row
+											input(type="text" data-placeholder="Месяц" class="input")
+										.input-row
+											input(type="text" data-placeholder="Год" class="input")
+
+								// options
+								.type--head.type--lg.mb-32 Настройки доставки
+								.mb-64
+									.switch-row.mb-24
+										.js-switch(data-group="Oneness" data-item="isOneness")
+											.switch.js-toggle
+										.type--head Доставка без встречи с курьером
+									.text.mb-32.js-switch-cont(data-group="Oneness" data-item="isOneness")
+										p.type--secondary В режиме доставки "без встречи с курьером" курьер будет вешать Ваш заказ на ручку или оставлять в оговоренном Вами месте. Вам придет уведомление о доставке как только курьер отметит заказ доставленным. Если Вы выбрали оплату наличными, то курьер встретится с Вами при первой доставке для получения оплаты
+									.input-btn-cont.input-btn-cont--full.js-switch-cont.mb-12.hidden(data-group="Oneness" data-item="isOneness")
+										.input-row.input-row--validate
+											input(type="text" data-placeholder="Где оставить?" class="input")
+											.input-msg Введённые данные не должны содержать цифры
+											+icon("close","icon icon-validate-false")
+											+icon("checked","icon icon-validate-true")
+										.btn--md.btn--mobile.btn--light.disable Отправить
+
+									.switch-row.mb-24
+										.switch.js-toggle
+										.type--head Я буду сдавать упаковку в переработку
+									.text
+										p.type--secondary Вы можете сдать пластиковые лотки в переработку нашему курьеру. Лотки должны быть вымыты и не содержать остатков пищи. Мы собираем такие лотки на нашем производстве и регулярно отправляем их нашим партнерам по утилизации
+								// options === end
+
+								.type--head.type--lg.mb-32 Сохраненные карты
+								.mb-64
+									.card-list
+										.card-el
+											.card-type
+												img(src="img/pay-visa.png", alt="")
+											.card-val MasterCard **5555
+											.card-remove
+												+icon("delete","icon")
+										.card-el
+											.card-type
+												img(src="img/pay-mastercard.png", alt="")
+											.card-val MasterCard **5555
+											.card-remove
+												+icon("delete","icon")
+									.btn--md.btn--full.btn--light
+										.btn-icon-row.btn-icon-row--right
+											span Добавить карту
+											+icon("plus-round","icon")
+
+								.type--head.type--lg.mb-32 Подписки
+								- for (var i=0;i<3;i++)
+									.ps-24.bor.bor-border.br-8.mb-16
+										.f.f-between.g-gap-16.mb-24
+											.w50.type--bold.type--md Light premium, 72 д.
+											.br-8.bg--greenLight.ps-5
+												.type--mark Активна
+										.bor.bor-b-dashed.bor-border.mb-24
+										.f.fl.fw.g-gap-8.mb-24
+											.f.f-between.g-gap-16.w100
+												.w50
+													.type--main Осталось
+												.w50
+													.type--typePrimary.type--right 32 д
+											.f.f-between.g-gap-16.w100
+												.w50
+													.type--main Следующий платеж
+												.w50
+													.type--typePrimary.type--right 20 окт, 2020
+											.f.f-between.g-gap-16.w100
+												.w50
+													.type--main Сумма
+												.w50
+													.type--typePrimary.type--right 4800 ₽
+										.f.f-jcfe
+											//.btn--sm.btn--text-red Отменить подписку
+											.type--w500.type--stateError Отменить подписку
+	+footer()
+include ./block_html/_script.pug

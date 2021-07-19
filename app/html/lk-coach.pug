@@ -1,0 +1,78 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--mark
+		.main-cont-sm
+			.title.title--lgx Здравствуйте, Михаил
+			.coach-wrap
+				.coach-col
+					.coach-head
+						.type--md.type--head.mb-16 Промокод
+						.input-cont
+							.input-row.input-row--promocode.js-copy
+								input(type="text" data-placeholder="Промокод для ваших клиентов" class="input js-copy-val" value="MNEMTSAN" readonly="readonly")
+								.input-msg.type--mark.type--right.js-copy-msg Промокод скопирован
+								+icon("copy","icon")
+					.coach-info
+						.coach-descr__row.coach-descr__row--border
+							.coach-descr__title ваш клиент получит
+							.coach-descr__info
+								.coach-descr__val 10%
+								.coach-descr__text скидка на первый заказ
+						.coach-descr__row
+							.coach-descr__title получите вы после совершения заказа вашим клиентом
+							.coach-descr__info
+								.coach-descr__val 1500 р
+								.coach-descr__text при заказе полного курса
+							.coach-descr__info
+								.coach-descr__val 650 р
+								.coach-descr__text при заказе пробного курса
+
+				.coach-col
+					.coach-head
+						.type--md.type--head.mb-16 Ваш баланс
+						.type--xl.type--head 3 350р
+					.coach-info
+						.type--md.type--head.mb-16 Вывести деньги
+						.input-cont
+							.input-row
+								.dropdown
+									input(type="hidden" name="name" value="0")
+									.dropdown-current
+										.dropdown-title Выбрать способ
+										.dropdown-current__val Карта Сбербанка
+										+icon("arrow-down","icon")
+									.dropdown-menu
+										.dropdown-menu__el(data-value="1") Карта Альфабанка
+										.dropdown-menu__el(data-value="2") Карта ВТБ
+										.dropdown-menu__el(data-value="3") Карта Тинькофф
+						.input-cont
+							.input-row.input-row--validate
+								input(type="text" data-placeholder="Данные карты" class="input" data-mask="0000-0000-0000-0000")
+								.input-msg В данных ошибка
+								+icon("close","icon icon-validate-false")
+								+icon("checked","icon icon-validate-true")
+						.btn--md.btn--mark.btn--mobile Отправить запрос
+				.coach-col
+					.coach-info
+						.coach-history__head
+							.coach-history__title История
+							.coach-history__total 214 450р за всё время
+						.coach-history
+							- for (var i=0;i<3;i++)
+								.coach-history__row
+									.coach-history__name Владимир
+									.coach-history__val +650р
+									.coach-history__date 30 дек. 20
+								.coach-history__row
+									.coach-history__name Игорь В.
+									.coach-history__val +1500р
+									.coach-history__date 12 дек 20
+								.coach-history__row
+									.coach-history__name Владимир
+									.coach-history__val +650р
+									.coach-history__date 05 ноя 20
+	+footer()
+include ./block_html/_script.pug

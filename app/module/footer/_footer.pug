@@ -1,0 +1,104 @@
+mixin footer()
+	// footer
+	.footer
+		// footer top
+		.main-cont
+			.footer-top
+				.footer-contact
+					a(href="tel:+7 (925) 907-35-12").footer-phone +7 (925) 907-35-12
+					.footer-work Ежедневно: с 09-00 до 21-00
+					.soc-row
+						a(href="#").soc-row__el.soc-row__el--wp
+							+icon("soc-wp","icon")
+						a(href="#").soc-row__el.soc-row__el--telegram
+							+icon("soc-telegram","icon")
+						a(href="#").soc-row__el.soc-row__el--viber
+							+icon("soc-viber","icon")
+				.footer-address
+					a(href="mailto:delivery@letbefit.ru").footer-address__mail.link--mark delivery@letbefit.ru
+					.footer-address__info 117534, Россия, г Москва, ул. Кировоградская дом 23а <br> (м. Пражская, м. Улица Академика Янгеля)
+				a(href="#header").js-scroll-to.footer-scroll
+					+icon("arrow-up","icon")
+		// footer top === end
+
+		// footer-menu
+		.footer-menu-wrap
+			.main-cont
+				.footer-menu
+					.footer-menu__col
+						.footer-menu__title Программы
+						-
+							var items = [
+								'Light 1200 Ккал',
+								'Normal 1800 Ккал',
+								'Balance 1900 Ккал',
+								'Strong 2200 Ккал',
+								'Detox 1200 Ккал',
+								'Daily 600 Ккал',
+								'Fish 1200 Ккал',
+								'Vegan 1200 Ккал',
+								];
+						each item in items
+							a(href="#").footer-menu__list-el #{item}
+					.footer-menu__col
+						.footer-menu__title Клиентам
+						-
+							var items = [
+								'Подарочный сертификат',
+								'Акции',
+								'Отзывы',
+								'Вопрос - ответ',
+								'Блог',
+								'Доставка',
+								'Оплата',
+							];
+						each item in items
+							a(href="#").footer-menu__list-el #{item}
+					.footer-menu__col
+						.footer-menu__title Компания
+						-
+							var items = [
+								'О компании',
+								'Наше производство',
+								'Франшиза',
+								'Сотрудничество',
+								'Публичная оферта',
+								'Карта сайта',
+								'Контакты',
+								'Тренерам',
+								'Политика конфиденциальности',
+							];
+						each item in items
+							a(href="#").footer-menu__list-el #{item}
+					.footer-menu__col.footer-menu__col--app
+						.footer-menu__title Мобильное приложение
+						.app-list
+							a(href="#").app-list__el
+								img(src="img/app-apstore.svg", alt="")
+							a(href="#").app-list__el
+								img(src="img/app-google.svg", alt="")
+		// footer-menu === end
+
+		// footer-bottom
+		.footer-bottom-wrap
+			.main-cont
+				.footer-bottom
+					.footer-bottom__info
+						.footer-bottom__info-text © 2020, Letbefit, все права защищены
+						.soc-row.soc-row--monochrome.soc-row--footer
+							a(href="#").soc-row__el
+								+icon("soc-inst","icon")
+							a(href="#").soc-row__el
+								+icon("soc-vk","icon")
+							a(href="#").soc-row__el
+								+icon("soc-fb","icon")
+					.footer-payment
+						+icon("pay-visa","icon")
+						+icon("pay-master","icon")
+						+icon("pay-apple","icon")
+						+icon("pay-google","icon")
+						a(href="#")
+							+icon("pay-halva","icon")
+						+icon("pay-mir","icon")
+		// footer-bottom === end
+	// footer === end

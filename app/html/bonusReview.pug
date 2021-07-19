@@ -1,0 +1,28 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--mark.content--mobile-clear
+		.wmax-712.ml-a.mr-a
+			.contract.contract--fluid
+				.contract-content
+					.type--bold.type--lgx.mb-32 Получите 500 бонусов за отзыв о нас на популярных площадках <img src="img/smile/smile-money.png", alt="" class="icon--lg di">
+					.type--md.mb-40 Разместите отзыв и отправьте ссылку на него в наш whatsap или через личный кабинет
+					.btn--md.btn--light.w100.mb-24
+						.btn-icon-row.btn-icon-row--left
+							img(src="img/google.svg", alt="" class="icon icon--smx")
+							span.type--black Google
+					.btn--md.btn--light.w100.mb-24
+						.btn-icon-row.btn-icon-row--left
+							img(src="img/yandex.svg", alt="" class="icon icon--smx")
+							span.type--black Яндекс
+					.btn--md.btn--light.w100.mb-24
+						.btn-icon-row.btn-icon-row--left
+							img(src="img/otzov.svg", alt="" class="icon icon--smx")
+							span.type--black Отзовик
+					.btn--md.btn--text.w100
+							span.type--black Нет, не хочу
+	+footer()
+include ./block_html/_script.pug
+

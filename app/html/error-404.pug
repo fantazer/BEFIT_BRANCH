@@ -1,0 +1,17 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page
+	+header()
+	.content.content.content--mid
+		//product-cont
+		.main-cont
+			.page-error
+				.page-error__title Ошибка 404
+				.page-error__img
+					img(src="img/404.jpg", alt="")
+				.page-error__text Увы, такой странички не существует. Перейдите на главную и ознакомьтесь с нашими программами питания
+				a(href="/").btn--md.btn--mark На главную
+
+	+footer()
+include ./block_html/_script.pug

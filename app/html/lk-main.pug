@@ -1,0 +1,101 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--clear-top
+
+		+lk-nav-mobile()
+		.lk
+			.lk-head-wrap
+				.main-cont
+					.lk-head-cont
+						.lk-head
+							.lk-profile
+								.lk-user
+									.lk-user__icon
+										+icon("profile","icon")
+									.lk-user__cont
+										.lk-user__name Анастасия
+										.lk-user__info +7 983 666 55 55
+								.lk-bonus
+									.lk-bonus-cont
+										.lk-bonus-icon
+											+icon("coin","icon")
+										.lk-bonus-val 2500
+									.lk-bonus-info Куда тратить бонусы?
+						.lk-tool
+							+lk-nav()
+			.main-cont
+				.lk-wrap
+					.lk-cont
+						.slider-wrap.slider-wrap--lk.js-slider-wrap.mb-64
+							.slider-control-wrap
+								.slider-control.slider-control--white.slider-control--sm.js-control-left
+									+icon("arrow-left","icon")
+								.slider-control.slider-control--white.slider-control--sm.js-control-right
+									+icon("arrow-right","icon")
+							.slider-item.slider-lk.js-slider
+								- for (var i=0;i<4;i++)
+									a(href="#").slider-el-wrap
+										.slider-lk__el.slider-lk__el--lg(style="background-image:url('img/lk-slider-1--lg.jpg')")
+										.slider-lk__el.slider-lk__el--sm(style="background-image:url('img/lk-slider-1--sm.jpg')")
+										.btn--sm.btn--white.slider-lk-get Получить
+									a(href="#").slider-el-wrap
+										.slider-lk__el.slider-lk__el--lg(style="background-image:url('img/lk-slider-2--lg.jpg')")
+										.slider-lk__el.slider-lk__el--sm(style="background-image:url('img/lk-slider-1--sm.jpg')")
+										.btn--sm.btn--white.slider-lk-get Получить
+						.title-row.mb-40
+							.type--lg.type--head Ближайшая доставка
+							a(href="#").more
+								span.type--mark Все
+								+icon("arrow-right","icon icon--sm icon--mark")
+
+						.lk-list-head.desktop-row-scroll.lk-day.scroll-template.dragscroll
+							.marker--fluid.desktop-row-scroll-wrap.js-tick-cont.pb-12
+								.marker-el.js-tick.active
+									.type--smx.type--strong Вт, 24 Сен
+									.type--sm | Extralight 900 Ккал
+								.marker-el.js-tick
+									.type--smx.type--strong Чт, 26
+									.type--sm | Extralight 900 Ккал
+								.marker-el.js-tick
+									.type--smx.type--strong Пт, 27
+									.type--sm | Balance 1400 Ккал
+								.marker-el.js-tick
+									.type--smx.type--strong Сб, 11
+									.type--sm | Extralight 900 Ккал
+						.lk-list-wrap.mb-32.mt-12
+							.desktop-row-scroll.js-horizontal-scroll.scroll-template.dragscroll
+								.lk-list.desktop-row-scroll-wrap
+									- for (var i=1;i<8;i++)
+										+lk-item(i)
+						//remove hidden for empty state
+						.lk-empty.mb-64.hidden
+							.lk-empty__info.mb-16
+								img(src="img/icon/food--gray.svg", alt="")
+								span.type--md.type--secondary У Вас еще нет заказов
+							.f.f-mid
+								.btn--md.btn--mark Заказать
+
+
+
+
+						.title-row.mb-48
+							.type--lg.type--head Бонусы от партнеров
+							a(href="#").more
+								span.type--mark Все
+								+icon("arrow-right","icon icon--sm icon--mark")
+
+						.mobile-row-scroll
+							.bonus-list.mobile-row-scroll-wrap
+								- for (var i=0;i<3;i++)
+									.bonus-el.mobile-row-scroll-item.bor.bor-border
+										.bonus-el__img(style="background-image:url('img/bonus-1.jpg')")
+										.bonus-el-cont
+											.bonus-el__info 4 урока английского в Skyeng в подарок при первой оплате обучения
+											.bonus-el__get
+												.btn--sm.btn--light.btn--full Подробнее
+
+	+footer()
+include ./block_html/_script.pug

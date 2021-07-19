@@ -1,0 +1,33 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--mark.content--mobile-clear
+		.main-cont-sm
+			.marker.mb-12.mt-24
+				.marker-el.marker-el--simple 1 вопрос
+			.type--head.type--xl.mb-40 Лояльность и рекомендации
+		.main-cont-sm.main-cont--mobile-clear
+			.contract.contract--fluid
+				.contract-content
+					.type--lg.type--bold.mb-24 Нам очень интересно, насколько Вы могли бы рекомендовать нас своим родным, друзьям и знакомым. От 1 до 10, где 10 - совершенно точно) В конце добавьте свой email, чтобы мы могли с Вами связаться
+					.g.g-10.g-gap-16.mb-40.js-mark-wrap.md__g-5
+						- for (var i=1;i<11;i++)
+							.mark-el-square.mark-el-square--mark.type--bold.type--md.br-12.bor.bor-border.f.f-mid.w-100.ps-16.js-mark.cp.tr #{i}
+
+
+					.input-cont.input-cont--two
+						.input-row.input-row--validate.input-row--error
+							input(type="text" data-placeholder="Электронная почта" class="input")
+							.input-msg Введённые данные не должны содержать цифры
+							+icon("close","icon icon-validate-false")
+							+icon("checked","icon icon-validate-true")
+
+				.contract-footer
+					.contract-footer__text Нажимая кнопку “Оформить” я принимаю условия условия <a href="#" class="link--mark">передачи информации</a>
+					.btn--md.btn--mark.btn--mobile Отправить
+	+footer()
+
+include ./block_html/_script.pug
+

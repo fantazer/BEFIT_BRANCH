@@ -1,0 +1,251 @@
+mixin header()
+	//block header
+	.header.js-header
+		.header-top-wrap
+			.main-cont
+				.header-top
+					a(href="/").header-logo
+						img(src="img/logo.svg", alt="")
+					.header-location
+						.header-location-wrap.modal-get(data-modal="location" data-test="headerLocationModal")
+							+icon("navigation","icon")
+							// Для Москвы не добавляй .header-location__val--lg и .header-location__val--sm
+							.header-location__val.header-location__val--lg Санкт-Петербург
+							.header-location__val.header-location__val--sm Спб
+							//Location modal
+						.modal.modal--msg(data-modal="location" data-test="headerLocationModal")
+							.modal-content
+								.modal-title Вы в Москве?
+								.btn-row.btn-row--line
+									.btn--sm.btn--mark.modal-hide Да
+									.btn--sm.btn--light Нет, в Питере
+					.header-contact
+						a(href="tel:8 (499) 110-12-15" data-test="headerPhone").header-phone.link 8 (499) 110-12-15
+						.header-phone-link.link--mark.modal-get(data-modal="getCall" data-test="headerCallbackBtn") Перезвоните мне
+					.header-msg
+						.header-msg__el.modal-get(data-modal="callBack")
+							+icon("phone","icon")
+						.header-msg__el.modal-get(data-modal="getMsg")
+							+icon("chat","icon")
+					.header-soc
+						a(href="#").header-soc__el.soc-el--instagram
+							+icon("soc-inst-light","icon")
+						a(href="#").header-soc__el.soc-el--telegram
+							+icon("soc-telegram-light","icon")
+						a(href="#").header-soc__el.soc-el--wp
+							+icon("soc-wp-light","icon")
+					.head-toggle.js-slide-block-toggle(data-menu="menu")
+						+icon("menu","icon icon-open")
+						+icon("close","icon icon-close")
+		.nav-wrap
+			.main-cont
+				.nav
+					a(href="#").nav-logo
+						img(src="img/logo-symbol.svg", alt="")
+					.nav-shrink
+						.f.f-between.f-grow
+							.dropdown.dropdown--fluid.dropdown--shrink
+								input(type="hidden" name="name" value="0")
+								.dropdown-current.dropdown-current--flat.dropdown-current--white
+									.dropdown-current__val.type--500 Fish 1300
+									+icon("arrow-down","icon")
+								.dropdown-menu
+									.dropdown-menu-list
+										-
+											var items = [
+												'ExtraLight 1300 Ккал',
+												'Light 1300 Ккал',
+												'Normal 1300 Ккал',
+												'Balance 1300 Ккал',
+												'Strong 1300 Ккал',
+												'Veggi 1300 Ккал',
+												'Vegetarian 1300 Ккал',
+												'Pesco 1300 Ккал',
+												'Every Daily 1300 Ккал',
+												'Breakfast 1300 Ккал',
+												'Detox1300 Ккал',
+												'Post 1300 Ккал',
+												];
+										each item in items
+											.dropdown-menu__el.type--500(data-value="#") #{item}
+							.f.f-mid.gap-16
+								.type--main.type--500.type--nowrap.nav-shrink__cost от 600 руб
+								a(href="#").btn--sm.btn--mark.nav-shrink__get Заказать
+					ul.nav-list
+						li.nav-list__el.nav-list__el--sub
+							span Программы
+							.drop-menu-wrap
+								.main-cont
+									.drop-menu
+										.drop-menu-list
+											.drop-menu-list__col
+												.drop-menu__el
+													.drop-menu__el-title Сбросить вес
+													.drop-menu__list
+															a(href="#").drop-menu__list__el ExtraLight
+															a(href="#").drop-menu__list__el Light
+												.drop-menu__el
+													.drop-menu__el-title Поддерживать форму
+													.drop-menu__list
+														a(href="#").drop-menu__list__el Normal
+														a(href="#").drop-menu__list__el Balance
+											.drop-menu-list__col
+												.drop-menu__el
+													.drop-menu__el-title Набрать массу
+													.drop-menu__list
+														a(href="#").drop-menu__list__el Strong
+												.drop-menu__el
+													.drop-menu__el-title Питание без мяса
+													.drop-menu__list
+														a(href="#").drop-menu__list__el Veggi
+														a(href="#").drop-menu__list__el Vegetarian
+														a(href="#").drop-menu__list__el Pesco
+											.drop-menu-list__col
+												.drop-menu__el
+													.drop-menu__el-title Питание в офисе
+													.drop-menu__list
+														a(href="#").drop-menu__list__el Daily
+														a(href="#").drop-menu__list__el Every Daily
+														a(href="#").drop-menu__list__el Breakfast
+												.drop-menu__el
+													.drop-menu__el-title Защита здоровья
+													.drop-menu__list
+														a(href="#").drop-menu__list__el Antivirus
+											.drop-menu-list__col
+												.drop-menu__el
+													.drop-menu__el-title Очищение организма
+													.drop-menu__list
+														a(href="#").drop-menu__list__el Detox
+														a(href="#").drop-menu__list__el Post
+										.drop-menu-card
+											a(href="#").drop-menu-card__el
+												+icon("check-wave","icon icon--md icon--mark")
+												.drop-menu-card__title Подбор программы
+												.drop-menu-card__text Не можете определиться? Мы Вам поможем
+											a(href="#").drop-menu-card__el
+												+icon("surprise","icon icon--md icon--mark")
+												.drop-menu-card__title Подарочный сертификат
+												.drop-menu-card__text Подарите здоровье с доставкой на дом!
+						each navEl in navSm
+							if(navEl!='Программы')
+								.nav-list__el
+									a(href="#") #{navEl}
+						.nav-list__el.nav-list__el--sub
+							span О нас
+							.drop-menu-wrap
+								.main-cont
+									.drop-menu
+										.drop-menu__list.drop-menu__list--extend
+											-
+												var items = [
+													'Что такое Befit?',
+													'Наше производство',
+													'О компании',
+													'Основатели',
+													'Тренерам',
+													'Франшиза',
+													'Контакты',
+													];
+											each item in items
+												a(href="#").drop-menu__list__el #{item}
+						.nav-list__el
+							a(href="#") Сотрудничество
+
+					//toggle class .auth-wrap + .auth-wrap--true
+					.auth-wrap.link
+						.auth-state.auth-state--false.modal-get(data-modal="enter" data-test="headerAuth")
+							+icon("lock","icon")
+							span Личный кабинет
+						a(href="#").auth-state.link.auth-state--true
+							+icon("profile-round","icon")
+							span Анастасия
+		// mobile menu
+		.slide-block.slide-block--right.slide-block--menu(data-menu="menu")
+			.slide-block-wrap.js-accordion
+				.slide-nav
+					.slide-nav__el.modal-get(data-modal="locationMobile")
+						.header-location
+							+icon("navigation","icon")
+							.header-location__val Санкт-Петербург
+					.slide-nav__el
+						.auth-wrap.link
+							.auth-state.auth-state--false(data-test="headerAuthMobile")
+								+icon("lock","icon")
+								span Личный кабинет
+							a(href="#").auth-state.link.auth-state--true
+								+icon("profile-round","icon")
+								span Анастасия
+					.js-accordion-el
+						.slide-nav__el.slide-nav__el--slide.js-accordion-head
+							span Программы
+							+icon("arrow-down","icon")
+						.slide-nav__el-sub.js-accordion-content
+								.drop-menu__el
+									.drop-menu__el-title Сбросить вес
+									.drop-menu__list
+										a(href="#").drop-menu__list__el ExtraLight
+										a(href="#").drop-menu__list__el Light
+								.drop-menu__el
+									.drop-menu__el-title Поддерживать форму
+									.drop-menu__list
+										a(href="#").drop-menu__list__el Normal
+										a(href="#").drop-menu__list__el Balance
+								.drop-menu__el
+									.drop-menu__el-title Набрать массу
+									.drop-menu__list
+										a(href="#").drop-menu__list__el Strong
+								.drop-menu__el
+									.drop-menu__el-title Питание без мяса
+									.drop-menu__list
+										a(href="#").drop-menu__list__el Veggi
+										a(href="#").drop-menu__list__el Vegetarian
+										a(href="#").drop-menu__list__el Pesco
+								.drop-menu__el
+									.drop-menu__el-title Питание в офисе
+									.drop-menu__list
+										a(href="#").drop-menu__list__el Daily
+										a(href="#").drop-menu__list__el Every Daily
+										a(href="#").drop-menu__list__el Breakfast
+								.drop-menu__el
+									.drop-menu__el-title Защита здоровья
+									.drop-menu__list
+										a(href="#").drop-menu__list__el Antivirus
+								.drop-menu__el
+									.drop-menu__el-title Очищение организма
+									.drop-menu__list
+										a(href="#").drop-menu__list__el Detox
+										a(href="#").drop-menu__list__el Post
+					each navEl in navSm
+						a(href="#").slide-nav__el #{navEl}
+					.js-accordion-el
+						.slide-nav__el.slide-nav__el--slide.js-accordion-head
+							span О нас
+							+icon("arrow-down","icon")
+						.slide-nav__el-sub.js-accordion-content
+								.drop-menu__el
+									.drop-menu__list.drop-menu__list--simple
+										-
+											var items = [
+												'Что такое Befit?',
+												'Наше производство',
+												'О компании',
+												'Основатели',
+												'Тренерам',
+												'Франшиза',
+												'Контакты',
+											];
+										each item in items
+											a(href="#").drop-menu__list__el #{item}
+					a(href="#").slide-nav__el Сотрудничество
+					.drop-menu-card.drop-menu-card--sm
+						a(href="#").drop-menu-card__el
+							.drop-menu-card__el-info
+								+icon("check-wave","icon icon--md icon--mark")
+								.drop-menu-card__title Подбор программы
+							.drop-menu-card__text Не можете определиться? Мы Вам поможем
+						a(href="#").drop-menu-card__el
+							.drop-menu-card__el-info
+								+icon("surprise","icon icon--md icon--mark")
+								.drop-menu-card__title Подарочный сертификат
+							.drop-menu-card__text Подарите здоровье с доставкой на дом!
+	//block header end

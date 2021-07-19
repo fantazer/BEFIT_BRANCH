@@ -1,0 +1,85 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content
+		.main-cont
+			.type--head.type--xl.mb-24 Что такое BeFit
+			.type--head.type--lg.mb-32 Доставка здорового питания
+			.section
+				.advant
+					.advant__el
+						.advant__el-icon
+							img(src="img/icon/product.svg", alt="")
+						.advant__el-text Каждый рацион полностью сбалансирован по количеству ккал и БЖУ
+					.advant__el
+						.advant__el-icon
+							img(src="img/icon/strong.svg", alt="")
+						.advant__el-text Программы для снижения веса, поддержания формы, набора мышечной массы, а также для вегетарианцев, веганов и рыбное меню
+					.advant__el
+						.advant__el-icon
+							img(src="img/icon/deliver.svg", alt="")
+						.advant__el-text Гибкая доставка - привозим в удобное место и время, в любой удобный часовой интервал утром и 2х-часовой вечером
+					.advant__el
+						.advant__el-icon
+							img(src="img/icon/diet.svg", alt="")
+						.advant__el-text Приготовлено профессионалами – вкусное и разнообразное меню из 700+ натуральных блюд в меню без сахара, консервантов и усилителей вкуса
+					.advant__el
+						.advant__el-icon
+							img(src="img/icon/puzzle.svg", alt="")
+						.advant__el-text Конструктор питания - выбирайте только понравившиеся блюда и ингредиенты, сделайте свой рацион индивидуальным легко
+					.advant__el
+						.advant__el-icon
+							img(src="img/icon/packaging.svg", alt="")
+						.advant__el-text Забираем на переработку использованные контейнеры из-под наших рационов питания
+					.advant__el
+						.advant__el-icon
+							img(src="img/icon/menu-list.svg", alt="")
+						.advant__el-text Новое меню каждую неделю
+			.section
+				.g-row
+					.g-lg-7.g-xs-12
+						.video
+							iframe.video__el(width="100%" height="100%" src="https://www.youtube.com/embed/T5DzGrDp5Xw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+					.g-lg-5.g-xs-12
+						.type--head.type--lg.mb-24 Преимущества
+						.icon-row.mb-24
+							img(src="img/icon/stopwatch.svg", alt="").icon.icon--lg.mr-24
+							span.type--primary Существенная экономия Вашего времени
+						.icon-row.mb-24
+							img(src="img/icon/food.svg", alt="").icon.icon--lg.mr-24
+							span.type--primary Нормализация режима питания
+						.icon-row.mb-24
+							img(src="img/icon/suitcase.svg", alt="").icon.icon--lg.mr-24
+							span.type--primary Удобно брать с собой
+						.icon-row.mb-24
+							img(src="img/icon/fit.svg", alt="").icon.icon--lg.mr-24
+							span.type--primary Быстрое достижение цели в строительстве фигуры, благодаря систематичности в питании
+			.type--head.type--lg.mb-24 Попробуйте
+			.grid-3
+				.box
+					img(src="img/befit-1.jpg", alt="").mb-24
+					.type--head.type--md.mb-32 Любой рацион
+					.type-main Выберите рацион, отвечающий Вашим целям – сбросить вес, поддерживать форму или набрать мышечную массу.
+				.box
+					img(src="img/befit-2.jpg", alt="").mb-24
+					.type--head.type--md.mb-32 Удобное время
+					.type-main Выберите удобное время для доставки – утро, день, вечер – мы готовы кормить Вас в любое удобное время!
+				.box
+					img(src="img/befit-5.jpg", alt="").mb-24
+					.type--head.type--md.mb-32 Не подходят ингредиенты?
+					.type-main Заменяйте легко непонравившиеся блюда и ингредиенты в личном кабинете на нашем сайте
+				.box
+					img(src="img/befit-3.jpg", alt="").mb-32
+					.type--head.type--md.mb-24 Сомневаетесь?
+					.type-main.mb-32 Закажите Пробный день чтобы оценить удобство и качество.
+					a(href="#").btn--sm.btn--mark.btn--mobile Выбрать программу
+				.box
+					img(src="img/befit-4.jpg", alt="").mb-32
+					.type--head.type--md.mb-32 Определились?
+					.type-main.mb-24 Закажите сразу на 2 недели и получите приятные скидки.
+					a(href="#").btn--sm.btn--light.btn--mobile Выбрать программу
+
+	+footer()
+include ./block_html/_script.pug

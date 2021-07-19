@@ -1,0 +1,37 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--clear-bottom
+		.section
+			.main-cont.js-tab-wrap
+				.type--xl.type--head.mb-16 Вопрос-ответ
+				.text.mb-32
+					.g-row
+						.g-md-6.g-sm-12.g-xs-12
+							p Мы постарались собрать для вас ответы на все возможные вопросы, чтобы вы могли легко разобраться в том как мы работаем и что предлагаем.
+				+faq()
+		.section-full.section--gradient
+			.main-cont-sm
+				.contract
+					.contract-content
+						.title.title--lgx Задайте свой вопрос
+						.input-cont.input-cont--two
+							.input-row.input-row--validate
+								input(type="text" data-placeholder="Ваше имя" class="input")
+								.input-msg Ошибка
+								+icon("close","icon icon-validate-false")
+								+icon("checked","icon icon-validate-true")
+							.input-row.input-row--validate
+								input(type="text" data-placeholder="Почта или Телефон"  class="input")
+								.input-msg Ошибка
+								+icon("close","icon icon-validate-false")
+								+icon("checked","icon icon-validate-true")
+						.input-row
+							textarea(name="text", rows="5" class="input" data-placeholder="Комментарий")
+						.contract-footer.contract-footer--clear
+							.contract-footer__text Нажимая кнопку “Оформить” я принимаю условия условия <a href="#" class="link--mark">передачи информации</a>
+							.btn--md.btn--mark.btn--mobile Отправить
+	+footer()
+include ./block_html/_script.pug

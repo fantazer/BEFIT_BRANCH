@@ -1,0 +1,36 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--clear-bottom
+		.main-cont
+			.title.title--xl О нас пишут СМИ
+			.blog-list.blog-list--sm.mb-100
+				- for (var i=0;i<5;i++)
+					.blog-el.bor.bor-border
+						.blog-el__img.blog-el__img--sm.bg-fieldBackground.pos-r
+							.pos-a.pos-cover.f.f-mid
+								img(src="img/smiLogo/challenger.png", alt="")
+						.blog-el-content
+							.blog-el__info
+								a(href="#").blog-el__title Как пользоваться конструктором от «BeFit» и в чем его преимущества?
+							.blog-el-footer
+								.blog-el-tag
+									span sports.ru
+								.blog-el-date 20 апр, 2019
+
+		.section-full.section--gradient
+			.main-cont-xs
+				.subscribe-block
+					.type--head.type--lgx.type--center.mb-48 Подпишитесь на рассылку
+					.input-btn-cont.mb-24
+						.input-row.input-row--validate
+							input(type="text" data-placeholder="Email" class="input")
+							.input-msg Введённые данные не должны содержать цифры
+							+icon("close","icon icon-validate-false")
+							+icon("checked","icon icon-validate-true")
+						.btn--md.btn--mark Подписаться
+					.type--black Нажимая кнопку “Подписаться” я принимаю условия условия передачи информации
+	+footer()
+include ./block_html/_script.pug

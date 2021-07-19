@@ -1,0 +1,103 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--clear-top
+		.lk
+			.lk-head-wrap.lk-head-wrap--clear-mobile
+				.main-cont
+					.lk-head-cont
+						.lk-head
+							.lk-head-title.type--head.type--lgx.mb-48 Мои заказы
+							.tab.tab--fix.js-tick-cont
+								a(href="#").tab__el.tab__el--lg.js-tick.active Будущие
+								a(href="#").tab__el.tab__el--lg.js-tick Доставленные
+						.lk-tool
+							+lk-nav()
+			.main-cont
+				.lk-wrap
+					.lk-cont
+						//remove hidden for empty state
+						.lk-empty.lk-empty--lg.mb-64.hidden
+							.lk-empty__info.lk-empty__info--col
+								img(src="img/icon/food--gray.svg", alt="")
+								span.type--md.type--secondary У Вас еще нет заказов
+
+						.lk-panel-head.mb-48
+							.btn-menu-wrap.btn--mobile
+								.btn--sm.btn--light.btn--mobile
+									.btn-icon-row.btn-icon-row--right.js-history-edit
+										span Скачать меню
+										+icon("download","icon")
+								.btn-menu
+									.btn-menu-cont
+										a(href="#").btn-menu__el На текущую неделю
+										a(href="#").btn-menu__el На прошлую неделю
+
+							.marker.js-tick-cont
+								.marker-el.js-tick
+									+icon("menu-list","icon")
+								.marker-el.js-tick.active
+									+icon("menu-bold","icon")
+						// history item
+						.history-list-el
+							// head panel
+							.history-panel.bg-blue
+								.history-panel-cont
+									.history-panel-info
+										.history-panel-name Balance
+										.history-panel-val 1800 Ккал
+									.history-panel-size
+										// data-value = all day / current day
+										.chart(data-value=".64")
+										.history-panel-day
+											.history-panel-day__val 7
+											.history-panel-day__text дней
+								.history-panel-nav
+									.btn--sm.btn--sm-round.btn--white.history-panel-toggle.js-toggle
+										+icon("arrow-down","icon")
+									.btn--sm.btn--white.btn--mobile Продлить
+							// head panel === end
+
+							// list-items
+							//remove hide for visible
+							.history-wrap.hide
+								.lk-panel-head.mb-16
+									.history-date Сб, 24 Сентября
+								- for (var j=0;j<5;j++)
+									+history(j)
+							// list-items === end
+						// history item === end
+
+						// history item
+						.history-list-el
+							// head panel
+							.history-panel.bg-sea
+								.history-panel-cont
+									.history-panel-info
+										.history-panel-name ExtraLight
+										.history-panel-val 1200 Ккал
+									.history-panel-size
+										// data-value = all day / current day
+										.chart(data-value=".42")
+										.history-panel-day
+											.history-panel-day__val 2
+											.history-panel-day__text дня
+								.history-panel-nav
+									.btn--sm.btn--sm-round.btn--white.history-panel-toggle.js-toggle
+										+icon("arrow-down","icon")
+									.btn--sm.btn--white.btn--mobile Продлить
+							// head panel === end
+
+							// list-items
+							//remove hide for visible
+							.history-wrap.hide
+								.lk-panel-head.mb-16
+									.history-date Сб, 24 Сентября
+								- for (var j=0;j<5;j++)
+									+history(j)
+							// list-items === end
+						// history item === end
+	+footer()
+include ./block_html/_script.pug

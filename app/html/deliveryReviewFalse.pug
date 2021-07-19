@@ -1,0 +1,23 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--mark.content--mobile-clear
+		.wmax-712.ml-a.mr-a
+			.contract.contract--fluid
+				.contract-content
+					.type--bold.type--lgx.mb-64 Похоже Вам не понравилась доставка <img src="img/smile/smile-unhappy.png", alt="" class="icon--lg di">
+					.line.bg-typeDisable.mb-40
+					.type--md.mb-40.type--bold Помогите нам стать лучше: расскажите оператору, что именно вас не устроило и что можно улучшить
+					.g.g-2.g-gap-20.sm__g-1
+						.btn--md.btn--light
+							.f.f-mid Нет, не хочу
+						.btn--md.btn--mark
+								.f.f-mid.gap-16
+									+icon("phone","icon")
+									span Позвоните мне
+
+	+footer()
+include ./block_html/_script.pug
+

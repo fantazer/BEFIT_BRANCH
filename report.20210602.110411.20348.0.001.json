@@ -1,0 +1,313 @@
+
+{
+  "header": {
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20210602.110411.20348.0.001.json",
+    "dumpEventTime": "2021-06-02T11:04:11Z",
+    "processId": 20348,
+    "cwd": "E:\\PROJECT\\WORK\\LETBEFIT",
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\PROJECT\\WORK\\LETBEFIT\\node_modules\\.bin/../gulp/bin/gulp.js"
+    ],
+    "nodejsVersion": "v11.15.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "11.15.0",
+      "v8": "7.0.276.38-node.19",
+      "uv": "1.27.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "67",
+      "nghttp2": "1.37.0",
+      "napi": "4",
+      "llhttp": "1.1.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1b",
+      "cldr": "34.0",
+      "icu": "63.1",
+      "tz": "2018e",
+      "unicode": "11.0"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v11.15.0/node-v11.15.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v11.15.0/node-v11.15.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v11.15.0/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.19042",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "host": "DESKTOP-HTVCPC5"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff6c534d24e",
+      "symbol": "std::basic_ios<char,std::char_traits<char> >::fill+16366"
+    },
+    {
+      "pc": "0x00007ff6c534c0f9",
+      "symbol": "std::basic_ios<char,std::char_traits<char> >::fill+11929"
+    },
+    {
+      "pc": "0x00007ff6c534b923",
+      "symbol": "std::basic_ios<char,std::char_traits<char> >::fill+9923"
+    },
+    {
+      "pc": "0x00007ff6c543dc22",
+      "symbol": "uv_loop_fork+89362"
+    },
+    {
+      "pc": "0x00007ff6c586609e",
+      "symbol": "v8::internal::FatalProcessOutOfMemory+798"
+    },
+    {
+      "pc": "0x00007ff6c5865fd7",
+      "symbol": "v8::internal::FatalProcessOutOfMemory+599"
+    },
+    {
+      "pc": "0x00007ff6c5919a14",
+      "symbol": "v8::internal::Heap::RootIsImmortalImmovable+14068"
+    },
+    {
+      "pc": "0x00007ff6c590f822",
+      "symbol": "v8::internal::Heap::CollectGarbage+7234"
+    },
+    {
+      "pc": "0x00007ff6c590e038",
+      "symbol": "v8::internal::Heap::CollectGarbage+1112"
+    },
+    {
+      "pc": "0x00007ff6c5917967",
+      "symbol": "v8::internal::Heap::RootIsImmortalImmovable+5703"
+    },
+    {
+      "pc": "0x00007ff6c59179e6",
+      "symbol": "v8::internal::Heap::RootIsImmortalImmovable+5830"
+    },
+    {
+      "pc": "0x00007ff6c5a4f8b1",
+      "symbol": "v8::internal::Factory::NewFillerObject+49"
+    },
+    {
+      "pc": "0x00007ff6c5b09786",
+      "symbol": "v8::internal::StoreBuffer::StoreBufferOverflow+27190"
+    },
+    {
+      "pc": "0x00000241adbd0481",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 1523625984,
+    "totalCommittedMemory": 1523625984,
+    "usedMemory": 1473713192,
+    "availableMemory": 13606760,
+    "memoryLimit": 1526909922,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 524288,
+        "committedMemory": 524288,
+        "capacity": 515584,
+        "used": 33520,
+        "available": 482064
+      },
+      "new_space": {
+        "memorySize": 23068672,
+        "committedMemory": 23068672,
+        "capacity": 11342848,
+        "used": 2758200,
+        "available": 8584648
+      },
+      "old_space": {
+        "memorySize": 1486557184,
+        "committedMemory": 1486557184,
+        "capacity": 1461822544,
+        "used": 1460075456,
+        "available": 1747088
+      },
+      "code_space": {
+        "memorySize": 2097152,
+        "committedMemory": 2097152,
+        "capacity": 1738944,
+        "used": 1738944,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 2633728,
+        "committedMemory": 2633728,
+        "capacity": 1776880,
+        "used": 1776880,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 8744960,
+        "committedMemory": 8744960,
+        "capacity": 10123152,
+        "used": 7330192,
+        "available": 2792960
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 0,
+        "used": 0,
+        "available": 0
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 39.265,
+    "kernelCpuSeconds": 22.375,
+    "cpuConsumptionPercent": 16.8877,
+    "maxRss": 1556701184,
+    "pageFaults": {
+      "IORequired": 529334,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 4185,
+      "writes": 7
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=::": "::\\",
+    "=C:": "C:\\",
+    "ACLOCAL_PATH": "C:\\Program Files\\Git\\mingw64\\share\\aclocal;C:\\Program Files\\Git\\usr\\share\\aclocal",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\FANTAZER\\AppData\\Roaming",
+    "COMMONPROGRAMFILES": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "DESKTOP-HTVCPC5",
+    "COMSPEC": "C:\\WINDOWS\\system32\\cmd.exe",
+    "CONFIG_SITE": "C:/Program Files/Git/mingw64/etc/config.site",
+    "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
+    "ChocolateyLastPathUpdate": "132652286567367361",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "DISPLAY": "needs-to-be-defined",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "EXEPATH": "C:\\Program Files\\Git\\bin",
+    "GYP_MSVS_VERSION": "2015",
+    "HOME": "C:\\Users\\FANTAZER",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\FANTAZER",
+    "HOSTNAME": "DESKTOP-HTVCPC5",
+    "IDEA_INITIAL_DIRECTORY": "C:\\Program Files\\JetBrains\\PhpStorm 2018.3.1\\bin",
+    "INFOPATH": "C:\\Program Files\\Git\\usr\\local\\info;C:\\Program Files\\Git\\usr\\share\\info;C:\\Program Files\\Git\\usr\\info;C:\\Program Files\\Git\\share\\info",
+    "INIT_CWD": "E:\\PROJECT\\WORK\\LETBEFIT",
+    "LANG": "ru_RU.UTF-8",
+    "LOCALAPPDATA": "C:\\Users\\FANTAZER\\AppData\\Local",
+    "LOGONSERVER": "\\\\DESKTOP-HTVCPC5",
+    "MANPATH": "C:\\Program Files\\Git\\mingw64\\local\\man;C:\\Program Files\\Git\\mingw64\\share\\man;C:\\Program Files\\Git\\usr\\local\\man;C:\\Program Files\\Git\\usr\\share\\man;C:\\Program Files\\Git\\usr\\man;C:\\Program Files\\Git\\share\\man",
+    "MINGW_CHOST": "x86_64-w64-mingw32",
+    "MINGW_PACKAGE_PREFIX": "mingw-w64-x86_64",
+    "MINGW_PREFIX": "C:/Program Files/Git/mingw64",
+    "MSYSTEM": "MINGW64",
+    "MSYSTEM_CARCH": "x86_64",
+    "MSYSTEM_CHOST": "x86_64-w64-mingw32",
+    "MSYSTEM_PREFIX": "C:/Program Files/Git/mingw64",
+    "NUMBER_OF_PROCESSORS": "4",
+    "NVM_CD_FLAGS": "",
+    "NVM_DIR": "C:/Users/FANTAZER/.nvm",
+    "NVM_RC_VERSION": "",
+    "ONCE_PATH": "C:\\Users\\FANTAZER\\AppData\\Local\\Programs\\CodeExpander\\resources\\app\\nodes;C:\\Users\\FANTAZER\\.once-gui\\installation\\node_modules\\.bin;C:\\Users\\FANTAZER\\AppData\\Local\\Programs\\CodeExpander\\resources\\app\\node_modules\\.bin",
+    "OPENSSL_ia32cap": ":~0x20000000",
+    "ORIGINAL_PATH": "C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Users\\FANTAZER\\bin;E:\\PROJECT\\WORK\\LETBEFIT\\node_modules\\.bin;C:\\Python27;C:\\Python27\\Scripts;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\program files\\graphicsmagick-1.3.28-q16;C:\\Program Files (x86)\\Intel\\iCLS Client;C:\\Program Files\\Intel\\iCLS Client;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files\\PuTTY;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit;C:\\WINDOWS\\System32\\OpenSSH;C:\\MONGODB\\bin;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\WINDOWS\\System32\\OpenSSH;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs;C:\\Users\\FANTAZER\\AppData\\Local\\Programs\\Python\\Python36-32\\Scripts;C:\\Users\\FANTAZER\\AppData\\Local\\Programs\\Python\\Python36-32;C:\\Users\\FANTAZER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\FANTAZER\\AppData\\Local\\atom\\bin;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\JetBrains\\PhpStorm 2018.3.1\\bin;C:\\Users\\FANTAZER\\AppData\\Local\\Markdown Monster;C:\\Users\\FANTAZER\\AppData\\Local\\Markdown Monster\\Markdown Monster;C:\\Users\\FANTAZER\\AppData\\Local\\Programs\\CodeExpander\\resources\\app\\nodes;C:\\Users\\FANTAZER\\.once-gui\\installation\\node_modules\\.bin;C:\\Users\\FANTAZER\\AppData\\Local\\Programs\\CodeExpander\\resources\\app\\node_modules\\.bin;C:\\Program Files\\JetBrains\\WebStorm 2020.2.2\\bin;C:\\Users\\FANTAZER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\FANTAZER\\AppData\\Roaming\\npm",
+    "ORIGINAL_TEMP": "C:/Users/FANTAZER/AppData/Local/Temp",
+    "ORIGINAL_TMP": "C:/Users/FANTAZER/AppData/Local/Temp",
+    "OS": "Windows_NT",
+    "OneDrive": "F:\\OneDrive",
+    "OneDriveConsumer": "F:\\OneDrive",
+    "PATH": "C:\\Users\\FANTAZER\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\local\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Users\\FANTAZER\\bin;E:\\PROJECT\\WORK\\LETBEFIT\\node_modules\\.bin;C:\\Python27;C:\\Python27\\Scripts;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\program files\\graphicsmagick-1.3.28-q16;C:\\Program Files (x86)\\Intel\\iCLS Client;C:\\Program Files\\Intel\\iCLS Client;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files\\PuTTY;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit;C:\\WINDOWS\\System32\\OpenSSH;C:\\MONGODB\\bin;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\WINDOWS\\System32\\OpenSSH;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs;C:\\Users\\FANTAZER\\AppData\\Local\\Programs\\Python\\Python36-32\\Scripts;C:\\Users\\FANTAZER\\AppData\\Local\\Programs\\Python\\Python36-32;C:\\Users\\FANTAZER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\FANTAZER\\AppData\\Local\\atom\\bin;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\JetBrains\\PhpStorm 2018.3.1\\bin;C:\\Users\\FANTAZER\\AppData\\Local\\Markdown Monster;C:\\Users\\FANTAZER\\AppData\\Local\\Markdown Monster\\Markdown Monster;C:\\Users\\FANTAZER\\AppData\\Local\\Programs\\CodeExpander\\resources\\app\\nodes;C:\\Users\\FANTAZER\\.once-gui\\installation\\node_modules\\.bin;C:\\Users\\FANTAZER\\AppData\\Local\\Programs\\CodeExpander\\resources\\app\\node_modules\\.bin;C:\\Program Files\\JetBrains\\WebStorm 2020.2.2\\bin;C:\\Users\\FANTAZER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\FANTAZER\\AppData\\Roaming\\npm;C:\\Program Files\\Git\\usr\\bin\\vendor_perl;C:\\Program Files\\Git\\usr\\bin\\core_perl",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC",
+    "PKG_CONFIG_PATH": "C:\\Program Files\\Git\\mingw64\\lib\\pkgconfig;C:\\Program Files\\Git\\mingw64\\share\\pkgconfig",
+    "PLINK_PROTOCOL": "ssh",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 158 Stepping 9, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "9e09",
+    "PROGRAMFILES": "C:\\Program Files",
+    "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "PWD": "E:/PROJECT/WORK/LETBEFIT",
+    "PhpStorm": "C:\\Program Files\\JetBrains\\PhpStorm 2018.3.1\\bin;",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "SESSIONNAME": "Console",
+    "SHELL": "C:\\Program Files\\Git\\usr\\bin\\bash.exe",
+    "SHLVL": "2",
+    "SSH_ASKPASS": "C:/Program Files/Git/mingw64/libexec/git-core/git-gui--askpass",
+    "SYSTEMDRIVE": "C:",
+    "SYSTEMROOT": "C:\\WINDOWS",
+    "TEMP": "C:\\Users\\FANTAZER\\AppData\\Local\\Temp",
+    "TERM": "xterm-256color",
+    "TERMINAL_EMULATOR": "JetBrains-JediTerm",
+    "TERM_SESSION_ID": "10db08f0-e633-44e9-94df-1d66bfb27046",
+    "TMP": "C:\\Users\\FANTAZER\\AppData\\Local\\Temp",
+    "TMPDIR": "C:\\Users\\FANTAZER\\AppData\\Local\\Temp",
+    "USERDOMAIN": "DESKTOP-HTVCPC5",
+    "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-HTVCPC5",
+    "USERNAME": "FANTAZER",
+    "USERPROFILE": "C:\\Users\\FANTAZER",
+    "VS140COMNTOOLS": "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\",
+    "WINDIR": "C:\\WINDOWS",
+    "WebStorm": "C:\\Program Files\\JetBrains\\WebStorm 2020.2.2\\bin;",
+    "_": "C:/Program Files/nodejs/node"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+    "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+    "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+    "C:\\WINDOWS\\System32\\PSAPI.DLL",
+    "C:\\WINDOWS\\System32\\WS2_32.dll",
+    "C:\\WINDOWS\\System32\\RPCRT4.dll",
+    "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+    "C:\\WINDOWS\\System32\\msvcrt.dll",
+    "C:\\WINDOWS\\System32\\sechost.dll",
+    "C:\\WINDOWS\\System32\\USER32.dll",
+    "C:\\WINDOWS\\System32\\win32u.dll",
+    "C:\\WINDOWS\\System32\\GDI32.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+    "C:\\WINDOWS\\System32\\gdi32full.dll",
+    "C:\\WINDOWS\\System32\\ucrtbase.dll",
+    "C:\\WINDOWS\\System32\\msvcp_win.dll",
+    "C:\\WINDOWS\\System32\\CRYPT32.dll",
+    "C:\\WINDOWS\\System32\\bcrypt.dll",
+    "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+    "C:\\WINDOWS\\System32\\IMM32.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+    "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+    "C:\\WINDOWS\\system32\\uxtheme.dll",
+    "C:\\WINDOWS\\System32\\combase.dll",
+    "C:\\WINDOWS\\system32\\mswsock.dll",
+    "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+    "C:\\WINDOWS\\System32\\bcryptprimitives.dll",
+    "C:\\WINDOWS\\System32\\NSI.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\DNSAPI.dll",
+    "C:\\WINDOWS\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\WINDOWS\\system32\\napinsp.dll",
+    "C:\\WINDOWS\\system32\\pnrpnsp.dll",
+    "C:\\WINDOWS\\system32\\wshbth.dll",
+    "C:\\WINDOWS\\system32\\NLAapi.dll",
+    "C:\\WINDOWS\\System32\\winrnr.dll"
+  ]
+}

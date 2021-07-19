@@ -1,0 +1,18 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--clear-bottom
+		.main-cont
+			.title.title--xl Акции
+			.sale-list-container
+				.sale-list
+					- for (var i=0;i<6;i++)
+						a(href="#").sale-el
+							.sale-el__img(style="background-image:url('img/sale-1.jpg')")
+							.sale-el__content
+								.sale-el__text Копи баллы - питайся бесплатно! Бонусная программа для наших клиентов
+								.sale-el__get.link--mark Посмотреть
+	+footer()
+include ./block_html/_script.pug

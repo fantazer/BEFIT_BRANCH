@@ -1,0 +1,4637 @@
+@import 'rupture'
+@import "grid/_grid.styl"
+@import "variable/_function.styl"
+@import "variable/_helper.styl"
+@import "variable/_ie.styl"
+
+@import "variable/_default.styl"
+@import "variable/config/_grid.styl"
+
+@import "variable/config/_color.styl"
+@import "variable/config/_typography.styl"
+@import "variable/config/_btn.styl"
+@import "variable/config/_input.styl"
+@import "../module/**/*"
+
+
+body
+	@extend .type--main
+	font-family $v-font
+	color $main-text-color
+	line-height 1.4
+	letter-spacing 0.01em
+
+.scroll-template
+	+above(1025px)
+		&::-webkit-scrollbar
+			-webkit-appearance: none
+			width: 4px
+			height: 8px
+			background: #DCDFE8
+			border-radius: 4px
+		&::-webkit-scrollbar-thumb
+			border-radius: 4px
+			background: $mark
+
+.scroll-template-light
+	+above(1025px)
+		&::-webkit-scrollbar
+			-webkit-appearance: none
+			width: 4px
+			height: 8px
+			background: #f8f8f8
+			border-radius: 4px
+		&::-webkit-scrollbar-thumb
+			border-radius: 4px
+			background: $border-color
+
+
+.main-cont
+	+below(1280px)
+		padding: 0 42px
+	+below(640px)
+		padding: 0 20px
+	center(1312px,10px)
+
+.main-cont-md
+	+below(640px)
+		padding: 0 20px
+	center(1088px,42px)
+
+.main-cont-sm
+	+below(640px)
+		padding: 0 20px
+	center(936px,42px)
+
+.main-cont-xs
+	+below(640px)
+		padding: 20px
+	center(760px,42px)
+
+.main-cont--mobile-clear
+	+below(640px)
+		padding: 0
+
+.page
+	f()
+	fl()
+	min-height 100vh
+
+.content
+	@extend .pt-80
+	@extend .pb-100
+	flex-grow 1
+	position relative
+	overflow: hidden
+
+.content--clear
+	padding: 0
+
+.content--clear-bottom
+	padding-bottom: 0
+
+.content--clear-top
+	padding-top: 0!important
+
+
+.content--mark
+	background: $gradient
+
+.content--mid
+	flex(mid)
+
+.content--mobile-clear
+	+below(640px)
+		padding: 0
+		background: white
+.hidden-on-mobile
+	+below(640px)
+		display none!important
+
+.visible-on-mobile
+	+above(641px)
+		display none!important
+
+scroll-create-mobile()
+	white-space: nowrap
+	overflow: auto
+	margin: 0 -42px
+	padding-left: 42px
+	padding-bottom: 20px
+	+below(640px)
+		margin: 0 -20px 30px -20px
+		padding-left: 20px
+
+slider-create-mobile()
+	margin-right: -42px
+	.slick-slide
+		margin: 0 10px
+	.slick-list
+		margin: 0 -10px
+	.slick-track
+		display: flex !important
+	.slick-slide
+		height: inherit !important;
+
+// animate top menu
+@keyframes slideInDown
+	from
+		transform: translate3d(0, -100%, 0)
+		visibility: visible;
+	to
+		transform: translate3d(0, 0, 0)
+
+.shrink
+	position fixed
+	top 0
+	left 0
+	background white
+	width 100%
+	margin 0
+	animation:  slideInDown  .8s 1 ease-in-out;
+	z-index 200
+	+below(1024px)
+		.nav-wrap
+			display block
+	.header-top-wrap
+		display none
+	.nav-logo
+		+below(640px)
+			width: 16px
+			margin-left: -10px
+			min-width 16px
+		flex(mid)
+		margin-right: 8px
+	.nav-list
+		display none
+	.auth-wrap
+		display none
+	.dropdown--shrink
+		.dropdown-current
+			f()
+			align-items center
+	.nav-shrink
+		display flex
+		width: 100%
+// animate top menu === end
+
+// error
+.page-error
+	flex(mid)
+	fl()
+	height: 100%
+.page-error__title
+	@extend .type--xl
+	margin-bottom: 30px
+	font-weight: 700
+.page-error__img
+	margin-bottom: 30px
+	max-width 250px
+.page-error__text
+	margin-bottom: 30px
+	max-width 300px
+	text-align center
+.page-error__getпоп
+	@extend .btn--md
+	@extend .btn--mark
+// error === end
+
+// modal
+.modal-layer
+	width: 100%
+	height: 100vh
+	position: fixed
+	z-index 1000
+	top 0
+	left 0
+	visibility: hidden
+	transition all 1s // duration for fade
+	opacity 0
+
+.modal-layer-show
+	visibility: visible
+	opacity 1
+
+.modal-cont
+	width: 100%
+	height: 100%
+	position: relative
+	max-height 100%
+	overflow: auto
+
+.modal-filter
+	position: absolute
+	top: 0
+	left: 0
+	background: rgba(32, 34, 44, 0.5);
+	width: 100%
+	height: 100vh
+	min-height 100vh
+
+.modal
+	+below(640px)
+		width: 100%
+		box-shadow 0 0 0
+	transform scale(.9) translateZ(0) translate3d(0, 0, 0)
+	will-change: transform, opacity;
+	backface-visibility: hidden
+	position: absolute
+	opacity 0
+	transition transform .6s, opacity .8s
+	width 410px
+	left -9999px
+	top -9999px
+	.order__row
+		margin-bottom: 20px
+		border-bottom 0
+	&.modal-msg
+		top 50%
+		left 0
+		opacity: 1
+		position: fixed
+		transform translate(-100%,-50%)
+		z-index 1000
+		&.active
+			transform translate(0%,-50%)
+
+		.modal-content
+			border-radius 0
+			box-shadow: 0px 16px 40px rgba(41, 42, 53, 0.32);
+.modal--md
+	+below(640px)
+		width: 100%
+	width 632px
+
+.modal--mdx
+	+below(640px)
+		width: 100%
+	width 476px
+
+.modal-content
+	+below(640px)
+		height: 100%
+		//overflow-y scroll
+		width: calc(100% - 40px)
+		padding: 20px
+	+below(340px)
+		padding: 24px 16px
+	margin: 60px auto
+	background: white
+	position: relative
+	padding: 32px
+	br(16px)
+
+.modal-content--clear
+	padding: 0!important
+
+.modal__show
+	//max-height 100%
+	opacity 1
+	transform scale(1) translateZ(0) translate3d(0, 0, 0)
+	position: relative
+	z-index 1000
+	left initial
+	top initial
+	transition transform .6s, opacity .8s
+	will-change: transform, opacity
+	margin auto
+
+
+.modal-close
+	+below(640px)
+		right 20px
+	position: absolute
+	top: 20px
+	right: 0px
+	cp()
+	z-index 10
+	&:hover
+		.icon
+			fill $mark
+	.icon
+		tr()
+		fill white
+.modal-close--mark
+	background: $fieldBackground
+	round()
+	size 28px
+	flex(mid)
+	.icon
+		size 16px
+		fill black
+.modal-hide-animation
+	transform scale(.9)
+	opacity 0
+	transition transform .6s, opacity .8s
+.modal-open
+	overflow: hidden
+	overflow-y: scroll
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	width: 100%
+
+.modal-wrap
+	position: fixed
+	width: 100%
+	height: 100%
+	overflow-y auto
+	flex(mid)
+
+.modal-title
+	+below(768px)
+		font-size: 20px
+	margin-bottom: 24px
+	font-size: 24px
+	font-weight: 700
+	display block
+	color black
+
+.modal-text
+	+below(768px)
+		width: 100%
+	margin: 30px auto
+
+.modal-send
+	@extend .btn--md
+	@extend .btn--mark
+	width: 100%
+
+.modal--msg
+	&.modal__show
+		position absolute
+		top calc(100% + 20px)
+		left calc(50% - 160px)
+	z-index 1010
+	max-width 320px
+	.modal-content
+		padding: 20px 20px 24px 20px
+
+// modal === end
+
+//  modal template
+.modal-partner-img
+	+below(640px)
+		margin -20px -20px 20px -20px
+	bg-full()
+	padding: 35% 10%
+	margin -32px -32px 24px -32px
+	border-radius 16px 16px 0 0
+
+
+.modal-sale-img
+	+below(640px)
+		margin -20px -20px 20px -20px
+	bg-full()
+	padding: 28% 10%
+	margin -32px -32px 24px -32px
+	border-radius 16px 16px 0 0
+
+.modal-partner-footer
+	+below(640px)
+		padding-top: 12px
+		margin-top: 12px
+		fw()
+	padding-top: 30px
+	margin-top: 24px
+	border-top 1px solid $border-color
+	flex(between)
+
+.modal-partner-footer__info
+	+below(640px)
+		width: 100%
+
+.modal-fluid-cont
+	+below(640px)
+		margin-left: -20px
+		margin-right: -20px
+		padding: 20px
+	+below(340px)
+		margin-left: -16px
+		margin-right: -16px
+	padding: 24px 32px
+	margin-left: -32px
+	margin-right: -32px
+//  modal template === end
+
+// header
+.header
+	background: white
+.header-top-wrap
+	+below(1024px)
+		.main-cont
+			padding: 0 0 0 20px
+	border-bottom 1px solid $border-color
+//.main-cont
+.header-top
+	+below(1024px)
+		height: 60px
+	height: 72px
+	f()
+	align-items center
+.header-logo
+	+below(1024px)
+		width: 80px
+.header-location
+	+below(1024px)
+		margin-left: 26px
+	+below(960px)
+		display none
+	margin-left: 5%
+	position relative
+	.icon
+		tr()
+		margin-right: 16px
+		fill $gray
+	&:hover
+		cp()
+		color $mark
+		.icon
+			fill $mark
+
+.header-location-wrap
+	width: 100%
+	flex(mid)
+	color black
+	tr()
+
+.header-location__val--lg
+	+below(1024px)
+		display none
+.header-location__val--sm
+	+above(1025px)
+		display none
+
+.header-contact
+	+below(740px)
+		display none
+	margin-left: 5%
+	f()
+	align-items center
+.header-phone
+	@extend .type--md
+	font-weight 700
+.header-phone-link
+	margin-left: 24px
+
+.header-soc
+	+below(740px)
+		display none
+	margin-left auto
+	f()
+.header-soc__el
+	+below(1024px)
+		size 60px
+	size 72px
+	flex(mid)
+	border-left 1px solid $border-color
+	tr()
+	background: white
+	&:last-child
+		border-right 1px solid $border-color
+	&:hover
+		.icon
+			fill white
+	.icon
+		fill $gray
+
+.header-msg
+	+above(741px)
+		display none
+	f()
+	margin-left auto
+.header-msg__el
+	+below(1024px)
+		size 60px
+	size 72px
+	flex(mid)
+	border-left 1px solid $border-color
+	tr()
+	background: white
+	&:last-child
+		border-right 1px solid $border-color
+
+.soc-el--instagram
+	position relative
+	.icon
+		z-index 2
+	&:before
+		content ''
+		tr()
+		position absolute
+		top 0
+		left 0
+		width: 100%
+		height: 100%
+		background: linear-gradient(43.94deg, #EEA054 16.16%, #D64763 50.11%, #B62A99 83.68%);
+		opacity: 0
+	&:hover
+		&:before
+			content ''
+			opacity: 1
+.soc-el--telegram
+	&:hover
+		background: #2F89CE
+.soc-el--wp
+	&:hover
+		background: #48C95F
+.nav-wrap
+	+below(1024px)
+		display none
+	box-shadow: 0 4px 8px rgba(102, 130, 185, 0.12);
+	position relative
+	.main-cont
+		position: static
+.nav
+	+below(640px)
+		height: 40px
+	f()
+	height: 72px
+	align-items: stretch
+.nav-logo
+	display none
+.nav-list
+	flex(between)
+	width: 75%
+	margin 0 auto 0 0
+	padding: 0
+.nav-list__el
+	tr()
+	font-weight: 500
+	height: 100%
+	flex-grow 1
+	list-style none
+	&:hover
+		& > a
+			color $mark
+	& > a, & > span
+		f()
+		align-items center
+		height: 100%
+		width: 100%
+		cp()
+	&:hover
+		& > span
+			color $mark
+.nav-list__el
+	&:hover
+		.drop-menu-wrap
+			opacity: 1
+			transform translateY(0)
+			visibility visible
+.drop-menu-wrap
+	transition opacity .8s, transform .6s, visibility .6s
+	top 100%
+	width: 100%
+	z-index 110
+	background: white
+	padding: 32px 0 48px 0
+	border-top 1px solid $border-color
+	box-shadow: 0 4px 8px rgba(102, 130, 185, 0.12);
+	opacity: 0
+	transform translateY(-10px)
+	position absolute
+	left 0
+	visibility hidden
+
+.drop-menu
+	f()
+	justify-content space-between
+.drop-menu-list
+	width: 63%
+	f()
+	justify-content space-between
+.drop-menu-list__col
+	width: 23%
+.drop-menu__el
+	display block
+	&:last-child
+		margin-bottom: 0
+		.drop-menu__list
+				&:last-child
+					margin-bottom: 0
+.drop-menu__el-title
+	color $typeSecondary
+	@extend .type--sm
+	margin-bottom: 20px
+.drop-menu__list
+	margin-bottom: 32px
+.drop-menu__list--simple
+	.drop-menu__list__el
+		margin-bottom: 10px
+		@extend .type--main
+		&:last-child
+			margin-bottom: 0
+.drop-menu__list--extend
+	margin-bottom: 0
+	column-count 2
+	column-gap 140px
+	.drop-menu__list__el
+		white-space nowrap
+.drop-menu__list__el
+	margin-bottom: 15px
+	@extend .type--md
+	font-weight 700
+	@extend .link
+	display block
+	&:last-child
+		margin-bottom: 0
+
+.drop-menu-card
+	width: 34%
+	display: grid
+	grid-gap 28px
+	grid-template-columns: 1fr 1fr
+.drop-menu-card--sm
+	+below(640px)
+		padding: 22px
+		grid-template-columns: 1fr
+	padding: 32px 0
+	width: 100%
+	grid-template-columns: repeat(auto-fill, minmax(18rem,1fr))
+	.drop-menu-card__el
+		padding: 20px
+		.icon
+			margin: 0 12px 0 0
+	.drop-menu-card__text
+		width: 100%
+	.drop-menu-card__title
+		margin-bottom: 0
+
+.drop-menu-card__el-info
+	width: 100%
+	f()
+	align-items center
+	margin-bottom: 8px
+
+.drop-menu-card__title
+	margin-bottom: 8px
+.drop-menu-card__text
+	@extend .type--sm
+	color $typePrimary
+	line-height: 1.6
+.drop-menu-card__el
+	br(12px)
+	padding: 26px
+	background: white
+	position relative
+	display block
+	tr()
+	.icon
+		margin-bottom: 24px
+	&:hover
+		background: transparent
+	&:before
+		content ''
+		position absolute
+		top -4px
+		right -4px
+		left -4px
+		bottom -4px
+		background: linear-gradient(98.95deg, #E3EEFF 0%, #E4F6E4 52.6%, #FFEEE4 100%)
+		br(14px)
+		z-index -1
+.auth-wrap
+	f()
+	align-items center
+	font-weight: 500
+	color black
+	.auth-state--true
+		display none
+.auth-wrap.auth-wrap--true
+	.auth-state--false
+		display none
+	.auth-state--true
+		display flex
+.auth-state
+	f()
+	align-items center
+	.icon
+		margin-right: 18px
+		fill $mark
+
+.nav-shrink
+	display none
+	+below(640px)
+		font-size: 12px
+
+.nav-shrink__cost
+	+below(640px)
+		font-size: 12px
+.nav-shrink__get
+	+below(640px)
+		br(0)
+		margin-right: -20px
+		height: 100%
+		font-weight: 400
+		padding: 12px 10px
+		font-size: 12px
+// header === end
+
+// slick
+.slick-slide
+	&:hover
+		outline none!important
+	&:active
+		outline none!important
+	&:focus
+		outline none!important
+
+.slider-wrap
+	position relative
+
+.slider-control-wrap
+	f()
+	gap(16px)
+
+
+.slider-control-row
+	f()
+	.slider-control
+		&:first-child
+			margin-right: 24px
+.slider-control
+	flex(mid)
+	tr(all)
+	z-index 10
+	size 80px
+	cp()
+	round()
+	background: white
+	&:hover
+		background: white
+		box-shadow: 0px 12px 32px rgba(41, 42, 53, 0.16);
+		.icon
+			fill black
+	.icon
+		fill black
+.slider-control--light
+	border 1px solid #ffffff3b
+	background: transparent
+	.icon
+		fill white
+		tr()
+	&:hover
+		background: white
+		border 1px solid white
+		.icon
+			fill black
+.slider-control--light-gray
+	border 1px solid #11111133
+	background: transparent
+	.icon
+		tr()
+	&:hover
+		background: white
+		border 1px solid white
+		.icon
+			fill black
+.slider-control--white
+	border 0!important
+
+.slider-control--md
+	size 64px
+	.icon
+		size 24px
+
+.slider-control--sm
+	size 44px
+	.icon
+		size 18px
+
+//Навигация внутри
+.slider-wrap--inarrow
+	.slider-control
+		+below(1580px)
+			display none
+		position: absolute
+		top 50%
+		margin-top: -40px
+	.slider-control--left
+		left 80px
+	.slider-control--right
+		right 80px
+//Навигация внутри
+// === for custom navigation ===
+.slider-extend
+	.slick-slide
+		+below(1024px)
+			margin: 0 8px
+		margin: 0 14px
+	.slick-list
+		+below(1024px)
+			margin: 0 -8px
+		margin: 0 -14px
+
+.slider-main .slider-el-wrap:not(:first-child)
+	visibility: hidden
+
+.slider-main.slick-initialized .slider-el-wrap:not(:first-child)
+	visibility: visible
+
+.slider-main
+	.slick-track
+		display: flex !important;
+	.slick-slide
+		height: inherit !important;
+	.slider-el-wrap
+		&.slick-active
+			.board__img
+					transform: scale(1, 1)
+			.board__title
+				transform: translateX(0%)
+				opacity: 1
+			.board__title-sub
+				transform: translateY(0%)
+				opacity: 1
+			+below(640px)
+				.board__content
+					margin-left: -1px
+					opacity: 1
+	.board__el
+		height: 100%
+		transition all .8s
+		padding: 2% 0
+		+below(640px)
+			padding: 0
+			.main-cont
+				padding: 0
+	.main-cont
+		height: 100%
+	.board__el-wrap
+		+below(1024px)
+			padding: 0
+		+below(768px)
+			padding 40px 0 0 0
+			f()
+			fl()
+			max-height initial
+		+below(640px)
+			padding: 20px 0 0 0
+		height: 100%
+	.board__img
+		+below(768px)
+			padding: 30% 32%
+			margin-left 0
+		+below(640px)
+			position: static
+			padding: 42%
+			margin: 0
+			width: 100%
+			transform: scale(1.1,1.1)
+		position: static
+		bg-full()
+		padding: 19% 21%
+		margin-left auto
+		transition all 1s
+		transform: scale(.85, .85)
+	.board__content
+		+below(1024px)
+			width: 62%
+			max-width initial
+		+below(768px)
+			width: 100%
+		+below(640px)
+			opacity: 0
+			tr()
+		height: 100%
+		padding: 3% 0
+	.board__title
+		+below(1024px)
+			font-size: 56px
+		+below(768px)
+			text-align center
+			width: 100%
+			font-size: 52px
+		+below(640px)
+			font-size: 28px
+		transition all 1s
+		transform: translateX(-10%)
+		opacity: 0
+	.board__title-sub
+		+below(768px)
+			text-align center
+			width: 100%
+			max-width initial
+		transition all 1s
+		transform: translateY(40%)
+		opacity: 0
+// slick === end
+
+// fix loop slider
+.slick-slide[aria-hidden="true"]:not([tabindex="-1"]) + .slick-cloned[aria-hidden="true"]
+	.board__img
+		transform: scale(1, 1)
+	.board__title
+		transform: translateX(0%)
+		opacity: 1
+	.board__title-sub
+		transform: translateY(0%)
+		opacity: 1
+	+below(640px)
+		.board__content
+			margin-left: -1px
+			opacity: 1
+
+.slick-slide[aria-hidden="true"] + .slick-cloned[aria-hidden="true"]
+	.board__img
+		transform: scale(1.1, 1.1)
+// fix loop slider === end
+
+
+// main slider
+.board__el
+	position relative
+
+.board__el--hidden
+	overflow hidden
+
+.board__el-wrap
+	+below(1280px)
+		min-height 460px
+		padding: 60px 0
+	+below(960px)
+		min-height 350px
+	+below(640px)
+		padding: 20px 0 0 0
+		fl()
+		min-height initial
+		max-height initial
+	position relative
+	max-height 580px
+	f()
+	align-items center
+.board__el-wrap--extend
+	+below(640px)
+		padding: 20px 0 0 0
+	padding: 13% 0
+	.board__title
+		+below(960px)
+			font-size: 56px
+		+below(768px)
+			font-size: 34px
+		@extend .mb-32
+		color white
+	.board__img
+		+below(1024px)
+			padding: 24% 28%
+		+below(640px)
+			position: static
+			padding: 40% 24%
+			margin: auto auto 0 auto
+			width: 90%
+		position absolute
+		padding: 20% 24%
+		bg-full()
+		right: -32px
+		bottom 0
+
+
+
+.board__el-wrap--full
+	+below(1024px)
+		height calc(100vh - 60px)
+	height calc(100vh - 145px)
+.board__el-wrap--sm
+	padding: 10% 0 8% 0
+	+below(640px)
+		padding: 20px 0 0 0
+.board__title
+	+below(1280px)
+		font-size: 56px
+	+below(960px)
+		font-size: 30px
+	+below(640px)
+		text-align center
+		margin-bottom: 10px
+	@extend .type--xl
+	font-weight 700
+	margin-bottom: 32px
+.board__title-sub
+	+below(640px)
+		margin-top: 0
+		text-align center
+	@extend .type--md
+	margin-bottom: 5%
+	max-width 415px
+
+.board__title-sub-sm
+	+below(640px)
+		text-align center
+		margin-bottom: 20px
+	color white
+	@extend .type--md
+	margin-top: 0
+	margin-bottom: 40px
+	max-width 630px
+
+.board__content
+	+below(1280px)
+		width: 100%
+		max-width 535px
+	+below(960px)
+		max-width 320px
+	+below(640px)
+		flex(mid)
+		fl()
+		max-width 100%
+	width: 50%
+	f()
+	fl()
+	align-items: flex-start
+	z-index 10
+
+.board__content--retail
+	+below(640px)
+		f()
+		align-items start
+		fl()
+		height: 100%
+		.board__title
+			margin-top: -15%
+			text-align: left
+			width: 70%
+			font-size: 44px
+		.board__title-sub-sm
+			text-align: left
+			width: 90%
+
+.slider-main-nav
+	position absolute
+	width: 100%
+	bottom 12%
+
+.board__img
+	+below(1024px)
+		padding: 20% 22%
+	+below(768px)
+		padding: 26% 28%
+	+below(640px)
+		position: static
+		margin-top: 20px
+		padding: 38% 24%
+		width: 90%
+	position absolute
+	padding: 18% 20%
+	bg-full()
+	right: -32px
+	bottom 0
+
+// main slider === end
+
+
+// advant-section
+.advant
+	+below(1024px)
+		grid-gap 20px
+		grid-template-columns: repeat(auto-fill, minmax(12rem,1fr))
+	+below(768px)
+		grid-template-columns: repeat(2, 1fr)
+	display: grid
+	grid-gap 28px
+	//grid-template-columns: repeat(4, 1fr)
+	grid-template-columns: repeat(auto-fill, minmax(16rem,1fr))
+
+.advant--md
+	+below(1024px)
+		grid-template-columns: repeat(auto-fill, minmax(14rem,1fr))
+		grid-gap 20px
+	grid-template-columns: repeat(5, 1fr)
+
+.advant--sm
+	+below(640px)
+		grid-template-columns: repeat(1, 1fr)
+	grid-template-columns: repeat(3, 1fr)
+
+.advant__el
+	+below(1024px)
+		padding: 20px
+	+below(640px)
+		padding: 16px
+	border-radius 12px
+	border 1px solid $border-color
+	padding: 28px 20px 20px 20px
+	tr()
+	f()
+	fl()
+	background: white
+.advant__el-icon
+	+below(768px)
+		width: 48px
+		margin-bottom: 32px
+	margin: 0 0 46px 0
+	img
+		+below(1024px)
+			size: 60px
+		size: 80px
+.advant__el-text
+	+below(1024px)
+		font-size: 12px
+	color $typePrimary
+// advant-section === end
+
+// invite
+.invite
+	+below(640px)
+		fl()
+		margin-left: -20px
+		width calc(100% + 40px)
+		border-radius 0
+		overflow: initial
+	f()
+	@extend .mb-100
+	align-items stretch
+	justify-content space-between
+	overflow: hidden
+.invite-img
+	+below(1024px)
+		width: 60%
+	+below(640px)
+		width: 100%
+		padding: 50% 10%
+		background-size 150%
+		background-position center 100%
+	width: 52%
+	position relative
+	background-size cover
+	background-repeat no-repeat
+	background-position -80px center
+
+.invite-msg
+	+below(768px)
+		top 10%
+		right: 10%
+	+below(640px)
+		top 50%
+		right: 5%
+	position absolute
+	top 55%
+	size: 160px
+	padding: 5.7% 3%
+	round()
+	flex(mid)
+	fl()
+	background: white
+	color black
+	right: 5%
+	box-shadow: 0px 4px 8px rgba(102, 130, 185, 0.12)
+	img
+		size 32px
+		margin-bottom: 6px
+	span
+		font-size: 12px
+		text-align center
+.invite-info
+	+below(640px)
+		width: 100%
+		order 1
+		margin-bottom: 20px
+	width: 40%
+.invite-info__btn
+	+below(768px)
+		width: 100%
+		padding: 18px 20px
+	+below(640px)
+		display none
+.invite-info-wrap
+	+below(640px)
+		padding: 30px 20px
+		width: 100%
+	padding: 80px 0
+	width: 90%
+.invite-title
+	+below(640px)
+		br
+			display none
+	@extend .type--lgx
+	@extend .type--head
+	@extend .mb-24
+.invite-text
+	+below(768px)
+		width: 100%
+	+below(640px)
+		margin-bottom: 0
+	@extend .mb-48
+	color $typePrimary
+	width: 80%
+.invite-subs
+	+below(768px)
+		align-items: flex-start
+	+below(640px)
+		fl()
+		justify-content: center
+	f()
+	align-items center
+	@extend .mb-100
+.invite-subs-img
+	+below(1024px)
+		width: 50%
+	+below(640px)
+		width: 100%
+		margin-bottom: 24px
+		margin-right: 0
+		flex(mid)
+	width: 40%
+	margin-right: 10%
+.invite-subs-info
+	+below(1024px)
+		width: 45%
+	+below(768px)
+		width: 50%
+	+below(640px)
+		width: 100%
+	width: 40%
+	.input-btn-cont
+		+below(1024px)
+			fl()
+			width: 100%
+			.input-row
+				width: 100%
+			.btn--md
+				width: 100%
+.invite-subs-title
+	+below(1024px)
+		line-height: 1.3
+	+below(640px)
+		text-align center
+	@extend .type--lgx
+	font-weight 700
+	color black
+	margin-bottom: 24px
+.invite-subs-text
+	+below(1024px)
+		font-size: 16px
+	+below(640px)
+		text-align center
+	@extend .mb-64
+	@extend .type--md
+	color $typePrimary
+	line-height: 1.6
+// invite === end
+
+// soc-row
+.soc-row
+	f()
+
+.soc-row--mid
+	flex(mid)
+
+.soc-row--lg
+	.soc-row__el
+		+below(360px)
+			size 56px
+		size 72px
+.soc-row__el
+	round()
+	flex(mid)
+	tr(all)
+	margin-right: 16px
+	size 48px
+	background: #787775
+	&:last-child
+		margin-right: 0
+	.icon
+		fill white
+.soc-row--monochrome
+	.soc-row__el
+		background: rgba(255,255,255,0.1)
+		&:hover
+			background: rgba(255,255,255,0.2)
+		.icon
+			fill white
+.soc-row--gray
+	.soc-row__el
+		background: $grayLight
+		&:hover
+			background: darken($grayLight,10)
+// soc-row === end
+
+// footer
+.footer
+	background: #383941
+	color #fff6
+	a
+		&:hover
+			color $mark
+
+.footer-top
+	+below(1024px)
+		padding: 32px 0
+	+below(640px)
+		fl()
+		align-items center
+		justify-content center
+	f()
+	padding: 48px 0
+.footer-contact
+	+below(1024px)
+		margin-right:auto
+	+below(640px)
+		width: 100%
+		order 2
+		flex(mid)
+		fl()
+	width: 45%
+.footer-phone
+	@extend .type--lg
+	font-weight 700
+	color white
+	display inline-block
+	margin-bottom: 12px
+.footer-work
+	+below(1024px)
+		margin-bottom: 32px
+	margin-bottom: 40px
+//.soc-row
+//.soc-row__el
+.soc-row__el--wp
+	background: #48C95F
+	&:hover
+		background: darken(#48C95F,10)
+
+.soc-row__el--telegram
+	background: #2F89CE
+	&:hover
+		background: darken(#2F89CE,10)
+
+.soc-row__el--viber
+	background: #7C509A
+	&:hover
+		background: darken(#7C509A,10)
+
+.soc-row__el--instagram
+	background: linear-gradient(43.94deg, #EEA054 16.16%, #D64763 50.11%, #B62A99 83.68%);
+
+.soc-row__el--fb
+	background: #232894
+	&:hover
+		background: darken(#232894,10)
+
+.soc-row__el--twitter
+	background: #00C2FF
+	&:hover
+		background: darken(#00C2FF,10)
+
+.soc-row__el--vk
+	background: #337FC5
+	&:hover
+		background: darken(#337FC5,10)
+
+.footer-address
+	+below(1024px)
+		display none
+	margin-left auto
+.footer-scroll
+	+below(640px)
+		order 1
+		margin 0 0 32px 0
+	size 82px
+	round()
+	flex(mid)
+	background: #ffffff1a
+	cp()
+	tr()
+	margin-left: 10%
+	&:hover
+		background: #ffffff26
+		.icon
+			transform translateY(-3px)
+	.icon
+		transform translateY(0)
+		tr()
+		fill white
+.footer-address__mail
+	display inline-block
+	margin: 20px 0 24px 0
+.footer-address__info
+	line-height: 1.6
+.footer-menu-wrap
+	+below(1024px)
+		padding: 32px 0
+	padding: 48px 0
+	border-top 1px solid #ffffff1a
+	border-bottom 1px solid #ffffff1a
+.footer-menu
+	f()
+	justify-content space-between
+.footer-menu__col
+	+below(1024px)
+		display none
+	width: 22%
+.footer-menu__col--app
+	+below(1024px)
+		width: 100%
+		flex(between)
+		.footer-menu__title
+			margin-bottom: 0
+	+below(640px)
+		fl()
+.footer-menu__title
+	@extend .type--md
+	font-weight 700
+	color white
+	margin-bottom: 36px
+.footer-menu__list-el
+	display block
+	color #fff6
+	margin-bottom: 24px
+	&:last-child
+		margin-bottom: 0
+.app-list
+	+below(640px)
+		f()
+		fl()
+		margin-top: 32px
+.app-list__el
+	+below(1024px)
+		margin 0 20px 0 0
+		&:last-child
+			margin 0
+	+below(640px)
+		margin 0 0 20px 0
+	display inline-block
+	margin-bottom: 20px
+//.footer-bottom-wrap
+.footer-bottom
+	+below(1024px)
+		padding: 32px 0
+	+below(640px)
+		f()
+		fl()
+		align-items center
+	padding: 48px 0
+	f()
+	justify-content space-between
+.footer-bottom__info
+	+below(640px)
+		margin: 0 0 24px 0
+	f()
+	align-items center
+.footer-bottom__info-text
+	+below(640px)
+		margin: 0
+		text-align center
+	margin-right: 42px
+.footer-payment
+	+below(640px)
+		flex(mid)
+		fw()
+		width: 80%
+		margin 0 auto
+	f()
+	align-items center
+	grid-gap 16px
+	.icon
+		fill white
+		width: 3.5em
+		opacity: .3
+		tr()
+		flex(mid)
+		&:hover
+			opacity: 1
+		&:last-child
+			margin-right: 0
+.soc-row--footer
+	+below(1024px)
+		display none
+// footer === end
+
+// program constructor
+.program-main-wrap
+	+below(1024px)
+		margin-bottom: 0
+	margin-bottom: 100px
+
+.program-type-wrap
+	+below(1024px)
+		scroll-create-mobile()
+	display: grid!important
+	grid-template-columns: 1fr;
+	flex-grow: 1
+	+below(1024px)
+		padding-bottom: 30px
+		margin-bottom: -12px!important
+.program-type
+	+below(1024px)
+		grid-gap 0
+		margin-bottom: 0
+	display: grid!important
+	grid-gap 28px
+	grid-template-columns: repeat(6, 1fr)
+	margin-bottom: 48px
+	//grid-template-columns: repeat(auto-fill, minmax(12rem,1fr))
+.program-type__el
+	+below(1024px)
+		padding: 16px
+		height: 140px!important
+		width: 140px
+		display: flex
+		margin-right: 10px
+	@extend .type--smx
+	tr()
+	cp()
+	height: 192px
+	border-radius 8px
+	padding: 22px
+	f()
+	fl()
+	font-weight: 700
+	.icon
+		+below(1024px)
+			size 40px
+		tr()
+		size 48px
+
+program-type(bg,textColor,iconColor)
+	background-color bg
+	color textColor
+	.icon
+		fill iconColor
+	&:hover,&.active
+		.icon
+			fill white
+		background: iconColor
+		color white
+
+.program-type__el--seaLight
+	program-type($seaLight,$sea,$sea)
+	&:hover
+		box-shadow: 0px 8px 24px rgba(29, 208, 199, 0.32);
+	&.active
+		box-shadow: 0px 8px 24px rgba(29, 208, 199, 0.32);
+
+.program-type__el--blueLight
+	program-type($blueLight,$blue,$blue)
+	&:hover
+		box-shadow: 0px 8px 24px rgba(0, 101, 189, 0.32);
+	&.active
+		box-shadow: 0px 8px 24px rgba(0, 101, 189, 0.32);
+
+.program-type__el--pinkLight
+	program-type($pinkLight,$pink,$pink)
+	&:hover
+		box-shadow: 0px 8px 24px rgba(255, 104, 137, 0.32);
+	&.active
+		box-shadow: 0px 8px 24px rgba(255, 104, 137, 0.32);
+
+.program-type__el--swampLight
+	program-type($swapmLight,$swapm,$swapm)
+	&:hover
+		box-shadow: 0px 8px 24px rgba(118, 134, 104, 0.32);
+	&.active
+		box-shadow: 0px 8px 24px rgba(118, 134, 104, 0.32);
+
+.program-type__el--orangeLight
+	program-type($orangeLight,$orange,$orange)
+	&:hover
+		box-shadow: 0px 8px 24px rgba(255, 123, 39, 0.32);
+	&.active
+		box-shadow: 0px 8px 24px rgba(255, 123, 39, 0.32);
+
+.program-type__el--violetLight
+	program-type($violetLight,$violet,$violet)
+	&:hover
+		box-shadow: 0px 8px 24px rgba(107, 51, 178, 0.32);
+	&.active
+		box-shadow: 0px 8px 24px rgba(107, 51, 178, 0.32);
+
+.program-type__el-name
+	margin-top: auto
+
+.program-group-wrap
+	border-bottom 1px solid $border-color
+	margin-bottom: 32px
+.program-group
+	+below(640px)
+		overflow auto
+		margin-right: -20px
+		margin-left: -20px
+		padding-left: 20px
+		white-space nowrap
+		display block
+		&:after
+			content ''
+			display inline-block
+			width: 40px
+			height: 1px
+	f()
+	opacity: 0
+	left -9999px
+	visibility: hidden
+	position absolute
+	transform translateX(10px)
+	transition opacity 1.2s, transform .8s
+	&.active
+		transform translateX(0px)
+		visibility: visible
+		opacity: 1
+		left initial
+		position: relative
+.program-group__el
+	+below(640px)
+		padding: 10px
+		display inline-block
+		min-width 132px
+	min-width 192px
+	padding: 20px
+	//width: 192px
+	border-bottom 3px solid transparent
+	cp()
+	tr()
+	&.active
+		border-bottom 3px solid $mark
+
+.program-group__el--navy
+	&.active
+		border-bottom 3px solid $navy
+
+.program-group__el-name
+	@extend .type--mdx
+	font-weight 700
+	color black
+.program-group__el-val
+	+below(640px)
+		flex-flow column
+		font-size: 12px
+	color $typeSecondary
+	f()
+	fw()
+	white-space nowrap
+	grid-column-gap 5px
+	span
+		color black
+		display inline-block
+// program constructor === end
+
+// program list
+//.program-list-wrap
+.program-list-header
+	+below(1024px)
+		margin-bottom: 32px
+	+below(740px)
+		fl()
+		flex(mid)
+	fw()
+	f()
+	align-items center
+	margin-bottom: 40px
+	gap(20px)
+.program-list-header--extend
+	+below(1024px)
+		.program-days
+			order 3
+	+below(768px)
+		.program-days
+			order initial
+.program-days
+	+below(1024px)
+		margin-right:initial
+	f()
+	margin-right auto
+.program-days__el
+	+below(640px)
+		margin-right: 6px
+	flex(mid)
+	size 42px 44px
+	br(20px)
+	margin-right: 12px
+	cp()
+	tr()
+	@extend .type--smx
+	font-weight 700
+	color black
+	border 1px solid $border-color
+	background: white
+	&:hover
+		border 1px solid $mark
+	&.active
+		border 1px solid $mark
+		background: $mark
+		color white
+	&:last-child
+		margin-right: 0
+	&.disable
+		color $typeDisable
+		border 1px solid $border-color!important
+		&:active
+			pointer-events none
+
+.program-days__el--navy
+	&.active
+		border 1px solid $navy
+		background: $navy
+	&:hover
+		border 1px solid $navy
+
+.program-days__el--mark
+	color $mark
+	&:hover
+		border 1px solid $mark
+	&.active
+		border 1px solid $mark
+		background: $mark
+
+.program-days__el--orange
+	color $orange
+	&:hover
+		border 1px solid $orange
+	&.active
+		border 1px solid $orange
+		background: $orange
+
+.program-days__el--yellow
+	color $yellow
+	&:hover
+		border 1px solid $yellow
+	&.active
+		border 1px solid $yellow
+		background: $yellow
+
+.program-consist
+	+below(640px)
+		min-width auto
+		width: 100%
+	f()
+	width: 25%
+	min-width 320px
+.program-consist__el
+	padding: 0 10px
+	flex-grow 1
+	flex(mid)
+	fl()
+	text-align center
+	border-right 1px solid $border-color
+	&:last-child
+		border 0
+.program-consist__el-val
+	font-weight 700
+	margin-bottom: 5px
+	color black
+.program-consist__el-type
+	@extend .type--sm
+	color $typePrimary
+
+.program-list-container
+	+below(1280px)
+		scroll-create-mobile()
+		padding-bottom: 20px
+		margin-bottom: 10px!important
+	display: grid!important
+	grid-template-columns: 1fr;
+	flex-grow: 1
+.program-list
+	+below(1280px)
+		grid-template-columns: initial
+		grid-auto-flow:column
+		grid-gap 0
+		.program-el
+			margin-right: 16px
+			min-width: 300px
+			display: flex
+	display: grid
+	grid-gap 28px
+	grid-template-columns: repeat(4, 1fr)
+
+.program-list-scroll-wrap
+	overflow: hidden!important
+.program-list-scroll
+	f()
+	margin-left: -600px
+	animation autoScroll linear 35s infinite both
+	padding-bottom: 20px
+	.program-el
+		width: 300px
+		margin-right: 20px
+
+// animate top menu
+@keyframes autoScroll
+	0%
+		transform: translateX(0)
+	50%
+		transform: translateX(calc(600px))
+	100%
+		transform: translateX(0)
+
+.program-el
+	br(12px)
+	overflow hidden
+	tr()
+	display: flex
+	fl()
+	white-space initial
+	max-width 300px
+	position relative
+	&:hover
+		box-shadow 0 12px 32px rgba(41, 42, 53, 0.16)
+		.program-el-wrap
+			border 1px solid transparent
+
+
+
+.program-el__img
+	bg-full()
+	//padding: 38% 10%
+	width: 100%
+	height: 232px
+	position relative
+	.rating
+		position absolute
+		bottom 12px
+		left 20px
+
+.program-el__img--sm
+	height: 200px
+
+.program-el__img-val
+	position absolute
+	color white
+	top 16px
+	left 16px
+.rating
+	f()
+	grid-gap 5px
+	align-items center
+.rating--msg
+	padding: 3px 10px
+	background: white
+	br(12px)
+	font-size: 12px
+.rating-wrap
+	f()
+	align-items center
+	position relative
+	.icon
+		margin-right: 5px
+		fill $grayLight
+.rating-val
+	color white
+	line-height: 1
+	margin: -4px 0 0 4px
+
+.rating--fill
+	position absolute
+	top 0
+	left 0
+	width: 100%
+	height: 100%
+	f()
+	align-items center
+	overflow hidden
+.rating__el
+	.icon
+		size 16px
+	&.active
+		.icon
+			fill #FFA800
+.program-el-wrap
+	f()
+	fl()
+	tr()
+	flex-grow 1
+	border 1px solid $border-color
+	border-top 0!important
+	border-radius 0 0 12px 12px
+	background: white
+.program-el__content
+	flex-grow 1
+	padding: 20px
+.program-el__content--flex
+	f()
+	fl()
+.program-el__head
+	flex(between)
+	color $typeSecondary
+	@extend .type--sm
+	margin-bottom: 10px
+.program-el__title
+	line-height: 1.4
+	color black
+	margin-bottom: 8px
+.program-el__text
+	+below(768px)
+		font-size: 12px
+	@extend .type--sm
+	color $typePrimary
+
+.program-el__footer
+	padding: 12px 20px
+	border-top 1px solid $border-color
+	flex(between)
+
+.program-el__footer--clear
+	border 0
+	padding: 0
+	margin-top: auto
+.program-banner
+	+below(1024px)
+		display none
+	background: linear-gradient(98.95deg, #E3EEFF 0%, #E4F6E4 52.6%, #FFEEE4 100%)
+	br(12px)
+	padding: 12px
+	position relative
+
+.program-banner--mobile
+	+above(1025px)
+		display none
+	+below(1024px)
+		display block
+	+below(768px)
+		margin-bottom: 40px
+	display block
+	margin-bottom: 60px
+	.program-banner-inner
+		+below(760px)
+			fl()
+			justify-content center
+		f()
+		flex-flow row
+		justify-content flex-start
+		background: transparent
+		.btn--md
+			+below(760px)
+				margin: 0 0 30px 0
+				width: 100%
+			width: auto
+			margin-bottom: 0
+			margin-right: 30px
+	.program-banner__cost
+		+below(820px)
+			font-size: 24px
+		+below(760px)
+			font-size: 38px
+			margin: 0
+		font-size: 32px
+		margin-right: 10px
+	.program-banner__img
+		+below(760px)
+			margin: 0 0 10px 0
+		margin-bottom: 0
+		margin-right: 30px
+	.program-banner__text
+		+below(820px)
+			font-size: 24px
+		+below(760px)
+			width: 100%
+			margin: 0 0 20px 0
+			text-align center
+		margin-bottom: 0
+		font-size: 32px
+		margin-right auto
+
+.program-banner-inner
+	background: white
+	height: 100%
+	f()
+	fl()
+	align-items center
+	justify-content center
+	padding: 20px
+	.btn--md
+		width: 100%
+.program-banner__img
+	size 48px
+	margin-bottom: 16px
+.program-banner__cost
+	@extend .type--xl
+	font-weight 700
+	color black
+.program-banner__text
+	@extend .type--md
+	font-weight 700
+	color black
+	margin-bottom: 32px
+
+.program-banner__cost-wrap
+	+below(760px)
+		margin: 0
+	margin-right auto
+
+.program-banner__cost-wrap__el
+	+below(760px)
+		flex(mid)
+		fl()
+	f()
+	align-items center
+
+// program list === end
+
+// work-step
+.work-step
+	+below(1024px)
+		grid-gap 20px
+	+below(768px)
+		grid-template-columns: 1fr
+	display: grid
+	grid-gap 28px
+	//grid-template-columns: repeat(3, 1fr)
+	grid-template-columns: repeat(auto-fit, minmax(12rem,1fr))
+
+work-step(bgVal,colorVal)
+	.work-step__el
+		background: bgVal
+		border 0
+	.work-step__el-title
+		color colorVal
+	.work-step__el-text
+		color colorVal
+
+.work-step--swamp
+	work-step($swapmLight,$swapm)
+
+.work-step--green
+	work-step($greenLight,$greenDark)
+
+.work-step--pink
+	work-step($pinkLight,$pink)
+
+.work-step--violet
+	work-step($violetLight,$violet)
+
+.work-step--coral
+	work-step($coralLight,$coral)
+
+.work-step--blue
+	work-step($blueLight,$blue)
+
+.work-step--sea
+	work-step($seaLight,$sea)
+
+.work-step--orange
+	work-step($orangeLight,$orange)
+
+.work-step__el
+	+below(1024px)
+		padding: 20px
+	border-radius 12px
+	border 1px solid $border-color
+	padding: 24px
+	tr()
+.work-step__el-icon
+	+below(768px)
+		margin: 0 0 20px 0
+	margin: 0 0 42px 0
+	img
+		+below(768px)
+			width: 60px
+		width: 80px
+.work-step__el-title
+	+below(1024px)
+		font-size: 18px
+	color black
+	@extend .type--md
+	font-weight 700
+	margin-bottom: 12px
+.work-step__el-text
+	color $typeSecondary
+// work-step === end
+
+// sale-list
+.sale-list-container
+	display: grid
+	grid-template-columns: 1fr;
+	flex-grow: 1
+	+below(768px)
+		scroll-create-mobile()
+		margin-bottom: 30px
+.sale-list
+	+below(768px)
+		grid-gap 0
+		f()
+		margin-bottom: 0
+	display: grid
+	grid-gap 28px
+	grid-template-columns: repeat(3, 1fr)
+	@extend .mb-100
+.sale-el
+	+below(768px)
+		width: 300px
+		display: inline-flex
+		margin-right: 16px
+	white-space initial
+	br(12px)
+	overflow hidden
+	f()
+	fl()
+	tr()
+	&:hover
+		.sale-el__content
+			border 1px solid transparent
+		box-shadow 0 12px 32px rgba(41, 42, 53, 0.16)
+.sale-el__img
+	bg-full()
+	padding: 29% 10%
+.sale-el__content
+	+below(1024px)
+		padding: 20px
+	padding: 24px
+	border 1px solid $border-color
+	border-top 0!important
+	overflow hidden
+	border-radius 0 0 12px 12px
+	f()
+	tr()
+	fl()
+	flex-grow 1
+.sale-el__text
+	@extend .type--md
+	margin-bottom: 24px
+	flex-grow 1
+.sale-el__get
+	margin-top: auto
+// sale-list === end
+
+// review slider
+
+.slider-review
+	+below(1024px)
+		margin-right: -42px
+		overflow: hidden
+	+below(640px)
+		margin-right: -20px
+	.slider-el-wrap
+		max-width 310px
+.slider-review__el
+	background: white
+	br(12px)
+	overflow hidden
+
+.slider-review__el--border
+	border 1px solid $border-color
+
+.slider-review-head
+	padding: 16px
+	f()
+	align-items center
+	gap(12px)
+
+.slider-review-img
+	bg-full()
+	padding: 40% 10%
+.slider-review-wrap
+	padding: 16px 8px 16px 16px
+	position relative
+	&:before
+		content ''
+		position absolute
+		width: 100%
+		height: 100px
+		bottom 15px
+		left 0
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+
+.slider-review-content
+	height 270px
+	overflow auto
+	padding-right: 16px
+.slider-review-text
+	padding:0 0 60px 0
+
+
+.slider-review-head__user
+	size 44px
+	round()
+	bg-full()
+	min-width 44px
+.review-head
+	+below(1024px)
+		margin: 0 0 40px 0
+	flex(between)
+	margin: -28px 0 40px 0
+
+.review-head__info
+	+below(1024px)
+		width: 100%
+	width: 60%
+.review-head__text
+	color $typeSecondary
+.review-control
+	+below(1024px)
+		display none
+
+// review slider === end
+.section
+	@extend .pb-100
+
+.section--border
+	border-bottom 1px solid $border-color
+
+.section-sm
+	@extend .pb-80
+	position relative
+
+.section-extend
+	@extend .p-100
+	@extend .mb-100
+
+.section-full
+	@extend .p-100
+	position relative
+
+.section--gradient
+	background: $gradient
+	.advant__el
+		border 1px solid transparent
+// accordion
+.accordion
+	+below(640px)
+		width 100%
+	background: white
+	opacity: 0
+	left -9999px
+	top 0
+	visibility: hidden
+	position absolute
+	transform translateX(10px)
+	transition opacity 1.2s, transform .8s
+	&.active
+		transform translateX(0px)
+		visibility: visible
+		opacity: 1
+		left initial
+		position: static
+.accordion__el
+	border 1px solid #e5e5e5
+	margin-top: -1px
+	cp()
+	&:hover
+		.accordion__el-head-icon
+			&:before
+				content ''
+				background: $green
+			&:after
+				content ''
+				background: $green
+
+.accordion__el-head
+	+below(640px)
+		padding: 20px
+	padding: 30px 40px
+	flex(between)
+	color black
+	&.active
+		.accordion__el-head-text
+			color $green
+		.accordion__el-head-icon
+			&:after
+				content ''
+				transform rotate(45deg)
+			&:before
+				content ''
+				transform rotate(45deg)
+.accordion__el-head-text
+	+below(640px)
+		line-height: 1.6
+	@extend .type--md
+	width: 80%
+	font-weight: 700
+
+.accordion__el-head-icon
+	+below(640px)
+		size 16px
+	position: relative
+	size 24px
+	&:before
+		content ''
+		tr(all)
+		height: 2px
+		width: 100%
+		background: black
+		position: absolute
+		top calc(50% - 1px)
+	&:after
+		content ''
+		tr(all)
+		height: 100%
+		width: 2px
+		background: black
+		position: absolute
+		left calc(50% - 1px)
+
+.accordion__el-content
+	+below(640px)
+		padding:0 20px 20px 20px
+	padding: 0 40px 40px 40px
+	display: none
+	p
+		color $typePrimary
+		&:first-child
+			margin-top: 0
+		&:last-child
+			margin-bottom: 0
+
+
+// accordion === end
+
+// FAQ
+.faq-wrap
+	scroll-create-mobile()
+	display: grid
+	grid-template-columns: 1fr;
+	flex-grow: 1
+	+below(768px)
+		padding-bottom: 20px
+		margin-bottom: 12px
+.faq-type
+	+below(768px)
+		f()
+		margin-bottom: 0
+		grid-gap 0
+	display: grid
+	grid-gap 28px
+	grid-template-columns: repeat(auto-fill, minmax(150px,1fr))
+	margin-bottom: 48px
+.faq-type__el
+	+below(1024px)
+		width: 180px
+		margin-right: 16px
+	padding: 22px
+	br(12px)
+	f()
+	fl()
+	background $greenLight
+	color $greenDark
+	@extend .type--smx
+	font-weight 700
+	tr()
+	cp()
+	.icon
+		tr()
+		margin-bottom: 50px
+		fill $greenDark
+	&.active
+		color white
+		background: $mark
+		box-shadow 0 8px 24px rgba(126, 202, 29, 0.32)
+		.icon
+			fill white
+	&:hover
+		box-shadow 0 8px 24px rgba(126, 202, 29, 0.32)
+		background: $mark
+		color white
+		.icon
+			fill white
+
+.faq-type__el--navy
+	background: white
+	.icon
+		fill $navy
+	&.active
+		background: $navy
+		box-shadow: 0px 8px 24px rgba(0, 25, 112, 0.26);
+		span
+			color white
+	&:hover
+		box-shadow: 0px 8px 24px rgba(0, 25, 112, 0.26);
+		background: $navy
+		span
+			color white
+// FAQ === end
+
+
+// deliver
+.deliver-wrap
+	+below(640px)
+		fw()
+	f()
+	justify-content space-between
+.deliver-info
+	+below(1024px)
+		width: 45%
+	+below(640px)
+		width: 100%
+		margin-bottom: 24px
+	width: 28%
+.deliver-info__text
+	+below(640px)
+		margin-bottom: 24px
+	margin-bottom: 42px
+	color $typeSecondary
+//.deliver-pick
+.deliver-pick__el
+	f()
+	align-items center
+	margin-bottom: 22px
+	&:last-child
+		margin-bottom: 0
+.deliver-pick__el-color
+	round()
+	size 24px
+	margin-right: 16px
+.deliver-pick__el-text
+	font-weight 700
+	color black
+.deliver-map
+	+below(1024px)
+		width: 50%
+		padding: 22% 10%
+		min-height 420px
+	+below(640px)
+		min-height 230px
+		width: 100%
+	width: 66%
+	padding: 17% 10%
+.map-wrap
+	position relative
+	background: $grayLight
+
+.map-wrap--md
+	width: 100%
+	padding: 28% 10%
+	+below(640px)
+		min-height 230px
+.map
+	position absolute
+	top 0
+	left 0
+	width: 100%
+	height: 100%
+// deliver === end
+
+// contract
+.section-contract
+	+below(640px)
+		padding: 0
+.contract
+	+below(640px)
+		border-radius 0
+		border-bottom 1px solid $border-color
+	br(12px)
+	overflow hidden
+	background: white
+
+.contract--fluid
+	+below(640px)
+		br(0)
+
+.contract-head
+	+below(768px)
+		min-height: 165px
+		padding: 20px
+	padding: 36px 48px
+	color white
+	position relative
+	min-height 240px
+//.contract-head-info
+.contract-head-title
+	+below(640px)
+		width: 50%
+		line-height: 1.2
+	@extend .type--lgx
+	font-weight 700
+	margin-bottom: 16px
+.contract-advant
+	border-radius 28px
+	background-color rgba(255, 255, 255, 0.2)
+	display: inline-flex
+	align-items center
+	padding: 10px 18px
+	z-index 2
+	position relative
+	img
+		+below(640px)
+			size 24px
+		size 32px
+		margin-right: 8px
+.contract-head-img
+	+below(640px)
+		padding: 2% 28%
+		right: -5%
+	background-size contain
+	background-repeat no-repeat
+	background-position center bottom
+	padding 2% 21%
+	position absolute
+	top 0
+	bottom 0
+	right 10px
+.contract-content
+	+below(640px)
+		padding: 16px
+	padding: 48px 48px 32px 48px
+/*.contract-config-wrap
+	margin-bottom: 16px*/
+/*.contract-config
+	f()
+	justify-content space-between
+	fw()
+	margin-left: -8px
+	margin-right: 8px
+	width calc(100% + 16px)*/
+.contract-config__el
+	+below(768px)
+		width: 100%
+	padding: 16px
+	border 1px solid $border-color
+	br(4px)
+	f()
+	justify-content space-between
+	align-items center
+	tr()
+	cp()
+	//width calc(50% - 32px)
+	//margin: 0 8px 16px 8px
+	flex-grow 1
+	&.active
+		border 1px solid $mark
+		background-color $greenLight
+	&:hover
+		border 1px solid $mark
+	.check-el
+		width calc(100% - 30px)
+
+.contract-config__el--navy
+	&.active
+		border 1px solid $navy
+		background-color $navyLight
+	.style-label--radio .style-input:checked ~ .style-input-element
+		background: $navy
+	&:hover
+		border 1px solid $navy
+.contract-config__el-val
+	font-weight: 700
+	color $mark
+
+//.contract-total-wrap
+.contract-total
+	flex(between)
+	border-bottom 1px dashed $border-color
+	padding: 12px 0
+	&:last-child
+		border 0
+
+.contract-total__val
+	f()
+	gap(20px)
+	&>*
+		margin-top: 0
+	margin-top: 0
+
+.contract-total--clear
+	border-bottom 0
+
+.contract-total__name
+	color $typeSecondary
+
+.contract-footer
+	+below(640px)
+		padding: 32px 20px
+		fw()
+		width: 100%
+	border-top 1px dashed $border-color
+	padding: 48px 48px 56px 48px
+	flex(between)
+
+.contract-footer--clear
+	+below(640px)
+		padding 0
+	padding: 20px 0 0 0
+	border 0
+
+.contract-footer__text
+	+below(640px)
+		width: 100%
+		order 2
+		margin-top: 16px
+	width: 55%
+	color black
+
+
+.contract-type
+	border-radius 8px 8px 0 0
+	+below(768px)
+		min-height: 115px
+		padding: 20px
+	padding: 24px
+	color white
+	position relative
+	min-height 140px
+
+.contract-type-title
+	+below(640px)
+		width: 50%
+		line-height: 1.2
+	@extend .type--lgx
+	font-weight 700
+	margin-bottom: 16px
+
+.contract-type-img
+	+below(640px)
+		right: -5%
+		padding 2% 28%
+	background-size contain
+	background-repeat no-repeat
+	background-position center center
+	padding 2% 21%
+	position absolute
+	top 0
+	bottom 0
+	right 0
+
+.order-success-head
+	flex(mid)
+	fl()
+
+.contract-banner-wrap
+	+below(640px)
+		margin-left -16px
+		margin-right -16px
+	margin-left -48px
+	margin-right -48px
+	flex(mid)
+.contract-banner
+	flex(mid)
+	fl()
+	padding: 48px 16px
+	max-width 488px
+
+.config
+	+below(640px)
+		padding: 16px
+	border 1px solid $border-color
+	border-top 0
+	padding: 12px 24px
+	border-radius 0 0 8px 8px
+	@extend .mb-32
+	&.active
+		box-shadow: 0px 4px 8px rgba(102, 130, 185, 0.12);
+		border 0
+		.config-head
+			@extend .mb-24
+			&>.icon
+				transform rotate(180deg)
+.config-head
+	flex(between)
+	tr()
+	cp()
+	padding-bottom: 0
+	.icon
+		tr()
+
+.config-head__val
+	width calc(100% - 40px)
+	f()
+	align-items center
+	fw()
+	.icon-row
+		flex-grow 1
+	&>span
+		margin-right: 20px
+.contract-box
+	@extend .mb-32
+
+.contract-remove
+	+below(640px)
+		justify-content: flex-start
+	f()
+	justify-content: flex-end
+
+// contract === end
+
+// slider menu
+.head-toggle
+	+above(1025px)
+		display: none
+	+below(1024px)
+		size 60px
+	flex(mid)
+	cp()
+	.icon
+		+below(640px)
+			size 20px
+		size 25px
+		fill black
+	.icon-close
+		display: none
+
+.head-toggle.slide-block-toggle--open
+	.icon-close
+		display: block
+	.icon-open
+		display: none
+
+.slide-block
+	+below(640px)
+		padding: 0
+	position: fixed
+	top 61px // Высота шапки
+	width: 100%
+	tr(all)
+	height: calc(100% - 60px) // Высота шапки
+	z-index 100
+	background: white
+	padding: 10px 32px 32px 32px
+	overflow auto
+	overscroll-behavior: contain;
+.slide-block--left
+	left 0
+	transform translateX(-100%)
+
+.slide-block--right
+	right 0
+	transform translateX(100%)
+
+.slide-block--open
+	transform translateX(0%)
+
+.slide-nav__el
+	+below(640px)
+		padding: 22px
+	padding: 22px 0
+	border-bottom 1px solid $border-color
+	font-weight: 500
+	color black
+	display block
+	.header-location
+		f()
+		align-items flex-start
+		justify-content: flex-start
+		margin-left: 0
+.slide-nav__el--slide
+	flex(between)
+	.icon
+		tr()
+	&.active
+		border 0
+		.icon
+			transform rotate(180deg)
+.slide-nav__el-sub
+	display none
+	padding: 10px 20px 22px 60px
+	border-bottom 1px solid $border-color
+// slider menu === end
+
+
+.program-coast
+	+below(640px)
+		margin-bottom: 16px
+	display: inline-flex
+	border 1px solid #ffffff33
+	margin-bottom: 10%
+.program-coast--dark
+	+below(640px)
+		border 0
+		border-bottom 1px solid $border-color
+	border 1px solid $border-color
+	.program-coast__el
+		border-right 1px solid $border-color
+		color black
+		width: 50%
+.program-coast__el
+	+below(768px)
+		min-width auto
+	min-width 180px
+	padding: 16px
+	color white
+	border-right 1px solid #ffffff33
+	&:last-child
+		border 0
+.program-coast__title
+	margin-bottom: 8px
+	opacity: .6
+	@extend .type--sm
+.program-coast__val
+	@extend .type--mdx
+	font-weight: 700
+
+// tab
+.tab
+	f()
+	border-bottom 1px solid $border-color
+.tab--fluid-modal
+	+below(640px)
+		margin-left: -20px
+		margin-right: -20px
+	margin-left -32px
+	margin-right -32px
+	.tab__el
+		+below(640px)
+			font-size: 14px
+		padding-top: 0
+.tab--fix
+	.tab__el
+		flex-grow initial
+		width: auto
+.tab__el
+	+below(640px)
+		padding: 10px 10px 12px 10px
+	flex-grow 1
+	text-align center
+	font-weight: 500
+	padding: 20px 20px 16px 20px
+	color black
+	border-bottom 4px solid transparent
+	tr()
+	cp()
+	width: 100%
+	&.active
+		border-bottom 4px solid $mark
+
+.tab__el--lg
+	+below(640px)
+		padding: 14px
+	font-weight: 700
+	@extend .type--md
+	padding: 20px 34px 16px 34px
+.tab-cont
+	background: white
+	opacity: 0
+	left -9999px
+	visibility: hidden
+	position absolute
+	transform translateY(-10px)
+	transition opacity .6s, transform .6s
+	&.active
+		transform translateY(0px)
+		visibility: visible
+		opacity: 1
+		left initial
+		position: static
+// tab === end
+
+.coach-wrap
+	f()
+	fw()
+	justify-content space-between
+	margin 0 -12px
+.coach-col
+	+below(768px)
+		width: 100%
+	width calc(50% - 28px)
+	margin 0 12px 24px 12px
+	flex-grow 1
+	background: white
+	br(12px)
+	border 1px solid $border-color
+
+.coach-head
+	+below(640px)
+		padding: 28px 16px
+	padding: 32px
+	border-bottom 1px solid $border-color
+.coach-info
+	+below(640px)
+		padding: 28px 16px
+	padding: 32px
+
+.coach-descr__row
+	margin-bottom: 16px
+.coach-descr__row--border
+	padding-bottom: 30px
+	margin-bottom: 30px
+	border-bottom 1px solid $border-color
+.coach-descr__title
+	+below(640px)
+		margin-left: 90px
+	@extend .type--head
+	@extend .type--head
+	margin-left: 25%
+	margin-bottom: 16px
+.coach-descr__info
+	f()
+	justify-content space-between
+	align-items center
+	width: 100%
+	margin-bottom: 16px
+	&:last-child
+		margin-bottom: 0
+.coach-descr__val
+	+below(640px)
+		width: 70px
+		margin-right: 10px
+		min-width auto
+	width: 20%
+	margin-right: 5%
+	@extend .type--md
+	@extend .type--head
+	white-space nowrap
+	text-align: right
+	min-width 70px
+.coach-descr__text
+	+below(640px)
+		width: calc(100% - 90px)
+	width: 75%
+	color $typeSecondary
+.coach-history__row
+	f()
+	align-items center
+	justify-content space-between
+	margin-bottom: 20px
+	padding-bottom: 20px
+	border-bottom 1px solid $border-color
+	&:last-child
+		margin-bottom: 0
+.coach-history__name
+	width: 30%
+	color black
+.coach-history__val
+	margin-left auto
+	margin-right: 20px
+	color black
+.coach-history__date
+	color $typeSecondary
+
+.coach-history__head
+	flex(between)
+	@extend .mb-24
+.coach-history__title
+	@extend .type--md
+	@extend .type--head
+.coach-history__total
+	text-align: right
+	color $typeSecondary
+
+.ration
+	f()
+	overflow hidden
+	br(4px)
+	background: $fieldBackground
+.ration__img
+	size 80x 70px
+	bg-full()
+	background-color #f7f7f7
+.ration__info
+	font-size: 12px
+	width calc(100% - 80px)
+	padding: 16px
+	f()
+	align-items center
+
+// blog
+
+.blog-list
+	display: grid
+	grid-gap 28px
+	grid-template-columns: repeat(auto-fill, minmax(16rem,1fr))
+
+.blog-list--sm
+	grid-template-columns: repeat(auto-fill, minmax(20rem,1fr))
+
+.blog-el
+	f()
+	fl()
+	transition box-shadow .4s
+	border-radius 12px
+	&:hover
+		box-shadow: 0px 12px 32px rgba(41, 42, 53, 0.16);
+		.blog-el-content
+			border-color white
+.blog-el__img
+	bg-full()
+	border-radius 12px 12px 0 0
+	padding: 45% 10%
+
+.blog-el__img--sm
+	padding: 25% 10%
+	img
+		max-width 60%
+.blog-el-content
+	tr()
+	f()
+	fl()
+	border-top 0
+	border-radius 0 0 12px 12px
+	background: white
+	flex-grow 1
+.blog-el__info
+	padding: 16px 20px
+	border-bottom 1px solid $border-color
+	flex-grow 1
+.blog-el__title
+	@extend .type--head
+	@extend .link
+.blog-el-footer
+	border-radius 0 0 12px 12px
+	padding: 16px
+	flex(between)
+	@extend .type--sm
+.blog-el-tag
+	white-space nowrap
+	overflow hidden
+	text-overflow ellipsis
+	width: 70%
+	span
+		display inline-block
+		margin-right: 3px
+		&:last-child
+			margin-right: 0
+.blog-el-date
+	white-space nowrap
+
+.blog-head
+	+below(1024px)
+		padding-bottom: 20px
+	f()
+	fw()
+	grid-gap 20px
+	padding-bottom: 32px
+	@extend .mb-48
+	justify-content space-between
+	border-bottom 1px solid $border-color
+.blog-head__type
+	f()
+	fw()
+	gap(12px)
+	a,span
+		margin-right: 0
+		display inline-block
+		font-weight: 700
+		&:last-child
+			margin-right: 0
+.blog-head__date
+	font-weight: 700
+
+.share
+	+below(640px)
+		margin-left: 0
+		margin-top: 0
+	f()
+	fw()
+	align-items center
+	padding-top: 20px
+	gap(20px)
+	margin-top: 48px
+	border-top 1px solid $border-color
+	//grid-template-columns: repeat(auto-fill, minmax(12rem,1fr))
+.share__title
+	font-weight: 700
+	margin-right auto
+	@extend .type--lg
+// blog === end
+
+
+
+// tag list
+//.tag-list-wrap
+.tag-list
+	+below(1024px)
+		margin-left -42px
+		margin-right -42px
+		padding-left: 42px
+	+below(640px)
+		margin-left -20px
+		margin-right -20px
+		padding-left: 20px
+	margin-right -8px
+	margin-left -8px
+	overflow auto
+	white-space nowrap
+	&:after
+		content ''
+		display inline-block
+		width: 40px
+		height: 1px
+.tag-el--light
+	border 1px solid $border-color
+	color black
+.tag-el
+	padding: 14px 20px
+	br(24px)
+	margin: 0 8px 8px 8px
+	tr()
+	cp()
+	@extend .type--smx
+	font-weight: 700
+	line-height: 1
+	white-space nowrap
+	display inline-block
+// tag list === end
+
+.subscribe-block
+	flex(mid)
+	fl()
+	text-align center
+	.input-btn-cont
+		+below(640px)
+			fl()
+			width: 100%
+			.input-row
+				width: 100%
+			.btn--md
+				width: 100%
+
+// offer
+.offer
+	+below(768px)
+		min-height: 165px
+		padding: 20px
+	+below(640px)
+		flex(mid)
+		fl()
+	padding: 36px 48px
+	color white
+	position relative
+	br(12px)
+.offer-title
+	+below(640px)
+		width: 100%
+		text-align center
+		line-height: 1.2
+	@extend .type--lg
+	font-weight 700
+	margin-bottom: 16px
+	width: 60%
+	margin-bottom: 5%
+.offer-img
+	+below(640px)
+		right: 0
+		padding 45% 25%
+		position: initial
+		margin: 20px 0 -20px 0
+		width: 100%
+	background-size cover
+	background-repeat no-repeat
+	background-position center bottom
+	padding 15% 16%
+	position absolute
+	bottom 0
+	top 0
+	right 10px
+	max-height 250px
+// offer === end
+
+// review
+.review-intro
+	+below(768px)
+		fw()
+	f()
+.review--intro__info
+	+below(768px)
+		width: 100%
+		margin-bottom: 20px
+	width: 50%
+.review-get
+	+below(768px)
+		margin-left: 0
+	margin-left auto
+
+.review-item
+	@extend .mb-64
+	+below(640px)
+		margin-bottom: 40px
+.review-item__name
+	@extend .type--md
+	@extend .type--head
+	margin-bottom: 16px
+
+.review-item-gallery
+	f()
+	fw()
+	margin 0 -8px 8px -8px
+
+.review-item-gallary__img
+	size 64px
+	br(8px)
+	bg-full()
+	margin: 0 8px 8px 8px
+	background-size 100% 100%
+	&:hover
+		background-size 120% 120%
+//.fancybox
+.review-item__info
+	color $typeSecondary
+	margin-bottom: 16px
+.review-item__footer
+	padding-top: 16px
+	border-top 1px solid $border-color
+	@extend .type--sm
+	flex(between)
+.review-item__date
+	color $typeSecondary
+.review-item__type
+	color $mark
+
+// review === end
+
+.cell-row
+	display: grid
+	grid-column-gap 24px
+	grid-template-columns: repeat(auto-fill, minmax(16rem,1fr))
+
+
+// sale-item
+.offer-full-page
+	+below(768px)
+		padding: 25% 10%
+		min-height 250px
+	padding: 15% 10%
+	bg-full()
+.sale-descr
+	+below(1024px)
+		padding: 40px
+		margin-top: 0
+	+below(768px)
+		padding: 20px
+	background: white
+	center(1072px,0px)
+	padding: 110px
+// sale-item === end
+
+.msg
+	padding: 16px
+	br(10px)
+
+
+.box-gradient
+	background: linear-gradient(98.95deg, #E3EEFF 0%, #E4F6E4 52.6%, #FFEEE4 100%)
+	br(12px)
+	padding: 12px
+
+.box-gradient-inner
+	+below(640px)
+		padding: 28px
+	background: white
+	padding: 48px 40px
+
+.box-gradient-inner--sm
+	padding: 24px 16px
+
+.partners
+	+below(1100px)
+		grid-template-columns: repeat(4, 1fr)
+		grid-gap 12px
+		//grid-template-columns: repeat(auto-fill, minmax(12rem,1fr))
+	display: grid
+	grid-gap 28px
+	grid-template-columns: repeat(6, 1fr)
+.partners__el
+	bg-full()
+	padding: 35% 10%
+	background-size contain
+
+
+// present
+.present
+	+below(768px)
+		grid-gap 20px
+	f()
+	fw()
+	justify-content space-between
+	align-items: stretch
+.present-img
+	+below(768px)
+		width: 100%
+
+	width: calc(100% - 475px)
+.present-img__el
+	+below(768px)
+		padding: 30% 10%
+	width: 100%
+	height: 100%
+	bg-full()
+.present-info
+	+below(768px)
+		width: 100%
+	width: 400px
+// present === end
+
+.video
+	position relative
+	padding: 30% 10%
+.video__el
+	position absolute
+	top 0
+	left 0
+	width: 100%
+	height: 100%
+
+.contact-info
+	.icon-row
+		+below(768px)
+			margin-bottom: 20px
+		margin-bottom: 32px
+		.icon
+			margin-right: 20px
+		&:last-child
+			margin-bottom: 0
+
+
+
+.mobile-row-scroll
+	display: grid
+	grid-template-columns: 1fr;
+	flex-grow: 1
+	+below(768px)
+		scroll-create-mobile()
+
+.mobile-row-scroll-wrap
+	+below(768px)
+		grid-gap 0!important
+		display: flex !important
+		margin-bottom: 0
+
+.mobile-row-scroll-item
+	min-width: 300px
+	margin-right: 16px
+	white-space initial
+
+.desktop-row-scroll
+	scroll-create-mobile()
+	+above(1025px)
+		margin: 0
+		padding: 0
+	+below(640px)
+		margin-bottom: 0
+		padding-bottom: 0
+	display: grid
+	grid-template-columns: 1fr;
+	flex-grow: 1
+	overflow auto
+
+.desktop-row-scroll--clear
+	margin: 0
+
+.desktop-row-scroll-wrap
+	grid-gap 0!important
+	display: flex !important
+	margin-bottom: 0
+
+.desktop-row-scroll-item
+	+below(1024px)
+		margin-right: 18px
+	width: 300px
+	margin-right: 24px
+	white-space initial
+	&:last-child
+		margin-right: 0
+.program-register
+	+below(640px)
+		margin-bottom: -20px
+	margin-bottom: -32px
+.program-register-row
+	+below(640px)
+		padding: 12px 24px
+		margin-left: -20px
+		margin-right: -20px
+	f()
+	align-items center
+	padding: 12px 32px
+	border-top 1px solid $border-color
+	border-bottom 1px solid $border-color
+	margin-bottom: -1px
+	margin-left: -32px
+	margin-right: -32px
+	cp()
+	tr()
+	&:hover
+		background: $mark
+		color white
+		.program-register__val
+			color white
+	&:last-child
+		border 0
+.program-register__name
+	+below(640px)
+		margin-right: 15px
+	font-weight: 700
+	min-width 30%
+.program-register__val
+	+below(640px)
+		font-size: 14px
+	color $typeSecondary
+	tr()
+	margin-right: 10px
+
+.program-register__cost
+	+below(640px)
+		font-size: 14px
+	margin-left auto
+
+.size
+	f()
+	font-weight: 500
+.size__el
+	border 1px solid $border-color
+	text-align center
+	padding: 12px 28px
+	cp()
+	margin-left: -1px
+	tr()
+	white-space nowrap
+	&:hover
+		background: $greenLight
+	&:first-child
+		border-radius 32px 0 0 32px
+	&:last-child
+		border-radius 0 32px 32px 0
+	&.active
+		background $mark
+		color white
+		border-color $mark
+
+.size__el--navy
+	background: white
+	&.active
+		border-color $navy
+		background $navy
+// LK STYLE
+
+
+//.lk
+
+.lk-head-wrap
+	+below(1024px)
+		padding: 32px 0 20px 0
+	padding-top: 64px
+	background: $gradient
+.lk-head-wrap--clear-mobile
+	+below(1024px)
+		padding-bottom: 0
+.lk-head-cont
+	position relative
+.lk-head
+	+below(1024px)
+		width: 100%
+	width calc(100% - 330px)
+	margin-left auto
+
+.lk-head-title
+	+below(1024px)
+		margin-bottom: 24px
+
+.lk-profile
+	+below(1024px)
+		margin-bottom: 0
+	+below(640px)
+		fl()
+	f()
+	justify-content space-between
+	margin-bottom: 92px
+//.lk-head
+.lk-user
+	+below(640px)
+		margin-bottom: 20px
+	f()
+.lk-user__icon
+	round()
+	flex(mid)
+	size 48px
+	background: $green
+	margin-right: 20px
+	.icon
+		fill $greenDark
+.lk-user__info
+	color $typePrimary
+.lk-user__name
+	@extend .type--lgx
+	font-weight: 700
+	line-height: 1
+	margin-bottom: 8px
+
+.lk-bonus
+	+below(640px)
+		margin-bottom: 10px
+
+.lk-bonus-cont
+	+below(640px)
+		margin-bottom: 0
+	f()
+	margin-bottom: 12px
+.lk-bonus-icon
+	round()
+	flex(mid)
+	size 48px
+	background: $orangeLight
+	margin-right: 20px
+	.icon
+		fill $orange
+
+.lk-bonus-val
+	@extend .type--lgx
+	color $orange
+	line-height: 1
+	font-weight: 700
+	flex(mid)
+.lk-bonus-info
+	+below(640px)
+		padding-left: 64px
+	color $typePrimary
+.lk-wrap
+	f()
+	z-index -1
+.lk-tool
+	+below(1024px)
+		display none
+	width: 268px
+	z-index 100
+	position absolute
+	left 0
+	top 5%
+.lk-nav
+	padding: 30px 26px
+	box-shadow: 0px 8px 32px rgba(102, 130, 185, 0.12);
+	br(12px)
+	background: white
+	z-index 10
+	max-width 270px
+.lk-nav__el
+	f()
+	align-items center
+	margin-bottom: 30px
+	font-weight: 500
+	@extend .link
+	&:last-child
+		margin-bottom: 0
+	&.active
+		.icon
+			fill $mark
+	.icon
+		margin-right: 18px
+		fill $grayLight
+.lk-nav__divider
+	background: #DCDFE8
+	height: 1px
+	margin-bottom: 30px
+.lk-cont
+	+below(1024px)
+		width: 100%
+		padding-top: 32px
+	width calc(100% - 330px)
+	padding-top: 64px
+	margin-left auto
+	min-height 300px
+.slider-lk
+	.slider-el-wrap
+		+above(640px)
+			transform: scale(.9, .9);
+		position relative
+		transition all .6s
+	.btn--white
+		position absolute
+		left: 32px
+		bottom: 32px
+	.slick-active
+		overflow: hidden
+		.slider-el-wrap
+			+above(640px)
+				transform: scale(1, 1);
+	+below(640px)
+		.slick-slide
+			margin: 0 7px
+		.slick-list
+			margin: 0 -20px 0 -7px
+.slider-lk__el
+	+below(640px)
+		padding: 30% 10%
+	br(8px)
+	bg-full()
+	padding: 14% 10%
+.slider-lk__el--lg
+	+below(640px)
+		display none
+
+.slider-lk__el--sm
+	+above(641px)
+		display none
+
+.slider-wrap--lk
+	+below(1024px)
+		margin-top: 0
+	margin-top: -106px
+	.slider-control-wrap
+		+below(640px)
+			display none
+		position absolute
+		bottom 32px
+		right: 32px
+
+.slider-lk-get
+	+below(640px)
+		display none
+
+
+.more
+	f()
+	align-items center
+	grid-gap 6px
+	.icon
+		tr()
+	&:hover
+		span
+			color black
+		.icon
+			fill black
+	span
+		tr()
+		line-height: 1
+		font-weight: 500
+
+
+.lk-empty
+	+below(640px)
+		padding: 20px
+	border 1px solid $border-color
+	flex(mid)
+	padding: 34px
+	br(8px)
+	fl()
+.lk-empty--lg
+	padding: 10%
+
+.lk-empty__info
+	flex(mid)
+	gap(24px)
+
+.lk-empty__info--col
+	flex-flow column
+
+.bonus-list
+	display: grid
+	grid-gap 28px
+	grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+
+
+.bonus-el
+	background: white
+	br(12px)
+	overflow hidden
+	f()
+	fl()
+
+.bonus-el__img
+	bg-full()
+	padding: 25% 10%
+
+.bonus-el-cont
+	padding: 20px
+	border-radius 0 0 12px 12px
+	f()
+	fl()
+	flex-grow 1
+
+.bonus-el__info
+	flex-grow 1
+	margin-bottom: auto
+
+.bonus-el__get
+	margin-top: 32px
+
+.lk-list
+	grid-template-columns: initial;
+	grid-auto-flow: column;
+	grid-gap: 0;
+	padding-bottom: 20px
+	+below(1024px)
+		&:after
+			content ''
+			display block
+			width: 42px
+
+
+.lk-list-head
+	fw()
+	f()
+	justify-content space-between
+
+
+.lk-day
+	+below(1024px)
+		margin-bottom: 0
+		margin-left: -42px
+	+below(640px)
+		margin-left: -24px
+	margin-bottom: 20px
+.marker
+	white-space nowrap
+	overflow auto
+	f()
+
+.marker--fluid
+	+below(1024px)
+		&:after
+			content ''
+			display block
+			width: 42px
+
+.marker-el
+	flex(mid)
+	br(20px)
+	margin-right: 12px
+	padding: 12px
+	cp()
+	tr()
+	@extend .type--smx
+	font-weight 700
+	color black
+	border 1px solid $border-color
+	white-space nowrap
+	background: white
+	&:hover
+		border 1px solid $mark
+	&.active
+		border 1px solid $mark
+		background: $mark
+		color white
+		.icon
+			fill white
+			tr()
+	&:last-child
+		margin-right: 0
+
+.marker-el--simple
+	border 1px solid $border-color!important
+	&:hover
+		pointer-events none
+	
+
+.lk-list-head-info
+	+below(480px)
+		fl()
+		align-items: flex-end
+		gap(0)
+	f()
+	align-items center
+	gap(20px)
+
+.lk-list-head-program
+	font-weight: 700
+
+.lk-panel-head
+	+below(640px)
+		.marker
+			order 1
+		.btn-menu-wrap
+			order 2
+	flex(between)
+	fw()
+	gap(20px)
+
+.history-wrap
+	margin-bottom: 20px
+
+.history-date
+	+below(1024px)
+		padding: 0
+	color $typePrimary
+	padding: 0 18px
+.history
+	+below(1024px)
+		padding: 0 42px 0 42px
+		margin: 0 -42px
+		br(0)
+	+below(768px)
+		margin-bottom: 12px
+	+below(640px)
+		padding: 12px 20px 0 20px
+		margin: 0 -20px
+	br(12px)
+	padding: 0 18px
+	&:last-child
+		margin-bottom: 32px
+	&.active
+		+below(1024px)
+			padding: 12px 48px
+		+below(640px)
+			padding: 16px
+		background #F3F8ED
+		padding:10px 18px
+		.history-head
+			+below(640px)
+				padding: 20px 20px 0 20px
+			box-shadow 0 0 0
+			border 0
+		.history-cont
+			+below(1024px)
+				padding-bottom 0
+			padding-bottom: 20px
+.history-head
+	+below(768px)
+		fw()
+		br(10px)
+		padding: 16px
+		bsh()
+	f()
+	align-items center
+	justify-content space-between
+	padding 10px
+	border-bottom 1px solid $border-color
+.history-type
+	+below(768px)
+		width: 100%
+		margin-bottom: 16px
+	f()
+	cp()
+	align-items center
+	position relative
+	&:hover
+		.history-type__msg
+			left 0
+			opacity: 1
+			transform: translateX(calc(-50% + 15px)) translateY(0px)
+	.icon
+		margin-right: 20px
+	span
+		+above(769px)
+			display none
+.history-type__msg
+	+below(1024px)
+		display none!important
+	position absolute
+	top -50px
+	padding: 10px 20px
+	br(10px)
+	color white
+	background: $grayPrimary
+	white-space nowrap
+	transform: translateX(calc(-50% + 15px)) translateY(10px)
+	left -9999px
+	opacity: 0
+	transition opacity .4s, transform .3s
+	z-index 110
+.history-program
+	+below(768px)
+		font-size: 28px
+		width: 45%
+	+below(640px)
+		width: 100%
+	font-weight 700
+	margin-right: auto
+	width: 140px
+	white-space nowrap
+	text-overflow ellipsis
+	overflow hidden
+.history-day
+	+below(768px)
+		width: 45%
+		margin-right: 0
+		text-align: right
+	+below(640px)
+		width: 100%
+		text-align: left
+		font-size: 12px
+		margin: 0
+	width: 135px
+	margin: 0 10px
+	white-space nowrap
+	text-align right
+	text-overflow ellipsis
+	overflow hidden
+.history-time
+	+below(768px)
+		width: 100%
+		margin-right: 0
+		margin: 16px 0
+	width: 100px
+	margin-right: 10px
+	white-space nowrap
+.history-location
+	+below(768px)
+		width: 100%
+		margin-bottom: 16px
+	width: 20%
+	white-space nowrap
+	text-overflow ellipsis
+	overflow hidden
+	margin-right: 10px
+.history-tool
+	+below(640px)
+		width: 100%
+	f()
+	grid-gap 10px
+//.history-edit
+.history-cont
+	+below(640px)
+		.desktop-row-scroll
+			margin-bottom: 0
+	padding-top: 20px
+	display none
+.history-cont-head
+	margin-bottom: 20px
+
+.history-panel
+	+below(640px)
+		flex(mid)
+		fl()
+	padding: 24px
+	color white
+	br(12px)
+	margin-bottom: 24px
+
+.history-panel-info
+	+below(640px)
+		text-align center
+
+.history-panel-cont
+	+below(640px)
+		display block
+	f()
+	justify-content space-between
+
+.history-panel-size
+	+below(640px)
+		margin 20px 0
+	size 160px
+	position relative
+
+.history-panel-day
+	flex(mid)
+	fl()
+	position absolute
+	top 0
+	left 0
+	width: 100%
+	height: 100%
+
+.history-panel-day__val
+	font-weight: 700
+	font-size: 44px
+
+.history-panel-name
+	font-weight: 700
+	font-size: 32px
+
+.history-panel-nav
+	+below(640px)
+		width: 100%
+	f()
+	gap(20px)
+
+.history-panel-toggle
+	.icon
+		tr()
+	&.active
+		.icon
+			transform rotate(180deg)
+
+.card-el
+	padding: 20px
+	border 1px solid $border-color
+	br(4px)
+	f()
+	align-items center
+	margin-bottom: 24px
+.card-type
+	max-width 40px
+	margin-right: 16px
+.card-val
+	margin-right auto
+
+.card-remove
+	cp()
+	.icon
+		&:hover
+			fill $stateError
+		tr()
+		fill $gray
+
+
+.dropdown-nav-lk
+	+above(1025px)
+		display none
+	.dropdown-current
+		+below(640px)
+			padding: 20px
+		padding: 26px 42px
+	.dropdown-current__val
+		font-weight: 500
+	.dropdown-menu__el
+		+below(640px)
+			padding: 20px
+		padding: 20px 42px
+// LK STYLE === end
+
+.video-production
+	width: 100%
+	position relative
+	padding: 15%
+	border 1px solid $border-color
+	round()
+	flex(mid)
+	cp()
+	.icon
+		position absolute
+		top 50%
+		left 50%
+		margin -24px 0 0 -24px
+		size 48px
+		fill white
+.video-production__el
+	bg-full()
+	round()
+	padding: 50%
+	position relative
+	overflow hidden
+	&:before
+		content ''
+		position absolute
+		left 0
+		top 0
+		width: 100%
+		height: 100%
+		background: #11110185
+
+.video-production-info
+	+below(640px)
+		flex(mid)
+		fl()
+		text-align center
+
+
+.card-advant
+	+below(640px)
+		padding: 30px 12px
+	background: white
+	br(12px)
+	f()
+	align-items center
+	fl()
+	padding: 50px 24px
+	box-shadow: 0px 16px 21px rgba(0, 46, 116, 0.11);
+	flex-grow 1
+	img
+		+below(640px)
+			size 80px
+		width: 60%
+
+.card-advant-text
+	+below(640px)
+		font-size: 12px
+		text-align: left
+
+.bg-square
+	+below(1024px)
+		display none
+	position absolute
+	bg-full()
+	padding: 5% 10%
+	top 0
+	right: 0
+
+.retail-img
+	+below(1370px)
+		background-size cover
+	position absolute
+	top 0
+	right: -20%
+	padding: 20% 37%
+	height: 100%
+	background-size contain
+	background-repeat no-repeat
+	background-position center left
+
+
+.sale-calc
+	+below(640px)
+		padding: 40px 20px
+	padding: 48px 64px
+	background: white
+	br(12px)
+
+.sale-calc-footer
+	+below(640px)
+		fl()
+	flex(between)
+
+.sale-calc-total
+	+below(640px)
+		margin-bottom: 20px
+	flex(mid)
+.sale-calc-total__val
+	size 56px
+	round()
+	background: $coral
+	flex(mid)
+	color white
+	font-weight: 700
+	margin-right: 28px
+.sale-calc-total__cost
+	font-weight: 700
+	@extend .type--lg
+
+
+// range slider
+.range-wrap
+	+below(640px)
+		padding: 0 20px
+		margin 60px 0 30px 0
+	margin 90px 0 50px 0
+	position relative
+	.irs-hidden-input
+		display none!important
+	.irs-bar-edge
+		background $mark
+		height 15px
+		border-radius 10px 0px 0px 10px
+		width 25px
+	.irs-bar
+		height 15px
+		background $mark
+		br(10px)
+	.irs-line-left
+		height 15px
+		border-radius 10px 0px 0px 10px
+		background $snow
+	.irs-line-right
+		height 15px
+		background $snow
+		border-radius 0px 10px 10px 0px
+	.irs-line-mid
+		background $snow
+		height 15px
+	.irs-line
+		height 15px
+	.single
+		background: $mark
+		size 25px
+		br(5px)
+		top 20px
+	.irs-slider
+		width 45px
+		height 30px
+	.irs-min, .irs-max
+		display none
+	.irs-single
+		&:before
+			content ''
+			display none
+		background transparent
+		color black
+		padding: 10px 20px
+		br(28px)
+		background: $fieldBackground
+		font-size: 16px
+		top -40px
+		flex(mid)
+		font-weight: 700
+		.icon
+			margin-right: 12px
+	.irs--flat .irs-handle > i:first-child
+		display none
+	.irs--flat .irs-line
+		background: #F8F8F8
+		border 1px solid $border-color
+		border-radius 10px
+// range slider === end
+
+// training
+.training-list
+	display: grid
+	grid-gap 28px
+	grid-template-columns: repeat(auto-fill, minmax(18rem,1fr))
+
+.training-el__img
+	bg-full()
+	padding: 30% 10%
+	display block
+
+
+
+.training-el__title
+	font-weight: 700
+	margin-bottom: 12px
+
+.training-el-cont
+	position relative
+	&:before
+		content ''
+		size 20px
+		background: white
+		position absolute
+		top -10px
+		left calc(50% - 10px)
+		transform rotate(45deg)
+		br(4px)
+	ul
+		li
+			margin-bottom: 12px
+.training-el__footer
+	flex(between)
+	margin-top: auto
+.training-el__state
+	f()
+	align-items center
+	.icon
+		margin-right: 6px
+	span
+		color $typeSecondary
+	&.active
+		span
+			color $green
+.training-el__date
+	color $typeSecondary
+
+.lk-traning-banner
+	+below(640px)
+		padding: 30%
+		margin-top: 40px
+	padding: 8%
+	position relative
+.lk-traning-banner__content
+	max-width 400px
+
+.lk-traning-banner__img
+	+below(640px)
+		width: 100%
+		background-size: contain
+		right: 0
+		padding: 34%
+	position absolute
+	padding: 18%
+	bg-full()
+	bottom 0
+	right: 10px
+// training === end
+
+// poll
+.poll
+	+below(640px)
+		br(0)
+		border-bottom 1px solid $border-color
+	br(12px)
+	overflow hidden
+	background: white
+
+.poll-img
+	bg-full()
+	padding: 20% 10%
+
+.poll-content
+	+below(640px)
+		padding: 20px
+	padding: 48px 48px 32px 48px
+// poll === end
+
+
+// filter els
+.filter-list
+	position absolute
+	top 100%
+	left 0
+	width: 100%
+	background: white
+	box-shadow: 0px 12px 32px rgba(41, 42, 53, 0.16)
+	border-radius: 4px
+	z-index 2
+	max-height 200px
+	overflow auto
+.filter-list__el
+	padding: 16px 20px
+	cp()
+	tr()
+	&:hover
+		background: $greenLight
+
+.filter-result
+	f()
+	fw()
+	gap(20px)
+
+.filter-result__el
+	+below(640px)
+		padding: 6px 12px
+	br(32px)
+	f()
+	cp()
+	tr()
+	padding: 12px 24px
+	border 1px solid $border-color
+	align-items center
+	grid-gap 12px
+	font-weight: 700
+	&:hover
+		border 1px solid $mark
+// filter els === end
+
+// choose
+.choose__el
+	padding: 16px
+	br(16px)
+	border 1px solid $border-color
+	margin-bottom: 12px
+	cp()
+	tr()
+	position relative
+	&:hover
+		border 1px solid transparent
+		box-shadow: 0px 4px 8px rgba(102, 130, 185, 0.12);
+	&.active
+		.choose-marker
+			border 1px solid $mark
+			background: $mark
+.choose-marker
+	position absolute
+	size 32px
+	border 1px solid $border-color
+	top 12px
+	right: 12px
+	round()
+	flex(mid)
+	span
+		size 16px
+		background: white
+		round()
+
+.choose__el-info
+	width calc(100% - 48px)
+// choose === end
+
+// mark row
+.mark-row
+	f()
+	align-items center
+	grid-gap 6px
+.mark-row--sm
+	.mark-el
+		.icon
+			size 32px
+.mark-el
+	flex(mid)
+	cp()
+	.icon
+		+below(640px)
+			size 32px
+		size 48px
+	&.active
+		.mark-el--empty
+			display none
+		.mark-el--val
+			display block
+.mark-el--empty
+	fill $border-color
+.mark-el--val
+	fill $yellow
+	display none
+
+.mark-el-square--mark
+	&:hover
+			border-color $mark
+	&.active
+		background: $mark
+		color white
+		border-color $mark
+
+
+.modal-goods
+	fl()
+	flex(mid)
+	padding: 32px 32px 0 32px
+	br(16px)
+.modal-goods-img
+	bg-full()
+	padding: 35% 10%
+	width: 85%
+// mark row === end
+
+.referal-row
+	f()
+	align-items center
+	gap(20px)
+	.input-row
+		width 100%
+		margin-bottom: 0
+
+.promo-wrap
+	+below(640px)
+		padding: 30px 20px
+	padding: 60px 20px
+	background: $gradient
+	br(12px)
+	flex(mid)
+
+
+// promo
+
+.promo-wrap
+	position relative
+.promo
+	max-width 632px
+.promo-img
+	+below(960px)
+		display none
+	position absolute
+.promo-banner
+	+above(961px)
+		display none
+	+below(640px)
+		margin 20px 0 -40px 0
+		width: 100%
+	margin 20px -10% -20% -10%
+	width 120%
+	max-width initial
+.promo-img--1
+	left -200px
+	bottom -5%
+.promo-img--2
+	+below(1024px)
+		bottom -15%
+	bottom -25%
+	left 20%
+.promo-img--3
+	+below(1024px)
+		bottom -15%
+	right: 20%
+	bottom -25%
+.promo-img--4
+	right: -200px
+	bottom: -25%
+
+.timer
+	f()
+	align-items: flex-start
+	justify-content center
+.timer__el-wrap
+	flex(mid)
+	fl()
+.timer__el
+	+below(640px)
+		size 45px
+		font-size: 22px
+		margin: 0 4px
+	background: white
+	size 80px
+	br(12px)
+	box-shadow: 0px 4px 8px rgba(102, 130, 185, 0.12);
+	@extend .type--lg
+	font-weight: 700
+	flex(mid)
+	margin: 0 8px
+
+.timer-dot
+	+below(640px)
+		width: 6px
+		margin-top: -18px
+	width: 8px
+	height: 24px
+	margin-top: -24px
+	align-self center
+	tr()
+	&:before
+		+below(640px)
+			size 6px
+		content ''
+		size 8px
+		round()
+		box-shadow: 0px 4px 8px rgba(102, 130, 185, 0.12);
+		background: white
+		display block
+		margin-bottom: 12px
+	&:after
+		+below(640px)
+			size 6px
+		content ''
+		size 8px
+		display block
+		round()
+		box-shadow: 0px 4px 8px rgba(102, 130, 185, 0.12);
+		background: white
+.timer__el-type
+	+below(640px)
+		font-size: 12px
+// promo === end
+
+//
+.loader-bg
+	position relative
+	overflow: hidden
+	box-shadow 0 6px 16px rgba(41, 42, 53, 0.08)
+	&:before
+		content ''
+		top 0
+		left 0
+		height: 100%
+		width: 100%
+		position absolute
+		animation: gradientBg 1.5s linear infinite;
+		background-size 200% 200%
+		background-image: linear-gradient(90deg, rgba(255,255,255,1) 0%, #fffdfd 35%, #f0f0f0 50%, #fffdfd 65%, rgba(255,255,255,1) 100%);
+		tr()
+		z-index 10
+@keyframes gradientBg
+	0%
+		background-position: 100% 100%
+	100%
+		background-position: -100% -100%
+//  === end
+
+// press slider
+.slider-press
+	+below(640px)
+		margin-right: -20px
+.slider-press__el-wrap
+	+below(640px)
+		padding: 35% 10%
+	background: white
+	br(12px)
+	position relative
+	padding: 25% 10%
+.slider-press__el
+	position absolute
+	flex(mid)
+	top 0
+	left 0
+	width: 100%
+	height: 100%
+	padding: 10px
+	img
+		max-width 80%
+// press slider === end
+
+.promo-head
+	+below(640px)
+		margin: -16px -16px 16px -16px
+		padding: 24px 16px
+	margin: -48px -48px 48px -48px
+	flex(mid)
+	bg-full()
+	padding: 64px 24px
+
+.promo-info__icon
+	size 56px
+	min-width 56px
+	round()
+	flex(mid)
+
+// game
+.scene
+	width: 600px
+	height: 600px
+	margin: 0 auto
+// game === end
+
+.is-animated
+	animation: .8s zoom-in
+
+@keyframes zoom-in {
+  0% {
+   transform: scale(.1);
+		opacity:0;
+	}
+  100% {
+    transform: none;
+		opacity:1;
+  }
+}
+
+// tooltip
+
+.tooltip
+	position:relative
+	cp()
+	z-index 99
+	&:hover
+		.tooltip-cont
+			visibility visible
+			opacity 1
+			transform translate(0%, -100%)
+
+
+.tooltip-cont
+	+below(1024px)
+		display none
+	background-color white
+	width:240px
+	padding:10px 20px
+	position:absolute
+	z-index:9999
+	visibility:hidden
+	opacity:0
+	transition:opacity 0.6s, transform .6s, visibility .6s
+	line-height: 1.6
+	span
+		font-weight: 400
+		color black
+
+
+.tooltip-cont--bottom-center
+	transform:translate(0,-120%)
+	top:-10px
+	left:-100px
+// tooltip === end
+
+
+.minimarket-banner
+	+below(1024px)
+		padding: 80px 0
+	+below(640px)
+		padding: 48px 0 0 0
+	padding: 4vw 0
+
+.minimarket-banner__content
+	+below(640px)
+		text-align center
+		margin-bottom: 32px
+
+.minimarket-banner__img
+	+below(1200px)
+		width: 100%
+		height: 100%
+	+below(640px)
+		width calc(100% + 40px)
+		margin-left: -30px
+		margin-right: -20px
+		padding: 70% 10%
+	bg-full()
+	background-size contain
+	padding 16.5vw
+
+
+.load-content
+	position absolute
+	top 0
+	left 0
+	width: calc(100% + 2px)
+	height: calc(100% + 2px)
+	z-index 100
+	background-color: white
+	bg-full()

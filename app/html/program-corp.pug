@@ -1,0 +1,136 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.board__el.bg-blue
+		.main-cont
+			.board__el-wrap.board__el-wrap--extend
+				.board__content
+					.board__title Здоровое питание для компаний
+					.board__title-sub-sm Мы производим и доставляем готовые рационы, подготовленные по БЖУ и ккал. У нас уже более 15000 счастливых клиентов.
+					a(href="#form").js-scroll-to.btn--md.btn--white.hidden-on-mobile Оставить заявку
+				.board__img(style="background-image:url('img/slide-person-6.png')")
+
+	.main-cont.visible-on-mobile.mt-32
+		a(href="#program").js-scroll-to.btn--md.btn--mark.btn--mobile Выбрать программу
+
+	.content.content--clear-bottom
+		.main-cont
+			.invite-subs
+				.invite-subs-img
+					img(src="img/circle-food-2.png", alt="")
+				.invite-subs-info
+					.type--head.type--md.mb-24 Наша цель — помочь сотням людей сэкономить время и силы на пути к здоровому образу жизни, систематичному питанию и отличному самочувствию
+					.text
+						p Мы уверенны, что здоровое питание не только должно быть полезным, но и очень вкусным. В нашем арсенале более 500 различных блюд, одобренных диетологом и проработанных командой поваров, во главе с нашим шеф-поваром. Процесс приготовления рационов происходит непосредственно перед самой доставкой
+
+		.section--gradient.pt-80.mb-80
+			+advant('BEFIT — это не только полезно, но и безумно вкусно!')
+
+		// program constructor
+		.program-main-wrap#program
+			.js-tab-wrap
+				// choose program
+				.program-group-wrap
+					.main-cont
+						.type--head.type--lgx.mb-32 Программы питания
+						.program-group.js-tab-cont.js-tick-cont.active(data-programType="weightLoss")
+							.program-group__el.js-tick.active
+								.program-group__el-name Daily
+								.program-group__el-val 900 Ккал
+							.program-group__el.js-tick
+								.program-group__el-name Every Daily
+								.program-group__el-val 1200 Ккал
+				// choose program === end
+
+			// program list
+			.main-cont
+				.type--md.mb-40 Программа Daily создана для питания в трудовые будни полезной и здоровой едой. Каждое блюдо сбалансировано по БЖУ и ККАЛ. Залог успеха — соблюдение режима питания
+				.program-list-wrap
+					.program-list-header
+						// program days
+						.program-days.js-tick-cont
+							-
+								var items = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+							each item,i in items
+								.program-days__el.js-tick(class=i === 0 ? 'active' : '') #{item}
+						// program days === end
+						// program consist
+						.program-consist
+							.program-consist__el
+								.program-consist__el-val 2312
+								.program-consist__el-type Ккал
+							.program-consist__el
+								.program-consist__el-val 456
+								.program-consist__el-type Белки
+							.program-consist__el
+								.program-consist__el-val 326,9
+								.program-consist__el-type Жиры
+							.program-consist__el
+								.program-consist__el-val 458
+								.program-consist__el-type Углеводы
+						// program consist === end
+					.program-list-container
+						.program-list
+							+item(1,'simple')
+							+item(1,'simple')
+							+item(1,'simple')
+							.program-banner
+								.program-banner-inner
+									img(src="img/smile/smile-star.png", alt="").program-banner__img
+									.program-banner__cost от 470
+									.program-banner__text руб/день
+									a(href="#form").btn--md.btn--full.btn--mark.js-scroll-to Оставить заявку
+				// program list === end
+				// program constructor === end
+
+				.program-banner.program-banner--mobile
+					.program-banner-inner
+						img(src="img/smile/smile-star.png", alt="").program-banner__img
+						.program-banner__cost 180
+						.program-banner__text руб/день
+						a(href="#form").btn--md.btn--mark.js-scroll-to Оставить заявку
+
+		.section-full.section--gradient
+			.main-cont-sm
+				.sale-calc
+					.type--head.type--lgx.type--center.mb-16 Расчитать размер скидки
+					.type--head.type--center Выберите количество человек. Больше коллег — больше скидка
+					.range-wrap
+						input(type="range" value="3" data-min="1" data-max="10" data-config=[{'value':2,'sale':'-10%','cost':"500 руб/д"},{'value':3,'sale':'-20%','cost':"1000 руб/д"},{'value':4,'sale':'-30%','cost':"2500 руб/д"}]).js-sale-range
+					.sale-calc-footer
+						.sale-calc-total
+							.sale-calc-total__val.js-sale-calc-total__val -15%
+							.sale-calc-total__cost.js-sale-calc-total__cost  500 руб/д
+						.btn--md.btn--mark Получить скидку
+		+review(true,'clear')
+
+		.section-full.section--gradient#form
+			.main-cont-xs
+				.contract
+					.contract-content
+						.type--head.type--center.type--lgx.mb-4 Оставить заявку
+						.type--head.type--center.mb-48 Оставьте контакты и мы Вам перезвоним!
+
+						.input-row.input-row--validate
+							input(type="text" data-placeholder="Ваше имя" class="input")
+							.input-msg Ошибка
+							+icon("close","icon icon-validate-false")
+							+icon("checked","icon icon-validate-true")
+						.input-row.input-row--validate
+							input(type="text" data-placeholder="Телефон" class="input input-mask--phone")
+							.input-msg Ошибка
+							+icon("close","icon icon-validate-false")
+							+icon("checked","icon icon-validate-true")
+
+					.contract-footer
+						.contract-footer__text Нажимая кнопку “Оформить” я принимаю условия условия <a href="#" class="link--mark">передачи информации</a>
+						.btn--md.btn--mark.btn--mobile Отправить
+
+		.section-full
+			.main-cont.js-tab-wrap
+				.title.title--lgx Часто задаваемые вопросы
+				+faq()
+	+footer()
+include ./block_html/_script.pug

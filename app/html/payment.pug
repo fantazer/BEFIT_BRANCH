@@ -1,0 +1,27 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content
+		.main-cont
+			.title.title--xl Способы оплаты
+			.g-row
+				.g-lg-7.g-md-7.g-xs-12.text
+					h3 Наличными
+					p Вы можете оплатить свой заказ наличными в первый день доставки курьером.
+					h4 Оплата картой
+					ul
+						li Банковские карты Visa или Mastercard
+						p.type--secondary Оплата картой на сайте происходит через платежный шлюз АО «Тинькофф банк» , передача информации осуществляется в защищенном режиме с использованием протокола шифрования.<br>	После оплаты картой на сайте, заказ автоматически попадает в систему, после чего оператор связывается с вами для подтверждения и уточнения контактной информации.
+						li Карта Халва
+				.g-lg-4.g-offset-lg-1.g-md-5.g-xs-12
+					.box-gradient.mb-32
+						.box-gradient-inner.box-gradient-inner--sm.text
+							p Если данные способы оплаты по какой-либо причине вам неудобны — обратитесь к оператору по телефону +7 (499) 110-12-15 или <a href="#">WhatsApp</a>, мы подберем тот способ оплаты, чтобы вам было максимально удобно пользоваться нашим сервисом.
+					.btn--sm.btn--light.btn--mobile
+						.btn-icon-row.btn-icon-row--right
+							span Оферта по оплате
+							+icon("arrow-right","icon")
++footer()
+include ./block_html/_script.pug

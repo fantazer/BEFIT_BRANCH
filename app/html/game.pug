@@ -1,0 +1,182 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--mark
+		.main-cont-sm
+			.scene
+				canvas#canvas()
+
+		script(type='text/javascript').
+			window.onload = function () {
+				var random = function (min, max) {
+					var rand = Math.floor(min + Math.random() * (max + 1 - min));
+					return rand;
+				}
+
+				// URL for redirect on WIN
+				var urlOrder = 'https://letbefit.ru/?coupon=BEFITGAME'
+
+				var scene = $('.scene')
+				var sceneW = scene.width()
+				var sceneH = scene.height()
+				var canvas = document.getElementById('canvas')
+
+				canvas.width = sceneW
+				canvas.height = sceneH
+
+				var ctx = canvas.getContext('2d');
+
+				ctx.fillStyle = "white"
+				ctx.font = "32px Verdana"
+
+				var isGame = false;
+				var needScore = 20;
+				var posX=0;
+				var posY = 20;
+				var speedY = 4;
+				var basketHeight = 60;
+				var basketWidth = 120;
+				var recStart = canvas.width / 2 - 35;
+				var score = 0;
+				var life = 3;
+				var mouseX = 0;
+				var msgX = sceneW / 2 - 170
+				var msgFalseY = -600
+				var msgTrueY = -600
+				var msgStartY = 120
+
+				var startGame = function(){
+					score = 0;
+					isGame = true;
+					msgFalseY = -600
+					msgTrueY = -600
+					msgStartY = -600
+					life = 3
+				}
+
+				var randomPosX = function () {
+					var posXCurrent = posX;
+					posX = random(30, canvas.width - 30)
+					console.log('posXCurrent',posXCurrent);
+					console.log('posX',posX);
+					if(posX<posXCurrent + 100 && posX > posXCurrent - 100){
+						console.log(false);
+						randomPosX()
+					}else{
+						console.log(true);
+						return posX
+					}
+				};
+
+				randomPosX()
+				var foodPosition = function () {
+					//ctx.clearRect(0, 0, canvas.width, canvas.height);
+					if (isGame) {
+						if (posY > canvas.height - 160) {
+							posY = 0;
+							randomPosX();
+							foodRandom();
+						}
+						posY += speedY + speedY*score*.11;
+						ctx.drawImage(foodCurrent, posX, posY, 80, 80);
+					}
+				}
+
+				//IMAGES
+				var basket = new Image();
+				var food = new Image();
+				var bg = new Image();
+				var msgTrue = new Image();
+				var msgFalse = new Image();
+				var msgStart = new Image();
+				var scoreImg = new Image();
+				var lifeImg = new Image();
+
+				var foodList = ['img/game/food-1.png', 'img/game/food-2.png', 'img/game/food-3.png', 'img/game/food-4.png']
+				var foodListImg = []
+				var foodCurrent;
+				foodList.forEach(function (el) {
+					var item = new Image()
+					item.src = el
+					foodListImg.push(item)
+				})
+				var foodRandom = function () {
+					foodCurrent = foodListImg[random(0, foodListImg.length - 1)]
+					return foodCurrent
+				}
+				foodRandom()
+
+				basket.src = 'img/game/basket.png';
+				food.src = 'img/game/food-1.png';
+				bg.src = 'img/game/bg.jpg';
+				msgTrue.src = 'img/game/msgTrue.png'
+				msgFalse.src = 'img/game/msgFalse.png'
+				msgStart.src = 'img/game/msgStart.png'
+				scoreImg.src = 'img/game/score.png'
+				lifeImg.src = 'img/game/life.png'
+
+				//IMAGES === end
+
+				canvas.addEventListener("click", function (e) {
+					if (score === needScore) {
+						window.open(urlOrder, '_self');
+					}
+					if(!isGame && score !== needScore){
+						startGame()
+					}
+				})
+
+				canvas.addEventListener("mousemove", function (e) {
+					var cRect = canvas.getBoundingClientRect();
+					mouseX = Math.round(e.clientX - cRect.left);
+					if (mouseX > canvas.width - basketWidth) {
+						recStart = canvas.width - basketWidth;
+					}
+					recStart = mouseX - basketWidth / 2;
+				});
+
+				var tryCatch = function(){
+					if(posY > sceneH - 175){
+						if (mouseX > posX - 65 && mouseX < posX + 65 ) {
+							++score;
+						}else{
+							--life;
+						}
+						posY = 0;
+						randomPosX();
+						foodRandom();
+					}
+				}
+
+				var stateGame = function(){
+					if (score === needScore) {
+						msgTrueY < sceneH / 2 - 180 ? msgTrueY += 15 : ''
+						isGame = false;
+					}
+					if (!life) {
+						msgFalseY < sceneH / 2 - 180 ? msgFalseY += 15 : ''
+						isGame = false;
+					}
+				}
+
+				function draw() {
+					ctx.drawImage(bg, 0, 0, sceneW, sceneH);
+					ctx.drawImage(scoreImg, 20, 20, 80, 50);
+					ctx.drawImage(lifeImg, sceneW - 140, 20, 80, 50);
+					foodPosition();
+					tryCatch();
+					stateGame();
+					ctx.fillText(score, 110, 57);
+					ctx.fillText(life, sceneW - 50, 57);
+					ctx.drawImage(basket, recStart, sceneH - 150, basketWidth, basketHeight);
+					ctx.drawImage(msgTrue, msgX, msgTrueY, 360, 360);
+					ctx.drawImage(msgFalse, msgX, msgFalseY, 360, 360);
+					ctx.drawImage(msgStart, msgX, msgStartY, 360, 360);
+					requestAnimationFrame(draw)
+				};
+				msgTrue.onload = draw()
+			}
+	+footer()
+include ./block_html/_script.pug

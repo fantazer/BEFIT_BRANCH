@@ -1,0 +1,312 @@
+- var elementPage = false;
+
+link(rel="stylesheet", href="./css/style-guide.css")
+
+include block_html/_style.pug
+include block_html/_include.pug
+include block_html/_svg.pug
+
+
+
+
+.main-cont.style-content.text
+	//h1 Style guide for LETBIFIT
+
+	h2.title Colors
+	-
+		var items = [
+				{
+					'title': 'Основные цвета',
+					'pallets':[
+						{'name': 'Green Dark', 'variable': '$greenDark', 'color': '#65a217'},
+						{'name': 'Green Primary', 'variable': '$greenPrimary', 'color': '#7ECA1D'},
+						{'name': 'Green', 'variable': '$green', 'color': '#a9d96b', 'dark': true},
+						{'name': 'Green Light', 'variable': '$greenLight', 'color': '#e6f2d6', 'dark': true},
+						{'name': 'Gray Primary', 'variable': '$grayPrimary', 'color': '#565762', 'dark': false},
+						{'name': 'Gray Light', 'variable': '$grayLight', 'color': '#c4c5cc', 'dark': true},
+					]
+				},
+				{
+					'title': 'Дополнительные цвета',
+					'pallets': [
+						{'name': 'Pink', 'variable': '$pink', 'color': '#ff6889','dark':false},
+						{'name': 'Pink Light', 'variable': '$pinkLight', 'color': '#fff3f6','dark':true},
+						{'name': 'Violet', 'variable': '$violet', 'color': '#6b33b2','dark':false},
+						{'name': 'Violet Light', 'variable': '$violetLight', 'color': '#f4eff9','dark':true},
+						{'name': 'Orange', 'variable': '$orange', 'color': '#ff7b27','dark':false},
+						{'name': 'Orange Light', 'variable': '$orangeLight', 'color': '#fff5ee','dark':true},
+						{'name': 'Blue', 'variable': '$blue', 'color': '#0065bd','dark':false},
+						{'name': 'Blue Light', 'variable': '$blueLight', 'color': '#ebf3fa','dark':true},
+						{'name': 'Sea', 'variable': '$sea', 'color': '#1dd0c7','dark':false},
+						{'name': 'Sea Light', 'variable': '$seaLight', 'color': '#edfcfb','dark':true},
+						{'name': 'Swamp', 'variable': '$swapm', 'color': '#768668','dark':false},
+						{'name': 'Swamp Light', 'variable': '$swapmLight', 'color': '#f4f6f3','dark':true},
+						{'name': 'Coral', 'variable': '$coral', 'color': '#ff4f4f','dark':false},
+						{'name': 'Coral Light', 'variable': '$coralLight', 'color': '#fff0f0','dark':true},
+						{'name': 'Yellow', 'variable': '$yellow', 'color': '#ffa800','dark':false},
+						{'name': 'Navy', 'variable': '$navy', 'color': '#001970','dark':false},
+						{'name': 'NavySecond', 'variable': '$navySecond', 'color': '#0A2CA3','dark':false},
+						{'name': 'NavyLight', 'variable': '$navyLight', 'color': '#F2F4FC','dark':true},
+					]
+				},
+				{
+					'title': 'Типографика цвета',
+					'pallets': [
+						{'name': 'Type Primary', 'variable': '$typePrimary', 'color': '#5c5e6e', 'dark': false},
+						{'name': 'Type Secondary', 'variable': '$typeSecondary', 'color': '#9699a8', 'dark': false},
+						{'name': 'Type Disable', 'variable': '$typeDisable', 'color': '#c8cad4', 'dark': false},
+					]
+				},
+				{
+					'title': 'Фон и обводка',
+					'pallets': [
+						{'name': 'Border Hover', 'variable': '$borderHover', 'color': '#bfc0c9', 'dark': true},
+						{'name': 'Border', 'variable': '$border', 'color': '#dcdfe8', 'dark': true},
+						{'name': 'Background', 'variable': '$fieldBackground', 'color': '#f1f2f6', 'dark': true},
+						{'name': 'Overlay', 'variable': '$overlay', 'color': 'rgba(32, 34, 44, 0.5)', 'dark': false},
+					]
+				},
+				{
+					'title': 'Статусы',
+					'pallets': [
+						{'name': 'Error BG', 'variable': '$stateErrorBG', 'color': '#ffe1e6', 'dark': true},
+						{'name': 'Error', 'variable': '$stateError', 'color': '#d00025', 'dark': false},
+						{'name': 'Succes BG', 'variable': '$stateSuccessBG', 'color': '#edfdd9', 'dark': true},
+						{'name': 'Succes', 'variable': '$stateSuccess', 'color': '#5da600', 'dark': false},
+						{'name': 'Warning BG', 'variable': '$stateWarningBG', 'color': '#ffedd8', 'dark': true},
+						{'name': 'Warning', 'variable': '$stateWarning', 'color': '#ff8a00', 'dark': false},
+					]
+				},
+			];
+	each item in items
+		h4 #{item.title}
+		.color-grid
+			each pallet in item.pallets
+				.color-grid__el(style="background-color:"+ pallet.color)
+					.color-grid__el-wrap(class=pallet.dark?'color-grid__el-wrap--dark':'')
+						.color-grid__el-name #{pallet.name}
+						.color-grid__el-var #{pallet.variable}
+						.color-grid__el-val #{pallet.color}
+
+
+	h2.title Typography
+
+	h1 h1 Заголовок class="type--xl"
+	p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium consequuntur doloremque doloribus eveniet. Debitis eum exercitationem fugiat laudantium minus mollitia officiis optio, sint velit vitae? Dignissimos nostrum quis tempore.
+
+	h2 h2 Заголовок class="type--lgx"
+	p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos ex incidunt iste nesciunt nobis officia perspiciatis repellat tempore voluptates. Ab accusamus deserunt dolore earum excepturi facilis modi mollitia quidem sequi?
+
+	h3 h3 Заголовок class="type--lg"
+	p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum eius enim, illum itaque modi rem rerum similique veniam voluptate. At cum eum impedit nam omnis possimus, quaerat saepe voluptatem!
+
+	h4 h4 Заголовок class="type--mdx"
+	p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consequuntur esse eveniet ipsa ipsam magni nisi provident. Ad alias beatae consectetur cumque eveniet excepturi expedita illum, necessitatibus, nobis reprehenderit saepe!
+
+	h5 h5 Заголовок class="type--md"
+	p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto assumenda dolore enim et fugit hic ipsum nostrum officiis optio praesentium ratione, sapiente similique sint sit tempore temporibus, ullam unde.
+	.text
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque consequuntur deleniti ducimus eius itaque iure laborum laudantium natus perspiciatis.
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad, alias aliquid amet autem deleniti dolor eligendi eos esse, fuga incidunt itaque iure minus officiis quasi quo sequi suscipit tempora tenetur totam. Alias aperiam commodi deserunt facilis mollitia nobis provident.
+		ul
+			li пункт 1
+			li пункт 2
+			li пункт 3
+		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate delectus fuga impedit, omnis velit voluptate. Ab ad adipisci beatae consectetur consequuntur cum cumque delectus dolor doloremque ducimus earum error eveniet hic illum incidunt iste labore laborum molestiae nemo non, pariatur, possimus qui quia quisquam rem sit, suscipit tempore unde.
+
+	h2.title Grid
+	//.note
+		p <b>NOTE!</b> &nbsp; Doc: https://github.com/Inshou/bootstrap-4-grid-styl
+	.g-row
+		- for (var i=0;i<2;i++)
+			.g-sm-6
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam asperiores aspernatur delectus error harum inventore ipsum molestias totam vel!
+
+	.g-row
+		- for (var i=0;i<3;i++)
+			.g-xs-12.g-sm-3.g-md-6.g-lg-3
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, provident?
+
+	.g-row
+		.g-lg-4.g-offset-lg-3
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. A doloribus ea eius fugiat omnis. Aliquam aspernatur dolores in iure maiores omnis sapiente voluptatum! Aliquam dolores ea eaque illum maiores, mollitia necessitatibus obcaecati porro tempore vel. Architecto modi, optio! Illo, possimus.
+
+
+	h2.title Buttons
+
+	h3 Size
+	.buttons-list
+		.btn--md.btn--mark Large button
+		.btn--sm.btn--mark Small button
+
+	h3 Colors
+	.buttons-list
+		.btn--md.btn--mark Primary
+		.btn--md.btn--light Secondary
+		.btn--md.btn--lightNavy NavyLight
+		.btn--md.btn--navy Navy
+		a(href="#").btn--md.btn--text Text only
+		.btn--md.btn--disable Disable
+	h3 Add icon
+	.buttons-list.buttons-list--center
+		a(href="#").btn--md.btn--light
+			.btn-icon-row.btn-icon-row--right
+				span C  иконкой
+				+icon("arrow-right","icon")
+		a(href="#").btn--md.btn--lightNavy
+			.btn-icon-row.btn-icon-row--right
+				span C  иконкой
+				+icon("arrow-right","icon")
+		a(href="#").btn--md.btn--navy
+			.btn-icon-row.btn-icon-row--right
+				span C  иконкой
+				+icon("arrow-right","icon")
+		a(href="#").btn--md.btn--mark
+			.btn-icon-row.btn-icon-row--right
+				span C  иконкой
+				+icon("arrow-right","icon")
+		a(href="#").btn--md.btn--mark
+			.btn-icon-row.btn-icon-row--left
+				+icon("delete","icon")
+				span C  иконкой
+	.buttons-list.buttons-list--center
+		a(href="#").btn--sm.btn--light
+			.btn-icon-row.btn-icon-row--right
+				span C  иконкой
+				+icon("arrow-right","icon")
+		a(href="#").btn--sm.btn--mark
+			.btn-icon-row.btn-icon-row--right
+				span C  иконкой
+				+icon("arrow-right","icon")
+		a(href="#").btn--sm.btn--mark
+			.btn-icon-row.btn-icon-row--left
+				+icon("delete","icon")
+				span C  иконкой
+		a(href="#").btn--sm.btn--text-red
+			.btn-icon-row.btn-icon-row--left
+				+icon("delete","icon")
+				span Удалить
+
+	h3 Only icon
+	.buttons-list.buttons-list--center
+		.btn--md-figure.btn--mark
+			+icon("plus","icon")
+		.btn--md-figure.btn--light
+			+icon("plus","icon")
+		.btn--sm-figure.btn--mark
+			+icon("plus","icon")
+		.btn--sm-figure.btn--light
+			+icon("plus","icon")
+	//a(href="#").link--mark Цветная ссылка
+	//a(href="#").link--main Новая ссылка
+	//a(href="#").link--text Ссылка в тексте
+
+	h2.title Soc icon
+	.soc-row
+		a(href="#").soc-row__el.soc-row__el--wp
+			+icon("soc-wp","icon")
+		a(href="#").soc-row__el.soc-row__el--telegram
+			+icon("soc-telegram","icon")
+		a(href="#").soc-row__el.soc-row__el--viber
+			+icon("soc-viber","icon")
+		a(href="#").soc-row__el.soc-row__el--instagram
+			+icon("soc-inst","icon")
+		a(href="#").soc-row__el.soc-row__el--vk
+			+icon("soc-vk","icon")
+		a(href="#").soc-row__el.soc-row__el--fb
+			+icon("soc-fb","icon")
+
+
+	h2.title Inputs
+	.note
+		p <b>NOTE!</b>&nbsp; Use data-placeholder="Ваше имя"
+	.input-row.input-row--validate.input-row--error
+		input(type="text" data-placeholder="Ваше имя" class="input")
+		.input-msg Введённые данные не должны содержать цифры
+		+icon("close","icon icon-validate-false")
+		+icon("checked","icon icon-validate-true")
+	.input-row.input-row--validate.input-row--success
+		input(type="text" data-placeholder="Ваше имя" class="input")
+		.input-msg Все прошло хорошо
+		+icon("close","icon icon-validate-false")
+		+icon("checked","icon icon-validate-true")
+	.input-cont.input-cont--two
+		.input-row
+			input(type="text" data-placeholder="Ваше имя" class="input input--disable")
+		.input-row
+			input(type="text" data-placeholder="Ваше имя" class="input input--disable")
+	.input-cont.input-cont--three
+		.input-row
+			input(type="text" data-placeholder="Ваше имя" class="input" value="1000")
+		.input-row
+			input(type="text" data-placeholder="Ваше имя" class="input")
+		.input-row
+			input(type="text" data-placeholder="Ваше имя" class="input")
+	//.input-get
+		input(type="text" data-placeholder="Ваше имя" class="input")
+		.input-get__btn
+			input(type="submit" value="" class="input input-get__btn-el")
+			+icon("arrow-right","icon")
+
+	.input-row
+		textarea(name="text", cols="30", rows="10" class="input" data-placeholder="Ваш текст")
+
+	//checkbox remember
+	.login-remember
+		.check-el
+			label.style-label.style-label--checkbox
+				input(type="checkbox").style-input
+				.style-input-element
+					+icon("checked","icon")
+				.style-input-text Я ознакомился с #[a(href="#") политикой конфиденциальности], #[a(href="#") публичной офертой] и даю согласие на обработку моих персональных данных
+
+	.validate-el.validate-el--false.mb-24
+		.validate-msg--error.msg.bg-stateErrorBG.type-stateError Тект с описанием ошибки
+		.validate-msg--success.msg.bg-stateSuccessBG.type-stateSuccess Тект с успешным действием
+
+	.validate-el.validate-el--true.mb-24
+		.validate-msg--error.msg.bg-stateErrorBG.type-stateError Тект с описанием ошибки
+		.validate-msg--success.msg.bg-stateSuccessBG.type-stateSuccess Тект с успешным действием
+
+
+	h3 Checkbox + Radio
+	.buttons-list
+		+checkbox('Выбрать пункт 1')
+		+checkbox('Выбрать пункт 2',"checked")
+		+checkbox('Выбрать пункт 2',"false",'disable')
+
+	.buttons-list
+		+radio('Выбрать пункт 1',"list","true")
+		+radio('Выбрать пункт 2',"list")
+		+radio('Выбрать пункт 3',"list",false,'disable')
+
+	h3 Switch
+	.buttons-list
+		.switch.js-toggle
+		.switch.active.js-toggle
+		.switch.disabled
+
+	h3 Dropdown
+	.g-row
+		- for (var i=0;i<3;i++)
+			.g-md-4.g-xs-12
+				.dropdown
+					input(type="hidden" name="name" value="0")
+					.dropdown-current
+						.dropdown-title Выберите цвет
+						.dropdown-current__val Оранжевый
+						+icon("arrow-down","icon")
+					.dropdown-menu
+						.dropdown-menu__el(data-value="1") Красный
+						.dropdown-menu__el(data-value="2") Синий
+						.dropdown-menu__el(data-value="3") Желтный
+
+	.elements-hr
+	.element-list-svg
+		each item in svgArray
+			.element-list-svg__icon
+				svg(class="icon")
+					use(xlink:href="#" + item.slice(0, item.length - 4))
+				.element-list-svg__name #{item.slice(0, item.length - 4)}
+
+include ./block_html/_script.pug

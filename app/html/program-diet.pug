@@ -1,0 +1,102 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.board__el.bg-pink
+		.main-cont
+			.board__el-wrap.board__el-wrap--sm
+				.board__content
+					.board__title.type--white Похудей за 21 день!
+					.board__title-sub.type--white Сбалансированная диета "под ключ" снижение веса за 21 день до 7,5 кг
+					a(href="#").btn--md.btn--white.hidden-on-mobile Заказать
+				.board__img(style="background-image:url('img/slide-person-5.png')")
+
+	.content.content--clear-bottom
+		.main-cont
+			a(href="#").btn--mark.btn--md.btn--mobile.visible-on-mobile.mb-32 Заказать
+		.section-sm
+			.main-cont-sm.text
+				.type--md.type--black.type--center Диета разработана диетологом и специалистом по питанию британской ассоциации нутрицилогов. Помогает комфортно перейти на здоровое питание, без срывов и чувства голода. Основана на растительной пище, без мяса, сахара и молочных продуктов. В качестве белка используется рыба и растительное молоко
+		.main-cont
+			.section-sm
+				.work-step.work-step--pink
+					.work-step__el
+						.work-step__el-icon
+							img(src="img/icon/fit--pink.svg", alt="")
+						.work-step__el-title Гарантировано снижает вес
+					.work-step__el
+						.work-step__el-icon
+							img(src="img/icon/digestion--pink.svg", alt="")
+						.work-step__el-title Нормализует работу ЖКТ
+					.work-step__el
+						.work-step__el-icon
+							img(src="img/icon/strong--pink.svg", alt="")
+						.work-step__el-title Поддерживает тело в тонусе
+					.work-step__el
+						.work-step__el-icon
+							img(src="img/icon/shield--pink.svg", alt="")
+						.work-step__el-title Стимулирует иммунные силы организма
+		// step work === end
+
+		// program constructor
+		.program-main-wrap#program
+			// choose program
+			.program-group-wrap
+				.main-cont
+					.program-group.js-tab-cont.js-tick-cont.active(data-programType="weightLoss")
+						.program-group__el.js-tick.active
+							.program-group__el-wrap
+							.program-group__el-name Fish
+							.program-group__el-val 900 Ккал
+								span 1 неделя
+						.program-group__el.js-tick
+							.program-group__el-name Vegan
+							.program-group__el-val 1200 Ккал
+								span 2 и 3 неделя
+				// choose program === end
+
+			// program list
+			.main-cont
+				.program-list-wrap
+					.program-list-header
+						// program days
+						.program-days.js-tick-cont
+							-
+								var items = [	'Пн','Вт','Ср','Чт','Пт','Сб'];
+							each item,i in items
+								.program-days__el.js-tick(class=i===0 ? 'active' : '') #{item}
+						// program days === end
+						// program consist
+						.program-consist
+							.program-consist__el
+								.program-consist__el-val 2312
+								.program-consist__el-type Ккал
+							.program-consist__el
+								.program-consist__el-val 456
+								.program-consist__el-type Белки
+							.program-consist__el
+								.program-consist__el-val 326,9
+								.program-consist__el-type Жиры
+							.program-consist__el
+								.program-consist__el-val 458
+								.program-consist__el-type Углеводы
+						// program consist === end
+					+programList()
+			// program list === end
+
+		// program constructor === end
+		.main-cont
+			.program-banner.program-banner--mobile
+				.program-banner-inner
+					img(src="img/smile/smile-star.png", alt="").program-banner__img
+					.program-banner__cost 180
+					.program-banner__text руб/день
+					a(href="#order").btn--md.btn--mark.js-scroll-to Заказать
+
+		+contract('Заказать Slim','bg-pink','slide-person-5')
+		+advant()
+		+review('clear')
+
+	+footer()
+include ./block_html/_script.pug

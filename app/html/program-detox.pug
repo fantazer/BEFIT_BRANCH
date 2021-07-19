@@ -1,0 +1,142 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.board__el.bg-orange
+		.main-cont
+			.board__el-wrap.board__el-wrap--extend
+				.board__content
+					.board__title Detox 1100 Ккал
+					.program-coast.hidden-on-mobile
+						.program-coast__el
+							.program-coast__title 1 день
+							.program-coast__val 2000 руб
+						.program-coast__el
+							.program-coast__title 2 дня
+							.program-coast__val 3080 руб
+					a(href="#").js-scroll-to.btn--md.btn--white.hidden-on-mobile Выбрать программу
+				.board__img(style="background-image:url('img/slide-person-8.png')")
+	.program-coast.program-coast--dark.visible-on-mobile
+		.program-coast__el
+			.program-coast__title Цена за 6 дней
+			.program-coast__val от 6000 руб
+		.program-coast__el
+			.program-coast__title Цена за прием
+			.program-coast__val от 180 руб
+	.main-cont.visible-on-mobile
+		a(href="#order").btn--md.btn--mark.btn--mobile Выбрать программу
+	.content
+		.section-sm
+			.main-cont-sm.text
+				.type--lgx.type--head.type--center.mb-24 Свежесть в каждой капле
+				.type--md.type--black.type--center Это программа создана для тех, кто хочет очистить свой организм от накопившихся шлаков и токсинов, нормализовать работу ЖКТ, избавиться от лишнего веса и провести вкусный и витаминный "выходной" для своего организма.
+		// step work
+		.section-sm
+			.main-cont
+				.work-step.work-step--orange
+					.work-step__el
+						.work-step__el-icon
+							img(src="img/icon/fresh--orange.svg", alt="")
+						.work-step__el-title Без гмо и консервантов
+						.work-step__el-text Не используем красители, усилители вкуса, консерванты и другую химию
+					.work-step__el
+						.work-step__el-icon
+							img(src="img/icon/shield--orange.svg", alt="")
+						.work-step__el-title Баланс здоровья
+						.work-step__el-text Питайтесь вкусной и полезной едой, избавьтесь от переедания и нормализуйте режим питания
+					.work-step__el
+						.work-step__el-icon
+							img(src="img/icon/bank--orange.svg", alt="")
+						.work-step__el-title Это выгодно
+						.work-step__el-text Один приём пищи стоит от 169. Дешевле, чем в кафе и ресторане и быстрее, чем готовка дома
+		// step work === end
+
+
+		// program constructor
+		.program-main-wrap#program
+			.js-tab-wrap
+				// choose program
+				.program-group-wrap
+					.main-cont
+						.type--head.type--lgx.mb-24 Попробуй все вкусы наших детокс смузи!
+						.program-group.js-tab-cont.js-tick-cont.active(data-programType="weightLoss")
+							.program-group__el.js-tick.active
+								.program-group__el-name 1 день
+								.program-group__el-val 900 Ккал
+				// choose program === end
+			// program list
+			.main-cont
+				.program-list-wrap
+					.program-list-header
+						// program consist
+						.program-consist
+							.program-consist__el
+								.program-consist__el-val 2312
+								.program-consist__el-type Ккал
+							.program-consist__el
+								.program-consist__el-val 456
+								.program-consist__el-type Белки
+							.program-consist__el
+								.program-consist__el-val 326,9
+								.program-consist__el-type Жиры
+							.program-consist__el
+								.program-consist__el-val 458
+								.program-consist__el-type Углеводы
+						// program consist === end
+					.program-list-container
+						.program-list
+							-
+								var items = [
+									{name: "Имунитет", img: "detox-yellow"},
+									{name: "Баланс", img: "detox-orange"},
+									{name: "Энергия", img: "detox-violet"},
+									{name: "Молодость", img: "detox-green"},
+									{name: "Гармония", img: "detox-blue"},
+									{name: "Красота", img: "detox-coral"},
+									{name: "Свежесть", img: "detox-sea"},
+
+								];
+							each item in items
+								.program-el
+									.program-el__img.program-el__img--sm(style="background-image:url('img/detox/" + item.img + ".jpg')")
+										.program-el__img-val 300 мл
+									.program-el-wrap
+										.program-el__content.program-el__content--flex
+											.type--head.mb-12 #{item.name}
+											.type--main.type--primary.mb-24 Банан, протеин, апельсин, блепиха
+											.program-el__footer.program-el__footer--clear
+												.type--sm 110 руб.
+
+							.program-banner
+								.program-banner-inner
+									img(src="img/smile/smile-star.png", alt="").program-banner__img
+									.program-banner__cost 2090
+									.program-banner__text руб/ 1 день
+									a(href="#order").btn--md.btn--mark.js-scroll-to Заказать
+									if(program)
+										a(href="#").icon-row
+											span.type--md.type--mark.type--bold Подробнее
+											+icon("arrow-right","icon icon--left icon--mark")
+			// program list === end
+		// program constructor === end
+
+		.main-cont
+			.program-banner.program-banner--mobile
+				.program-banner-inner
+					img(src="img/smile/smile-star.png", alt="").program-banner__img
+					.program-banner__cost 180
+					.program-banner__text руб/день
+					a(href="#order").btn--md.btn--mark.js-scroll-to Заказать
+
+
+		+contract('Заказать Detox','bg-orange','slide-person-8')
+		+advant()
+		+review()
+
+		.main-cont.js-tab-wrap
+			.title.title--lgx Часто задаваемые вопросы
+			+faq()
+
+	+footer()
+include ./block_html/_script.pug

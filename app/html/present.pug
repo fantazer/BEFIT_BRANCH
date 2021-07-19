@@ -1,0 +1,26 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content
+		.main-cont
+			.title.title--xl Подарочный сертификат
+			.present.mb-32
+				.present-img
+					.present-img__el(style="background-image:url('img/girl-1.jpg')")
+				.present-info
+					.present-info__text.text.mb-32
+						p Не знаете что подарить родным и близким?
+						p Хотите подарить по-настоящему полезный и нужный подарок?
+						p Подарите здоровье с доставкой на дом!
+					.box-gradient.mb-32
+						.box-gradient-inner.box-gradient-inner--sm.text
+							p Вы можете приобрести подарочный сертификат на любую сумму любой программы с любой продолжительностью!
+					a(href="#").btn--md.btn--mark.btn--mobile Купить сертификат
+			.g-row
+				.g-lg-6.g-xs-12.text
+					p По всем вопросам по приобретению и использованию подарочных сертификатов, вы также можете обратиться:
+					p по телефону +7 (499) 110-12-15<br>или пишите нам в <a href="#">WhatsApp</a> <br> или на почту <a href="#">delivery@letbefit.ru</a>
++footer()
+include ./block_html/_script.pug

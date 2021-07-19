@@ -1,0 +1,27 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content.content--clear-top
+		.lk
+			.lk-head-wrap
+				.main-cont
+					.lk-head-cont
+						.lk-head
+							.type--head.type--lgx.mb-64 Бонусы партнеров
+						.lk-tool
+							+lk-nav()
+			.main-cont
+				.lk-wrap
+					.lk-cont
+						.list.list--three
+							- for (var i=0;i<9;i++)
+								.bonus-el
+									.bonus-el__img(style="background-image:url('img/bonus-1.jpg')")
+									.bonus-el-cont
+										.bonus-el__info 4 урока английского в Skyeng в подарок при первой оплате обучения
+										.bonus-el__get
+											.btn--sm.btn--light.btn--full Подробнее
+	+footer()
+include ./block_html/_script.pug

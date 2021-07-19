@@ -1,0 +1,35 @@
+include block_html/_style.pug
+include block_html/_include.pug
+
+.page#header
+	+header()
+	.content
+		.main-cont
+			.title.title--xl Наше производство
+			.g-row.mb-80
+				.g-xl-7.g-xs-12
+					.video
+						iframe.video__el(width="100%" height="100%" src="https://www.youtube.com/embed/T5DzGrDp5Xw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+
+				.g-xl-5.g-xs-12
+					.box-gradient
+						.box-gradient-inner.text
+							p.type--md Мы занимаемся доставкой рационов правильного питания. Вкусные блюда и отличное качество для нас не пустой звук.
+							p.type--md Именно поэтому мы тщательно контролируем качество всех продуктов, из которых готовятся наше питание.
+							p.type--md Наше производство — это наша гордость.
+			.advant.advant--sm
+				a(href="#").advant__el
+					.advant__el-icon
+						img(src="img/icon/hat.svg", alt="")
+					.advant__el-text Правильное и здоровое питание начинается с правильного процесса приготовления и ежедневного контроля качества. Мы это знаем и всегда соблюдаем все стандарты СЭК.
+				a(href="#").advant__el
+					.advant__el-icon
+						img(src="img/icon/product.svg", alt="")
+					.advant__el-text Мы выбираем только лучшие и свежие продукты, проверенных поставщиков. Наша продукция полностью сертифицирована.
+				a(href="#").advant__el
+					.advant__el-icon
+						img(src="img/icon/deliver.svg", alt="")
+					.advant__el-text Также мы осуществляем ежедневную доставку, поэтому мы гарантируем, что коробочки с едой вы всегда получите свежими и прямо в руки.
+
+	+footer()
+include ./block_html/_script.pug
